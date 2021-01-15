@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h2>primer forumlario</h2>
     <p>tres campos de texto y un boton</p>
@@ -14,14 +16,39 @@
         <input type="text" id="nombre" name="nombre">
         <br>
         <label for="correo">Correo: </label>
-        <input type="text" id="correo" name="correo">
+        <input type="email" id="correo" name="correo">
         <br>
         <label for="mensaje">mensaje</label>
         <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
         <br>
-
         <button type="submit">enviar datos</button>
-        <input type="button"type="reset" value="borrar datos">
+        <input type="button" type="reset" value="borrar datos">
+        <br>
+        <br>
+
+    </form>
+    <form action="#">
+        <label for="selector">Selecciona una opción</label>
+        <select name="selector" id="selector">
+            <option value="uno">opcion 1</option>
+            <option value="dos">opcion 2</option>
+            <option value="tres" selected>opcion 3</option>
+        </select>
+    </form>
+
+    <h2>Input type radio</h2>
+    <form action="#">
+        <input type="radio" id="manzana" value="manzana" name="frutas">
+        <label for="manzana">Manzana</label>
+        <br>
+        <input type="radio" id="pera" value="pera" name="frutas">
+        <label for="pera">Pera</label>
+        <br>
+        <input checked type="radio" id="naranja" value="naranja" name="frutas" >
+        <label for="naranja">Naranja</label>
+
+        <button type="submit">enviar</button>
     </form>
 </body>
+
 </html>
