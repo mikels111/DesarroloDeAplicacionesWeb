@@ -41,6 +41,34 @@ body{
     border-color:white;
     border-width: 1%;
 }
-.titulo_nombre{
-    
+#titulo_nombre{
+    position: absolute;
+    color: white;
+    left: 30%;
+    top:20%;
 }
+#subtitulo_nombre{
+    position: absolute;
+    left: 18%;
+    top:47%;
+    color:rgba(0, 56, 255, 0.66);
+}
+#titulo_lorem{
+    position: absolute;
+    left: 18%;
+    top:90%;
+    width: 90%;
+    color:rgba(0, 56, 255, 0.66);  
+}
+#titulo_lorem h2{
+    position: absolute;
+    left: 27%;
+} 
+
+#titulo_lorem p{
+    position: absolute;
+    top: 40px;
+    left: 190px;
+    margin-left: 130px;
+} 
+
