@@ -1,0 +1,12 @@
+main a{
+    color:black;
+    
+}
+main a:hover{
+    text-decoration: none;
+}
+main{
+    margin-left: 27%;
+    padding: 20px;
+    border-style: solid;
+}
