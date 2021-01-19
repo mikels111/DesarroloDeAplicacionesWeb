@@ -10,3 +10,20 @@ main{
     padding: 20px;
     border-style: solid;
 }
+body{
+
+}
+
+@media screen and (max-width:520px){
+
+    nav{
+        float: none;
+        width: 100%
+    }
+    body{
+        background-color: lightblue;
+    }
+    main{
+        margin-left: 0;
+    }
+}

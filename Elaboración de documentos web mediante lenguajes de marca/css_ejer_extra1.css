@@ -1,10 +1,14 @@
 body{
-    height: 100px;
+    height: 100%;
     margin-top: 0%;
     margin-left: 0%;
+    font-family: fantasy;
+    width: 100%;
 }
+
 #div1{
     height: 600px;
+    width: 100%;
     left: 0px;
 }
 
@@ -14,23 +18,27 @@ body{
     height: inherit;
     background: linear-gradient(0deg, rgba(0, 56, 255, 0.66), rgba(0, 56, 255, 0.66)),url(imagenes/winter-5892335_1920.jpg);
 }
-#div_coche{
+#div_perfil{
     position: absolute;
     height: 200px;
     width: 200px;
     top: 31em;
-    left: 44.5%;
-    overflow: hidden;   
+    left: 43.7%;  
+    background-color: white;
     border-radius: 50%;
 }
-#foto_coche{
+#foto_perfil{
     position: absolute;
-    height: 100%;
-    width: auto;
+    height: 95%;
+    width: 95%;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    
 }
 #div_nombre{
     position: absolute;
-    left: 35%;
+    left: 36%;
     top: 27%;
     height: 30%;
     width: 500px;
@@ -38,24 +46,13 @@ body{
     border-color:white;
     border-width: 1%;
 }
-#titulo_nombre{
-    position: absolute;
-    color: white;
-    left: 30%;
-    top:20%;
-}
-#subtitulo_nombre{
-    position: absolute;
-    left: 18%;
-    top:47%;
-    color:rgba(0, 56, 255, 0.66);
-}
+
 #titulo_lorem{
     position: absolute;
     top:75%;
     width: 50%;
     height: 20%;
-    left: 28%;
+    left: 29%;
     color:rgba(0, 56, 255, 0.66);  
 }
 #titulo_lorem h2{
@@ -63,11 +60,12 @@ body{
     left: 27%;
 } 
 
-#titulo_lorem p{
-    width: 50%;
+#titulo_lorem pre{
+    width: fit-content;
     position: absolute;
-    top: 40px;
-    left: 50px;
+    top: 50px;
+    left: 30px;
+    font-family: fantasy;
 } 
 #divContenedor{
     position: absolute;
@@ -75,11 +73,27 @@ body{
     width: 100%;
     height: 90%;
     top: 900px;
-    margin-bottom:60%;
+    margin-bottom:0%;
 }
-#divContenedor h2{
+h2{
     position: inherit;
-    left: 47.5%;
+    left: 45.7%;
+    font-size: 29px;
+    color:rgba(0, 56, 255, 0.66);
+}
+
+#titulo_nombre{
+    position: absolute;
+    color: white;
+    left: 28%;
+    top:20%;
+}
+#subtitulo_nombre{
+    position: absolute;
+    left: 15%;
+    top:47%;
+    color:white;
+    font-size: 24px;
 }
 #divGris{
     display: grid;
@@ -87,8 +101,8 @@ body{
     row-gap: 40px;
     column-gap: 10px;
     position: inherit;
-    left: 28%;
-    top:60px;
+    left: 26.9%;
+    top:90px;
     
 }
 #divGris div{
@@ -98,7 +112,7 @@ body{
     font-size: 30px;
     text-align: center;
     width: 200px;
-    height: 220px;
+    height: 260px;
 }
 #divGris img{
     height: inherit; 
@@ -106,17 +120,16 @@ body{
 }
 #divGris p{
    position: inherit; 
-   top: 210px;
    font-size: 20px;
-   left: 23px;
+   margin:0;
 }
 
 #divPie{
     position: absolute;
     width: 100%;
-    height: 90%;
+    height: 50%;
     top:1775px;
-    
+
 }
 .inputs{
     position: absolute;
@@ -124,19 +137,21 @@ body{
     border-width: 1 px;
     border-color: black;
     padding: 0.2%;
-    top: 50px;
+    top: 80px;
     width: 290px;
     height: 44px;
+    font-size: 15px;
+    color:rgba(0, 56, 255, 0.66);
     
 }
 #nombre{
-    left: 450px;
+    left: 475px;
 }
 #telefono{
-    left: 765px;
+    left: 790px;
 }
 #correo{
-    left: 1080px;
+    left: 1105px;
 }
 #mensaje{
     position: absolute;
@@ -144,13 +159,83 @@ body{
     border-width: 1 px;
     border-color: black;
     padding: 0.2%;
-    top: 120px;
-    left: 450px;
+    top: 150px;
+    left: 475px;
     width: 920px;
     height: 174px;
     text-align: start;
     text-anchor: start;
-
-
+    font-family: fantasy;
+    font-size: 15px;
+    color:rgba(0, 56, 255, 0.66);
 }
+#divPie button{
+    position: absolute;
+    background-color: rgba(0, 56, 255, 0.66);
+    color:white;
+    border-style: solid;
+    border-color: white;
+    height: 44px;
+    width: 937px;
+    top: 350px;
+    left: 473px;
+}
+footer{
+    position: absolute;
+    top:2190px;
+    height: 220px;
+    width: 100%;
+    background-color:rgb(46, 80, 228);
+}
+
+#privacidad{
+    color: white;
+    font-size: 19px;
+    top:90px;
+    left: 500px;
+    text-decoration: none;
+}
+#cookies{
+    color: white;
+    font-size: 19px;
+    top:65px;
+    left: 500px;
+}
+
+.icono{
+    position: absolute;
+    color: white;
+    top:90px;
+    left: 900px;
+    font-size: 50px;
+}
+.icono2{
+    position: absolute;
+    color: white;
+    top:90px;
+    left: 980px;
+    font-size: 50px;
+}
+.icono3{
+    position: absolute;
+    color: white;
+    top: 90px;
+    left: 1060px;
+    font-size: 50px;
+}
+.icono4{
+    position: absolute;
+    color: white;
+    top: 90px;
+    left: 1140px;
+    font-size: 50px;
+}
+.icono5{
+    position: absolute;
+    color: white;
+    top: 90px;
+    left: 1220px;
+    font-size: 50px;
+}
+
 
