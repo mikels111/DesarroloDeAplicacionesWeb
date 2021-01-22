@@ -103,16 +103,14 @@ h2{
 
 #divPie{
     width: 100%;
-    justify-content: space-around;
     margin: auto;
 }
 #divPie h2{
     margin-left: 47%;
 }
 #div_formulario{
-    margin-left: 34%;  
+    margin-left: 30%;  
     padding-bottom: 5%; 
-    background-color:darksalmon;
 }
 .inputs{
     border-style: solid;
@@ -123,13 +121,7 @@ h2{
     width: 15%;
     color:rgba(0, 56, 255, 0.66);
 }
-#nombre{
-    
-}
-#telefono{
-}
-#correo{
-}
+
 #mensaje{
     border-style: solid;
     border-color: black;
@@ -137,7 +129,7 @@ h2{
     text-align: start;
     text-anchor: start;
     font-family: fantasy;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     color:rgba(0, 56, 255, 0.66);
 }
 #divPie button{
@@ -146,49 +138,41 @@ h2{
     border-style: solid;
     border-color: white;
     height: 8%;
-    width: 48%;
+    width: 59%;
+    padding: 1% 0 1% 0;
 }
 footer{
-    
-    height: 22%;
     width: 100%;
+    padding-bottom: 2%;
     background-color:rgb(46, 80, 228);
 }
 
-#privacidad{
+#div_footer{
+    padding-top:2%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin:auto; 
+}
+#priv_coo a{
     color: white;
-    font-size: 130%;
     text-decoration: none;
 }
-#cookies{
+
+#iconos{
     color: white;
-    font-size: 130%;
+    width: 25%;
+    font-size: 320%;
+}
+.icono_redes{
+    padding-top:10%;
+    margin-right: 2%;
 }
 
-.icono{
-    color: white;
-    font-size: 320%;
-}
-.icono2{
-   
-    color: white;
-   
-    font-size: 320%;
-}
-.icono3{
-    
-    color: white;
-    
-    font-size: 320%;
-}
-.icono4{
-    color: white;
-    font-size: 320%;
-}
-.icono5{
-    color: white;
-    font-size: 320%;
-}
+
+
+
+
 
 
 
