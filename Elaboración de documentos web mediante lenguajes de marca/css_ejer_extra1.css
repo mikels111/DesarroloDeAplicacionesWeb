@@ -4,18 +4,19 @@ body{
 
 a{
     text-decoration: none;
+    color: white;
 }
 
 #div1_2{
-    padding-left: 40%;
+    
     padding-top: 10%;
     padding-bottom: 10%;
     background: linear-gradient(0deg, rgba(0, 56, 255, 0.66), rgba(0, 56, 255, 0.66)),url(imagenes/winter-5892335_1920.jpg);
+    
 }
 #menu{
-    margin-top: -15%;
-    margin-bottom: 5%;
-    margin-left: 35%;
+    margin-top: -9%;
+    margin-left: 75%;
 }
 #menu a{
     margin: 2%;
@@ -24,8 +25,8 @@ a{
 #div_perfil{
     width: 10%;
     background-color: white;
-    margin-top:-2%;
-    margin-left: 44%;
+    margin:auto;
+    margin-top:-2.6%;
     border-radius: 50%;
 }
 #foto_perfil{
@@ -35,32 +36,32 @@ a{
     border-radius: 50%;
 }
 #div_nombre{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding:2% 5% 2% 5%;
     width: 18%;
     border-style: solid;
     border-color:white;
     border-width: 1%;
     text-align: center;
+    margin: auto;
+    margin-top: 5%;
 }
 
 #titulo_lorem{
     width: 50%;
     height: 20%;
-    margin-top: 2%;
-    margin-bottom: 5%;
-    margin-left: 27%;
-    color:rgba(0, 56, 255, 0.66);  
+    margin:auto;
+    margin-bottom: 2%;
+    color:rgba(0, 56, 255, 0.66); 
+    text-align: center;
 }
-#titulo_lorem h2{
-    margin-left: 28%;
-} 
-
+ 
 #divContenedor{
     background-color: rgba(202, 202, 202, 0.8);
     width: 100%;
     padding-top: 2%;
     padding-bottom: 3%;
+    text-align: center;
+    align-content: center;
 }
 h2{
     color:rgba(0, 56, 255, 0.66);
@@ -72,16 +73,13 @@ h2{
 
 #subtitulo_nombre{
     color:white;
-    font-size: 135%;
+    font-size: medium;
 }
-#divContenedor h2{
-    margin-bottom: 3%;
-    margin-left: 47%;
-}
+
 #div_trabajos{
     display: flex;
     justify-content: space-around;
-    width: 40%;
+    width: 60%;
     max-width: 1000px;
     margin:auto;  
     flex-wrap: wrap;  
@@ -90,9 +88,9 @@ h2{
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     width: 20%;
-    padding-bottom: 4%;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+    font-size: medium;
 }
 
 #divContenedor img{
@@ -101,30 +99,28 @@ h2{
 }
 
 #divPie{
-    width: 100%;
     margin: auto;
+    text-align: center;
 }
-#divPie h2{
-    margin-left: 47%;
-}
+
 #div_formulario{
-    margin-left: 30%;  
+    width: auto;
     padding-bottom: 5%; 
+    margin: auto;
 }
 .inputs{
     border-style: solid;
     border-color: black;
     padding-top: 1%;
     padding-bottom: 1%;
-    padding-right: 4%;
-    width: 15%;
+    width: 11.3%;
     color:rgba(0, 56, 255, 0.66);
 }
 
 #mensaje{
     border-style: solid;
     border-color: black;
-    width: 58.5%;
+    width: 35%;
     text-align: start;
     text-anchor: start;
     font-family: fantasy;
@@ -136,8 +132,7 @@ h2{
     color:white;
     border-style: solid;
     border-color: white;
-    height: 8%;
-    width: 59%;
+    width: 35.5%;
     padding: 1% 0 1% 0;
 }
 footer{
@@ -155,7 +150,6 @@ footer{
 }
 #priv_coo a{
     color: white;
-    text-decoration: none;
 }
 
 #iconos{
@@ -163,20 +157,103 @@ footer{
     width: 25%;
     font-size: 320%;
 }
-#iconos a{
-    text-decoration: none;
-}
+
 
 .icono_redes{
     padding-top:10%;
     margin-right: 2%;
 }
 
-@media only screen and (max-width: 600px) {
-    body {
-      background-color: lightblue;
+
+
+@media only screen and (max-width: 448px) {
+    #menu{
+        margin-left: 0%;
     }
-  }
+}
+@media only screen and (max-width: 763px) {
+    #menu{
+        margin-left: 0%;
+    }
+    #div_nombre{
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 1300px) {
+        
+    .trabajos{
+        width: 90%;
+        font-size: larger;
+        margin-bottom: 6em;
+    }
+    #div_perfil{
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    .trabajos {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 1650px) {
+    .trabajos {
+        width: 36%;
+        font-size: 170%;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .trabajos {
+        width: 40%;
+    }
+    #div_trabajos{
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .trabajos {
+        width: 45%;
+        font-size: 190%;
+    }
+    #div_trabajos{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .trabajos {
+        width: 60%;
+    }
+    
+}
+@media only screen and (max-width: 500px) {
+    .trabajos {
+        width: 100%;
+    }
+    #div_trabajos{
+        width: 95%;
+    }
+    
+}
+
+@media only screen and (max-width: 300px) {
+    
+    #div_trabajos{
+        font-size: 80%;
+    }
+    #div_nombre{
+        width: 60%;
+    }
+    
+}
+
+
+
+
+
 
 
 
