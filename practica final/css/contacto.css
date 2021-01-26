@@ -1,0 +1,32 @@
+#formulario{
+    background-color: lightgrey;
+    width: 70%;
+    margin: auto;
+    border-style: solid;
+    padding: 5%;
+}
+#button_submit{
+    border-style: solid;
+    border-color: red;
+}
+#img_form{
+    float:right;
+    width: 20%;
+}
+
+.input_texto{
+}
+
+#nom{
+    margin-left: 12.2%;
+}
+#mail{
+    margin-left: 14.4%;
+}
+#select{
+    margin-left: 0.5%;
+}
+#suger{
+    margin-top: -2%;
+    margin-left: 21%;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="../css/pruebaPracticaFinal.css" />
+    <link rel="stylesheet" href="../css/contacto.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div id="div_header">
+        <div id="titulo">
+          <img id="img_logo" src="../img/CapturaOrigami.PNG" alt="logo" />
+        </div>
+
+        <nav id="navegador">
+          <div><a href="pruebaPracticaFinal.html">Inicio</a></div>
+          <br />
+          <div><a href="galeria.html">Galeria</a></div>
+          <br />
+          <div><a href="contacto.html">Contacto</a></div>
+          <br />
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h2>Formulario de contacto</h2>
+      <h3>Aporta tus sugerencias y ayudanos a mejorar</h3>
+      <p>
+        Nos gustaría seguir creciendo y para ello solicitamos tu colaboración.
+        Tus sugerencias son valiosas para nosotros
+      </p>
+
+      <div id="div_formulario">
+        <form
+        
+          id="formulario"
+          action="mailto:someone@example.com"
+          method="post"
+          enctype="text/plain"
+        >
+        <img id="img_form" class="imagenes_origami" src="../img/origami-210043_1920.jpg" alt="">
+
+          <label for="nombre">Nombre</label>
+          <input class="input_texto" type="text" name="nombre" id="nom" /><br /><br />
+          
+          <label for="email">Email</label>
+          <input class="input_texto" type="email" name="email" id="mail" /><br /><br />
+
+          <input class="sexo" type="radio" name="hombre" id="homb" />
+          <label for="hombre">Hombre</label><br /><br />
+
+          <input class="sexo" type="radio" name="mujer" id="muj" />
+          <label for="mujer">Mujer</label><br /><br />
+
+          <label for="selector_conozco">Conozco la web por</label>
+          <select class="input_texto" name="selector_conozco" id="select">
+            <option value="buscadores">Buscadores</option>
+            <option value="amigos">Amigos</option>
+            <option value="publicidad">Publicidad</option>
+            <option value="otros">Otros</option> </select
+          ><br /><br />
+
+          <label for="sugerencias">Sugerencias</label><br>
+          <textarea class="input_texto" name="sugerencias" id="suger" cols="70" rows="5"></textarea
+          ><br /><br />
+
+          <button id="button_submit" type="submit">Enviar</button>
+        </form>
+      </div>
+    </main>
+    <footer>
+        <p id="p_footer">Examen de optimización de imágenes, maquetación web, HTML y CSS</p>
+        <a href="https://www.cebanc.com/"><p id="p_ultimo" >Cebanc | 2019</a></p></a>
+    </footer>
+  </body>
+</html>

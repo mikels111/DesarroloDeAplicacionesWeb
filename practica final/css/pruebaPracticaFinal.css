@@ -1,0 +1,87 @@
+header {
+  background-color: black;
+  margin: auto;
+}
+body a{
+  text-decoration: none;
+}
+
+#img_logo{
+  padding-top: 8%;
+  width: 140%;
+}
+#div_header {
+    display: flex;
+    width: 60%;
+    margin: auto;
+}
+#navegador {
+  display: table;
+  margin-left: 25%;
+  margin-top: 2%;
+  text-align: center;
+}
+#navegador div{
+  border-bottom: solid;
+  border-top: solid;
+  border-color: white;
+}
+.imagenes_origami{
+  width: 50%;
+}
+
+#navegador a {
+    font-size: 160%;
+    
+    color: white;
+    
+}
+#navegador a:hover{
+  color: red;
+}
+footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+footer #p_fondo{
+    color:red;
+}
+h3{
+  color: red;
+}
+p, header{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+}
+h2, h3{
+  font-family: 'Orbitron', sans-serif;
+}
+main, header, footer{
+  margin:auto;
+  width: 900px;
+}
+footer p{
+  padding: 0% 0% 0% 0%;
+}
+#p_footer{
+  padding-top: 2%;
+}
+#p_ultimo{
+  font-size: 120%;
+  
+  margin:0;
+  padding-bottom: 2%;
+}
+#p_ultimo a{
+  color: red;
+}
+
+@media only screen and (max-width: 720px) {
+  header,main, footer{
+    width: 70%;
+  }
+  
+}
+
+

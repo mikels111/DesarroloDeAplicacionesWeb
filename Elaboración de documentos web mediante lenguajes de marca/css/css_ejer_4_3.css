@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(206, 200, 200);
+    font-family: fantasy;
+}
+#principal{
+    padding-left: 5%;
+}
+
+header h1{
+    text-align: center;
+    background-color: rgb(194, 148, 121);
+    margin: 0% 10% 1% 10%;
+    padding: 1em;
+    border-radius: 50%;
+}
+
+#navegador{
+    margin-left: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+    display:table;
+    border-style: solid;
+    border-radius: 30%;
+}
+#navegador a{
+    text-decoration: none;
+}
+footer{
+    width: 100%;
+    padding-bottom: 2%;
+    background-color:rgb(46, 80, 228);
+}
+
+#div_footer{
+    display: flex;
+    padding-top:2%;
+    width: 80%;
+    
+    justify-content: space-around;
+    margin:auto; 
+}

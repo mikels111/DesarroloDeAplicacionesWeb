@@ -1,0 +1,33 @@
+#titular{
+    border-top: solid;
+    border-bottom: solid;
+    border-color: red;
+    background-color: lightgray;
+    padding: 2%;
+}
+#div_titular_texto{
+    display: flex;
+}
+
+#articulos{
+    margin: auto;
+    display: flex;
+   
+}
+.div_articulos{
+    padding-left: 1em;
+}
+
+.div_articulos h3{
+    width: 60%;
+}
+#img_articulo1, #img_articulo2, #img_titular{
+    float: left;
+    margin-right: 3px;
+}
+
+#img_titular{
+    width: 19%;
+}
+
+
