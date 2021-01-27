@@ -1,4 +1,18 @@
+/* ######################### Lineas ######################### */
 .tr1{
     background-color:lightgray;
 }
 
+@media only screen and (max-width: 402px) {
+    /* Dos tablas */
+    #tabla_varios, #tabla_animales{
+      width: 1%;
+    }
+}
+
+@media only screen and (max-width: 351px) {
+  /* Tabla varios */
+  #tabla_varios{
+    width: 20%;
+  }
+}

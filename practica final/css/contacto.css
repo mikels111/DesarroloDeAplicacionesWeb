@@ -1,3 +1,4 @@
+/* ######################### Form ######################### */
 #formulario{
     background-color: lightgrey;
     width: 70%;
@@ -5,28 +6,50 @@
     border-style: solid;
     padding: 5%;
 }
+/* ######################### Boton ######################### */
 #button_submit{
     border-style: solid;
     border-color: red;
 }
+/* ######################### Imagen form ######################### */
 #img_form{
     float:right;
     width: 20%;
 }
-
-.input_texto{
-}
-
+/* ######################### input nombre ######################### */
 #nom{
     margin-left: 12.2%;
 }
+/* ######################### input email ######################### */
 #mail{
     margin-left: 14.4%;
 }
+/* ######################### Input select ######################### */
 #select{
     margin-left: 0.5%;
 }
+/* ######################### Textarea ######################### */
 #suger{
     margin-top: -2%;
     margin-left: 21%;
 }
+
+
+@media only screen and (max-width: 660px) {
+    #suger{
+      margin-top: 3%;
+      margin-left: 1%;
+    }
+    
+    #nom,#mail{
+        margin-left: 0%;
+    }
+    
+  }
+  @media only screen and (max-width: 245px) {
+    
+    #nom,#mail{
+        width: 40%;
+    }
+    
+  }

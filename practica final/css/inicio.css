@@ -1,33 +1,35 @@
+/* ######################### Div principal gris ######################### */
 #titular{
     border-top: solid;
     border-bottom: solid;
     border-color: red;
     background-color: lightgray;
     padding: 2%;
-}
-#div_titular_texto{
     display: flex;
 }
-
+/* ######################### Div de div_articulos ######################### */
 #articulos{
     margin: auto;
     display: flex;
-   
 }
+/* ######################### div_articulos Primero y segundo #########################  */
 .div_articulos{
-    padding-left: 1em;
+    padding-right: 2em;
 }
 
+/* ######################### h3 ######################### */
 .div_articulos h3{
-    width: 60%;
+    width: 100%;
 }
+/* ######################### Imagenes de articulos  #########################*/
 #img_articulo1, #img_articulo2, #img_titular{
     float: left;
     margin-right: 3px;
 }
-
+/* ######################### Imagen del titular ######################### */
 #img_titular{
     width: 19%;
 }
+
 
 

@@ -1,87 +1,122 @@
+/* ######################### Header ######################### */
 header {
   background-color: black;
   margin: auto;
 }
+/* ######################### a Body ######################### */
 body a{
   text-decoration: none;
 }
-
+/* ######################### Imagen logotipo ######################### */
 #img_logo{
   padding-top: 8%;
   width: 140%;
 }
+/* ######################### Div del header ######################### */
 #div_header {
     display: flex;
     width: 60%;
     margin: auto;
 }
+/* ######################### Navegador ######################### */
 #navegador {
   display: table;
+  width: 40%;
   margin-left: 25%;
   margin-top: 2%;
   text-align: center;
 }
+/* ######################### div Navegador ######################### */
 #navegador div{
   border-bottom: solid;
   border-top: solid;
   border-color: white;
 }
+/* ######################### Imagenes origami ######################### */
 .imagenes_origami{
   width: 50%;
 }
-
+/*######################### a Navegador ######################### */
 #navegador a {
     font-size: 160%;
     
     color: white;
     
 }
+/*######################### a:hover en Navegador ######################### */
 #navegador a:hover{
   color: red;
 }
+/* ######################### Footer ######################### */
 footer{
     text-align: center;
     background-color: black;
     color: white;
 }
+/* ######################### Texto del footer ######################### */
 footer #p_fondo{
     color:red;
 }
+/* ######################### h3 #########################*/
 h3{
   color: red;
 }
+/* ######################### p y header  #########################*/
 p, header{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12px;
 }
+/* ######################### Titulos  #########################*/
 h2, h3{
   font-family: 'Orbitron', sans-serif;
 }
+/* ######################### main, header y footer  #########################*/
 main, header, footer{
   margin:auto;
   width: 900px;
 }
-footer p{
-  padding: 0% 0% 0% 0%;
-}
+/* ######################### Parrafo 1 del footer  #########################*/
 #p_footer{
   padding-top: 2%;
 }
+/* ######################### Parrafo 2 del footer  #########################*/
 #p_ultimo{
   font-size: 120%;
   
   margin:0;
   padding-bottom: 2%;
 }
+/* ######################### a En el texto 2 del footer  #########################*/
 #p_ultimo a{
   color: red;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 900px) {
   header,main, footer{
-    width: 70%;
+    width: 90%;
+  }
+  textarea{
+    width: 80%;
   }
   
+  #navegador a{
+    font-size: 90%;
+  }
+  #div_header{
+    width:80%;
+    margin:0%;
+  }
+  #navegador{
+    width: 20%;
+  }
+  
+  
 }
+
+
+
+
+
+
 
 

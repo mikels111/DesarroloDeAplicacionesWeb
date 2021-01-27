@@ -15,32 +15,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
   </head>
+  <!-- ############ Body ############ -->
   <body>
-    <header>
-      <div id="div_header">
-        <div id="titulo">
-          <img id="img_logo" src="../img/CapturaOrigami.PNG" alt="logo" />
-        </div>
-
-        <nav id="navegador">
-          <div><a href="pruebaPracticaFinal.html">Inicio</a></div>
-          <br />
-          <div><a href="galeria.html">Galeria</a></div>
-          <br />
-          <div><a href="contacto.html">Contacto</a></div>
-          <br />
-        </nav>
-      </div>
-    </header>
+      <header>
+          <!-- ############ header ############ -->
+          <div id="div_header">
+            <!-- ############ Div del Logotipo de Origami ############ -->
+            <div id="titulo">
+              
+              <img class="imagenes_origami" id="img_logo" src="../img/CapturaOrigami.PNG" alt="logo" />
+            </div>
+            <!-- ############ Navegador ############ -->
+            <nav id="navegador">
+              
+                <div><a href="pruebaPracticaFinal.html">Inicio</a></div><br/>
+                <div><a href="galeria.html">Galeria</a></div><br />
+                <div><a href="contacto.html">Contacto</a></div><br />
+            </nav>
+          </div>
+        </header>
+    <!-- ############ Main ############ -->
     <main>
+      <!-- ############ Titulos ############ -->
       <h2>Formulario de contacto</h2>
       <h3>Aporta tus sugerencias y ayudanos a mejorar</h3>
+      <!-- ############ Texto ############ -->
       <p>
         Nos gustaría seguir creciendo y para ello solicitamos tu colaboración.
         Tus sugerencias son valiosas para nosotros
       </p>
-
+      <!-- ############ Div formulario ############ -->
       <div id="div_formulario">
+        <!-- ############ Formulario ############ -->
         <form
         
           id="formulario"
@@ -48,36 +54,38 @@
           method="post"
           enctype="text/plain"
         >
+        <!-- ############ Imagen Form ############ -->
         <img id="img_form" class="imagenes_origami" src="../img/origami-210043_1920.jpg" alt="">
-
+          <!-- ############ Nombre ############ -->
           <label for="nombre">Nombre</label>
           <input class="input_texto" type="text" name="nombre" id="nom" /><br /><br />
-          
+          <!-- ############ Email ############ -->
           <label for="email">Email</label>
           <input class="input_texto" type="email" name="email" id="mail" /><br /><br />
-
-          <input class="sexo" type="radio" name="hombre" id="homb" />
+          <!-- ############ hombre ############ -->
+          <input  class="sexo" type="radio" name="sexo" id="homb" value="hombre" />
           <label for="hombre">Hombre</label><br /><br />
-
-          <input class="sexo" type="radio" name="mujer" id="muj" />
+          <!-- ############ Mujer ############ -->
+          <input class="sexo" type="radio" name="sexo" id="muj" value="mujer" />
           <label for="mujer">Mujer</label><br /><br />
-
+          <!-- ############ Selector ############ -->
           <label for="selector_conozco">Conozco la web por</label>
-          <select class="input_texto" name="selector_conozco" id="select">
+          <select name="selector_conozco" id="select">
             <option value="buscadores">Buscadores</option>
             <option value="amigos">Amigos</option>
             <option value="publicidad">Publicidad</option>
             <option value="otros">Otros</option> </select
           ><br /><br />
-
+          <!-- ############ Sugerencias ############ -->
           <label for="sugerencias">Sugerencias</label><br>
           <textarea class="input_texto" name="sugerencias" id="suger" cols="70" rows="5"></textarea
           ><br /><br />
-
+          <!-- ############ Boton ############ -->
           <button id="button_submit" type="submit">Enviar</button>
         </form>
       </div>
     </main>
+    <!-- ############ Footer ############ -->
     <footer>
         <p id="p_footer">Examen de optimización de imágenes, maquetación web, HTML y CSS</p>
         <a href="https://www.cebanc.com/"><p id="p_ultimo" >Cebanc | 2019</a></p></a>
