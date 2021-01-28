@@ -73,7 +73,8 @@ h2, h3{
 /* ######################### main, header y footer  #########################*/
 main, header, footer{
   margin:auto;
-  width: 900px;
+  max-width: 900px;
+  width: 100%;
 }
 /* ######################### Parrafo 1 del footer  #########################*/
 #p_footer{

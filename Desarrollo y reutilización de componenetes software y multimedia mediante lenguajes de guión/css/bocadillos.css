@@ -1,0 +1,8 @@
+#div_bocadillos{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+.img_bocadillo{
+    width: 15%;
+}

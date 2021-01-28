@@ -1,0 +1,18 @@
+header *{
+    margin: auto;
+}
+header{
+    margin-bottom: 1em;
+}
+#div_nombre_juego{
+    border-style: solid;
+    width: 10%;
+    text-align: center;
+}
+main{
+    border-style: solid;
+    margin:auto;
+    width: 10%;
+    text-align: center;
+}
+

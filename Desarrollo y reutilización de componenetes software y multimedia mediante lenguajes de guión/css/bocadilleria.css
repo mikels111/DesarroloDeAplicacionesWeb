@@ -1,0 +1,36 @@
+body {
+    font-family: 'Salsa', cursive;
+}
+
+body a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background: #FF6969;
+}
+
+#div_header {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+#div_header h1,img{
+    padding-top: 0.2%;
+    padding-right: 0.2%;
+}
+
+#img_carro {
+    width: 5%;
+    padding-left: 0%;
+}
+
+#navegador {
+    padding-top: 1%;
+    padding-left: 1%;
+}
+
+#navegador a {
+    font-size: 160%;
+}
