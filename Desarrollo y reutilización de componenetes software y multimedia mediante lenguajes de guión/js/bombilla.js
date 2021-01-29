@@ -10,10 +10,10 @@ function EncenderApagar() {
     document.getElementById("bombilla").src = ruta;
 }
 
-function Encender(){
+function Encender() {
     document.getElementById("bombilla").src = "../img/bombilla-on.gif";
 }
 
-function Apagar(){
+function Apagar() {
     document.getElementById("bombilla").src = "../img/bombilla-off.gif";
 }

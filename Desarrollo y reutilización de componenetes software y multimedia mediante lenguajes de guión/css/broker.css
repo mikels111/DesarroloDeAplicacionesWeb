@@ -9,10 +9,18 @@ header{
     width: 10%;
     text-align: center;
 }
-main{
+
+#div_accion{
     border-style: solid;
     margin:auto;
     width: 10%;
     text-align: center;
+}
+#div_usuario{
+    border-style: solid;
+    margin:auto;
+    width: 30%;
+    text-align: center;
+    margin-top: 1em;
 }
 

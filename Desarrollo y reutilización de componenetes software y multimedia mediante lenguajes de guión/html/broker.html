@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <link rel="stylesheet" href="../css/broker.css" />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="../js/js_broker.js"></script>
-    <title>Broker</title>
-  </head>
-  <body>
-      <header>
-          <div id="div_nombre_juego">Broker</div>
-      </header>
-    <main>
-      <p id="nombre"></p>
-      <br />
-      <p id="accion"></p>
-    </main>
 
-  </body>
+<head>
+  <link rel="stylesheet" href="../css/broker.css" />
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Broker</title>
+</head>
+
+<body>
+  <header>
+    <div id="div_nombre_juego">Broker</div>
+  </header>
+  <main>
+
+    <div id="div_accion">
+      <p id="accion"></p>
+    </div>
+
+    <div id="div_usuario">
+      <p id="nombre"></p>
+      <p>Capital: <span id="capital"></span></p>
+      <button id="comprar" type="button">Comprar</button>
+    </div>
+
+  </main>
+  <script src="../js/js_broker.js"></script>
+</body>
+
 </html>
