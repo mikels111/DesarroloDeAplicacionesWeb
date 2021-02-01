@@ -1,26 +1,41 @@
-header *{
+header * {
     margin: auto;
 }
-header{
+
+header {
     margin-bottom: 1em;
 }
-#div_nombre_juego{
+body{
+    padding-top: 10%
+}
+
+#div_nombre_juego {
     border-style: solid;
     width: 10%;
     text-align: center;
 }
 
-#div_accion{
+#div_accion {
+    display: flex;
     border-style: solid;
-    margin:auto;
+    margin: auto;
     width: 10%;
     text-align: center;
 }
-#div_usuario{
+#div_accion p,img{
+    margin: auto;
+    width: 50%;
+}
+
+#div_usuario {
     border-style: solid;
-    margin:auto;
+    margin: auto;
     width: 30%;
     text-align: center;
     margin-top: 1em;
 }
 
+#flecha {
+    width: 20%;
+    height: 10%;
+}
