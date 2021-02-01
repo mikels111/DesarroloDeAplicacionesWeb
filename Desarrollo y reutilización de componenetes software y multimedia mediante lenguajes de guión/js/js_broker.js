@@ -1,7 +1,8 @@
 inicio();
 var accion;
 var capital_inicial;
-var numero_acciones;
+var numero_acciones = 0;
+var accion_curso;
 var boton = document.getElementById("comprar");
 boton.addEventListener("mouseup", comprar)
 
@@ -13,7 +14,7 @@ function inicio() {
   } else {
     txt = "Bienvenido " + persona;
   }
-  
+
   document.getElementById("nombre").innerHTML = txt;
   main();
 }
@@ -31,11 +32,14 @@ function main() {
 function intervalAccion() {
   let numRnd = Math.floor(Math.random() * (accion * 0.5)) + 1;
   document.getElementById("accion").innerHTML = accion + numRnd + "€";
+  accion_curso = accion + numRnd;
 }
-function intervalCapital(){
-  document.getElementById("capital").innerHTML=capital_inicial;
+function intervalCapital() {
+  document.getElementById("capital").innerHTML = capital_inicial;
+  document.getElementById("num_acciones").innerHTML = numero_acciones;
 }
 
 function comprar() {
-  capital_inicial= capital_inicial - accion;
+  capital_inicial = capital_inicial - accion_curso;
+  numero_acciones += 1;
 }
