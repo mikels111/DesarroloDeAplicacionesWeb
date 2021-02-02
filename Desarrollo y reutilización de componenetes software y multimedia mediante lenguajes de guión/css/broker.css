@@ -39,3 +39,6 @@ body{
     width: 20%;
     height: 10%;
 }
+.img_ocultar{
+    visibility: hidden;
+}

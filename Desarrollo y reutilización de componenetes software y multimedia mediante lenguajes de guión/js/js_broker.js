@@ -6,18 +6,24 @@ var accion_anterior = 0;
 var boton = document.getElementById("comprar");
 var img_flecha = document.getElementById("flecha");
 var tiempo_juego;
-boton.addEventListener("mouseup", comprar);
+var interv_accion;
+var interv_efectivo;
+var capital;
+var persona;
+boton.addEventListener("click", comprar);
 
 function inicio() {
   //Pide el nombre de usuario y lo muestra y llama a la
   //funcion main()
-  let persona = prompt("Introduce tu nombre");
+  persona = prompt("Introduce tu nombre");
   let txt;
   if (persona == "" || persona == null) {
     txt = "Bienvenido usuario";
+    persona = "usuario";
   } else {
     txt = "Bienvenido " + persona;
   }
+
   document.getElementById("nombre").innerHTML = txt;
   main();
 }
@@ -28,8 +34,9 @@ function main() {
   numero_acciones = 0;
 
   //Inicia los intervalos
-  let interv_accion = setInterval(intervalAccion, 1000);
-  let interv_capital = setInterval(intervalEfectivo, 100);
+  interv_accion = setInterval(intervalAccion, 1000);
+  interv_efectivo = setInterval(intervalEfectivo, 100);
+  let interv_juego = setTimeout(finJuego, 6000);
   //Asigna un valor a la 
   //accion en curso y al efectivo del usuario
   document.getElementById("accion").innerHTML = accion_curso;
@@ -69,15 +76,16 @@ function intervalAccion() {
 }
 function intervalEfectivo() {
   //
+  capital = efectivo + (numero_acciones * accion_curso);
   document.getElementById("efectivo").innerHTML = efectivo;
   if (!((efectivo - accion_curso) < 0)) {
     document.getElementById("num_acciones").innerHTML = numero_acciones;
-    document.getElementById("capital").innerHTML = efectivo + (numero_acciones * accion_curso);
+    document.getElementById("capital").innerHTML = capital;
     boton.style.display = 'inline';
   } else {
     boton.style.display = 'none';
   }
-  if(efectivo==0){
+  if (efectivo == 0) {
     boton.style.display = 'none';
   }
 }
@@ -86,4 +94,51 @@ function comprar() {
   efectivo = efectivo - accion_curso;
   numero_acciones += 1;
 }
+
+function finJuego() {
+
+
+  var copa = document.getElementById('copa');
+  copa.style.display = 'block';
+  var url = copa.getAttribute('src');
+
+  var medal = document.getElementById("medal");
+  medal.style.display = 'block';
+  var url2 = medal.getAttribute('src');
+
+
+  // largeImage.style.width=200+"px";
+  // largeImage.style.height=200+"px";
+
+  clearInterval(interv_efectivo);
+  clearInterval(interv_accion);
+  let record;
+  if (typeof (Storage) !== "undefined") {
+
+    record = localStorage.getItem("marcador");
+    if (capital >= record) {
+      localStorage.setItem("nombre", persona);
+      localStorage.setItem("marcador", capital);
+      //•	Si el record ha sido batido, se actualiza y se felicita al jugador, ha ganado una copa
+      window.open(url, 'Image', 'width=180px,height=180px,resizable=1');
+      alert("Has batido el record: " + persona + " " + capital + "€");
+      
+    } else {
+      //•	Se informa al jugador del record actual si no lo ha batido y gana una medalla
+      window.open(url2, 'Image', 'width=180px,height=180px,resizable=1');
+      alert("No has batido el record. Record actual: " + localStorage.getItem("nombre") + " " + localStorage.getItem("marcador") + "€");
+      
+    }
+  } else {
+    alert("El navegador no permite guardar la puntuación");
+  }
+
+  let confirm = window.confirm("¿Quieres jugar otra vez?");
+  if (confirm) {
+    inicio();
+  }
+}
+
+
+
 
