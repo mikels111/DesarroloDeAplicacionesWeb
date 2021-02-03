@@ -40,20 +40,24 @@ header {
 #navegador a {
     font-size: 160%;
 }
-#navegador div{
+
+#navegador div {
     border-radius: 10%;
 }
-#navegador div:hover{
+
+#navegador div:hover {
     background: #DADADA;
 }
-#a_factura{
+
+#a_factura {
     width: 50px;
     height: 100%;
     padding-top: 1.5%;
     padding-right: 1%;
 }
-#div_navegador_ayuda{
-    display: flex; 
+
+#div_navegador_ayuda {
+    display: flex;
     margin-top: 1%;
 }
 
@@ -94,6 +98,27 @@ main {
     width: 50%;
     background: white;
 }
-.div_ingredientes div{
+
+.div_ingredientes div {
     margin-top: 2%;
+}
+
+.fria:hover {
+    background: #FF6969;
+}
+
+.del_tiempo:hover {
+    background: #FF6969;
+}
+
+#div_factura {
+    margin: auto;
+    background: white;
+    width: 30%;
+}
+
+#div_fecha {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
 }
