@@ -20,12 +20,13 @@ function inicio() {
   persona = prompt("Introduce tu nombre");
   let txt;
   if (persona == "" || persona == null) {
+    // Si el usuario no escribe ningun nombre, persona será 'usuario'
     txt = "Bienvenido usuario";
     persona = "usuario";
   } else {
     txt = "Bienvenido " + persona;
   }
-
+  // Se muestra el nombre del usuario
   document.getElementById("nombre").innerHTML = txt;
   main();
 }
@@ -77,34 +78,46 @@ function intervalAccion() {
 
 }
 function intervalEfectivo() {
-  //
+  // En un intervalo de 100 milisegundos se muestra el efectivo, numero
+  // de acciones y el capital del usuario
   capital = efectivo + (numero_acciones * accion_curso);
   document.getElementById("efectivo").innerHTML = efectivo;
+  document.getElementById("num_acciones").innerHTML = numero_acciones;
+  document.getElementById("capital").innerHTML = capital;
+
   if (!((efectivo - accion_curso) < 0)) {
-    document.getElementById("num_acciones").innerHTML = numero_acciones;
-    document.getElementById("capital").innerHTML = capital;
+    // Si el efectivo menos la accion en curso es mayor a 0 se puede comprar
+    // entonces se muestra el boton
     boton.style.display = 'inline';
   } else {
+    // Si el efectivo que tiene el usuario no llega para comprar la acción
+    // boton no se ve
     boton.style.display = 'none';
   }
   if (efectivo == 0) {
+    // Si el efectivo que tiene el usuario llega a cero no puede seguir comprando
     boton.style.display = 'none';
   }
 }
 
 function comprar() {
+  // Al compra se guarda el efectivo menos la acción en curso
   efectivo = efectivo - accion_curso;
   numero_acciones += 1;
 }
 function vender() {
+  // Si el numero de acciones supera el 0 se vende la acción
+  // y se suma el efectivo más el precio de la acción en curso
   if (numero_acciones > 0) {
+    console.log("vendido");
     efectivo = efectivo + accion_curso;
     numero_acciones -= 1;
   }
 }
 
 function finJuego() {
-
+  // Al terminar el juego después de un lapso de 60000 milisegundos se
+  // muestra la copa o la medalla segun si ha batido el record o no
   //https://stackoverflow.com/questions/8908022/open-image-in-new-window
   var copa = document.getElementById('copa');
   copa.style.display = 'block';
@@ -113,34 +126,38 @@ function finJuego() {
   var medal = document.getElementById("medal");
   medal.style.display = 'block';
   var url2 = medal.getAttribute('src');
-
+  // Se detienen los intervalos de el valor de la acción y del efectivo, numero
+  // de acciones y el capital
   clearInterval(interv_efectivo);
   clearInterval(interv_accion);
   let record;
   if (typeof (Storage) !== "undefined") {
-
+    // Si el navegador permite el almacenamiento guardamos un item con
+    // la etiqueta marcador para el record
     record = localStorage.getItem("marcador");
     if (capital >= record) {
+      // Si el capital del usuario es mayor o igual al record guardado se guardan el 
+      // nombre del usuario y su capital
       localStorage.setItem("nombre", persona);
       localStorage.setItem("marcador", capital);
-      //•Si el record ha sido batido, se actualiza y se felicita al jugador, ha ganado una copa
+      //Si el record ha sido batido, se actualiza y se felicita al jugador, ha ganado una copa
       window.open(url, 'Image', 'width=180px,height=180px,resizable=1');
       alert("Has batido el record: " + persona + " " + capital + "€");
 
     } else {
-      //•Se informa al jugador del record actual si no lo ha batido y gana una medalla
+      //Se informa al jugador del record actual si no lo ha batido y gana una medalla
       window.open(url2, 'Image', 'width=180px,height=180px,resizable=1');
       alert("No has batido el record. Record actual: " + localStorage.getItem("nombre") + " " + localStorage.getItem("marcador") + "€");
 
     }
   } else {
+    // Se informa de que el usuario no dispone de un navegador que pueda almacenar datos
     alert("El navegador no permite guardar la puntuación");
   }
-
+  // Se pregunta si el usuario desea jugar de nuevo, si es así se llama a la función inicio()
   let confirm = window.confirm("¿Quieres jugar otra vez?");
-  if (confirm) {
+  if (confirm)
     inicio();
-  }
 }
 
 
