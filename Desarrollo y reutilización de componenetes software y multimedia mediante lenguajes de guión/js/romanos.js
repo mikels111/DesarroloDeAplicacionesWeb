@@ -9,8 +9,24 @@
 
 // 600-DC
 // 4000-MMMM
-const i = 1, v = 5, x = 10, l = 50, c = 100, d = 500, m = 1000;
-const I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000;
+//const i = 1, v = 5, x = 10, l = 50, c = 100, d = 500, m = 1000;
+//const I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000;
+var dict_rom = {
+    "i": 1,
+    "v": 5,
+    "x": 10,
+    "l": 50,
+    "c": 100,
+    "d": 500,
+    "m": 1000,
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+};
 
 var btn_rom_lat = document.getElementById("conversion1"), btn_lat_rom = document.getElementById("conversion2");
 
@@ -18,17 +34,35 @@ btn_rom_lat.addEventListener("click", romanosLatinos);
 btn_lat_rom.addEventListener("click", latinosRomanos);
 
 function romanosLatinos() {
-    var input_rom = document.getElementById("romanos").value;
+
+    var input_rom = document.getElementById("romanos").value, suma_resta = 0;
+    //alert(dicti[input_rom]);
     // Comprobar si ha introducido algo, si son letras y si las letras son
     // numeros romanos
     if (!comprobarRom(input_rom)) {
         alert("Error");
     } else {
         partes = input_rom.split("");
+
         for (let letra = 0; letra < partes.length; letra++) {
-            
+            //suma+=dicti[partes[letra]];
+            //if (!(partes[letra + 1] == undefined)) {
+                suma_resta += dict_rom[partes[letra]];
+                console.log(partes[letra]);
+                // if (partes[letra] > partes[letra + 1]) {
+                //     suma_resta += dict_rom[partes[letra]];
+                // } else if (partes[letra] < partes[letra + 1]) {
+                //     suma_resta += dict_rom[partes[letra]];
+                //     console.log("resta");
+                    
+                // }
+                //if(partes[letra]+partes[letra+1]==)
+            //}
+
         }
+        alert(suma_resta);
     }
+
 }
 
 function latinosRomanos() {
