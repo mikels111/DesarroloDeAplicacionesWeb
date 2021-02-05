@@ -34,7 +34,7 @@ btn_rom_lat.addEventListener("click", romanosLatinos);
 btn_lat_rom.addEventListener("click", latinosRomanos);
 
 function romanosLatinos() {
-    var num_sig;
+    var num_sig, comprobar_iguales = false, iguales = false;
     var input_rom = document.getElementById("romanos").value, suma_resta = 0;
     //alert(dicti[input_rom]);
     // Comprobar si ha introducido algo, si son letras y si las letras son
@@ -44,6 +44,8 @@ function romanosLatinos() {
     } else {
         partes = input_rom.split("");
         for (let letra = 0; letra < partes.length; letra++) {
+            comprobar_iguales = false;
+
             if (dict_rom[partes[letra + 1]] == undefined) {
                 num_sig = 0;
             } else {
@@ -52,20 +54,40 @@ function romanosLatinos() {
             console.log(dict_rom[partes[letra]]);
 
             if (dict_rom[partes[letra]] > num_sig) {
-                suma_resta += dict_rom[partes[letra]];
-                console.log("suma");
+                if (dict_rom[partes[letra]] == dict_rom[partes[letra - 1]]) {
+                    //iguales = true;
+                    let suma_iguales = 0;
+                    suma_iguales = dict_rom[partes[letra]] + dict_rom[partes[letra - 1]]
+                    comprobar_iguales = comprobarRom2(suma_iguales);
+                }
+                if (!comprobar_iguales) {
+                    suma_resta += dict_rom[partes[letra]];
+                    console.log("suma");
+                    console.log("suma=" + suma_resta);
+                }
+
             } else if (dict_rom[partes[letra]] < num_sig) {
                 suma_resta -= dict_rom[partes[letra]];
                 console.log("resta");
             } else {
-                suma_resta += dict_rom[partes[letra]];
-                console.log("suma: son iguales");
-                // if(suma_resta == ){
-
-                // }
+                let suma_iguales1 = 0;
+                suma_iguales1 = dict_rom[partes[letra]] + dict_rom[partes[letra - 1]]
+                comprobar_iguales = comprobarRom2(suma_iguales1);
+                if (!comprobar_iguales) {
+                    suma_resta += dict_rom[partes[letra]];
+                    console.log("suma");
+                    console.log("suma=" + suma_resta);
+                }
             }
         }
-        alert(suma_resta);
+
+        // if (iguales) {
+        //     comprobar_iguales = comprobarRom2(suma_resta);
+        // }
+        if (comprobar_iguales)
+            alert("error");
+        else
+            alert(suma_resta);
     }
 }
 
@@ -100,16 +122,17 @@ function comprobarRom(num_rom) {
         return romano;
     }
 }
-
-function comprobarLetrasRom(letra) {
-    //Si la letra no es igual a ninguna de los numeros romanos retorna false
-    if (!(letra == "i" || letra == "v" || letra == "x" || letra == "l" || letra == "c" || letra == "d" || letra == "m" || letra == "I" || letra == "V" || letra == "X" || letra == "L" || letra == "C" || letra == "D" || letra == "M")) {
-        return false;
-    } else
-        return true;
-
+function comprobarRom2(sum_res) {
+    var compr = false;
+    //https://stackoverflow.com/questions/34913675/how-to-iterate-keys-values-in-javascript
+    for (const [key, value] of Object.entries(dict_rom)) {
+        //console.log(value);
+        if (sum_res == value) {
+            compr = true;
+        }
+    }
+    return compr;
 }
-
 function comprobarLat(num_lat) {
     if (num_lat == "" || num_lat == null) {
         // No hay numero latino;
@@ -124,3 +147,13 @@ function comprobarLat(num_lat) {
             return false;
     }
 }
+
+function comprobarLetrasRom(letra) {
+    //Si la letra no es igual a ninguna de los numeros romanos retorna false
+    if (!(letra == "i" || letra == "v" || letra == "x" || letra == "l" || letra == "c" || letra == "d" || letra == "m" || letra == "I" || letra == "V" || letra == "X" || letra == "L" || letra == "C" || letra == "D" || letra == "M")) {
+        return false;
+    } else
+        return true;
+
+}
+
