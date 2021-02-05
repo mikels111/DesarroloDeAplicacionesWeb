@@ -13,11 +13,11 @@
 //const I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000;
 var dict_rom = {
     "i": 1,
-    "v": 5,
+    "v": 5,//no se pueden poner dos
     "x": 10,
-    "l": 50,
+    "l": 50,//no se pueden poner dos
     "c": 100,
-    "d": 500,
+    "d": 500,//no se pueden poner dos
     "m": 1000,
     "I": 1,
     "V": 5,
@@ -69,6 +69,7 @@ function romanosLatinos() {
             } else if (dict_rom[partes[letra]] < num_sig) {
                 suma_resta -= dict_rom[partes[letra]];
                 console.log("resta");
+                console.log("resta=" + suma_resta);
             } else {
                 let suma_iguales1 = 0;
                 suma_iguales1 = dict_rom[partes[letra]] + dict_rom[partes[letra - 1]]
@@ -76,11 +77,10 @@ function romanosLatinos() {
                 if (!comprobar_iguales) {
                     suma_resta += dict_rom[partes[letra]];
                     console.log("suma");
-                    console.log("suma=" + suma_resta);
+                    console.log("suma-iguales=" + suma_resta);
                 }
             }
         }
-
         // if (iguales) {
         //     comprobar_iguales = comprobarRom2(suma_resta);
         // }
@@ -97,7 +97,8 @@ function latinosRomanos() {
     if (!comprobarLat(input_lat)) {
         alert("Error");
     } else {
-        alert(input_lat);
+        partes = input_lat.split("");
+        alert(partes);
     }
 }
 
