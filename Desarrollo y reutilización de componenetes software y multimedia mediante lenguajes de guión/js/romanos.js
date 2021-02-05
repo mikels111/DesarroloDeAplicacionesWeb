@@ -34,7 +34,7 @@ btn_rom_lat.addEventListener("click", romanosLatinos);
 btn_lat_rom.addEventListener("click", latinosRomanos);
 
 function romanosLatinos() {
-
+    var num_sig;
     var input_rom = document.getElementById("romanos").value, suma_resta = 0;
     //alert(dicti[input_rom]);
     // Comprobar si ha introducido algo, si son letras y si las letras son
@@ -43,26 +43,30 @@ function romanosLatinos() {
         alert("Error");
     } else {
         partes = input_rom.split("");
-
         for (let letra = 0; letra < partes.length; letra++) {
-            //suma+=dicti[partes[letra]];
-            //if (!(partes[letra + 1] == undefined)) {
-                suma_resta += dict_rom[partes[letra]];
-                console.log(partes[letra]);
-                // if (partes[letra] > partes[letra + 1]) {
-                //     suma_resta += dict_rom[partes[letra]];
-                // } else if (partes[letra] < partes[letra + 1]) {
-                //     suma_resta += dict_rom[partes[letra]];
-                //     console.log("resta");
-                    
-                // }
-                //if(partes[letra]+partes[letra+1]==)
-            //}
+            if (dict_rom[partes[letra + 1]] == undefined) {
+                num_sig = 0;
+            } else {
+                num_sig = dict_rom[partes[letra + 1]];
+            }
+            console.log(dict_rom[partes[letra]]);
 
+            if (dict_rom[partes[letra]] > num_sig) {
+                suma_resta += dict_rom[partes[letra]];
+                console.log("suma");
+            } else if (dict_rom[partes[letra]] < num_sig) {
+                suma_resta -= dict_rom[partes[letra]];
+                console.log("resta");
+            } else {
+                suma_resta += dict_rom[partes[letra]];
+                console.log("suma: son iguales");
+                // if(suma_resta == ){
+
+                // }
+            }
         }
         alert(suma_resta);
     }
-
 }
 
 function latinosRomanos() {
