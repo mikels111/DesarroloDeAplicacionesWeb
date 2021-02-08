@@ -33,13 +33,13 @@ var dict_rom = {
     "M": 1000,
 };
 
-var btn_rom_lat = document.getElementById("conversion1"), btn_lat_rom = document.getElementById("conversion2");
+var btn_rom_lat = document.getElementById("conversion1"), btn_lat_rom = document.getElementById("conversion2"), txt_rom_lat = document.getElementById("conv_latinos");
 
 btn_rom_lat.addEventListener("click", romanosLatinos);
 btn_lat_rom.addEventListener("click", latinosRomanos);
 
 function romanosLatinos() {
-    var num_sig, comprobar_iguales = false, iguales = false;
+    var num_actual = 0, num_sig, comprobar_iguales = false, iguales = false;
     var input_rom = document.getElementById("romanos").value, suma_resta = 0;
     //alert(dicti[input_rom]);
     // Comprobar si ha introducido algo, si son letras y si las letras son
@@ -50,42 +50,48 @@ function romanosLatinos() {
         partes = input_rom.split("");
         for (let letra = 0; letra < partes.length; letra++) {
             comprobar_iguales = false;
+            num_actual = dict_rom[partes[letra]];
 
             if (dict_rom[partes[letra + 1]] == undefined) {
                 num_sig = 0;
             } else {
                 num_sig = dict_rom[partes[letra + 1]];
             }
-            console.log(dict_rom[partes[letra]]);
+            console.log(num_actual);
 
-            if (dict_rom[partes[letra]] > num_sig) {
-                if (dict_rom[partes[letra]] == dict_rom[partes[letra - 1]]) {
+            if (num_actual > num_sig) {
+                if (num_actual == dict_rom[partes[letra - 1]]) {
                     //iguales = true;
                     let suma_iguales = 0;
-                    suma_iguales = dict_rom[partes[letra]] + dict_rom[partes[letra - 1]]
+                    suma_iguales = num_actual + dict_rom[partes[letra - 1]]
                     comprobar_iguales = comprobarRom2(suma_iguales);
                 }
                 if (!comprobar_iguales) {
-                    suma_resta += dict_rom[partes[letra]];
+                    suma_resta += num_actual;
                     console.log("suma");
                     console.log("suma=" + suma_resta);
                 }
 
-            } else if (dict_rom[partes[letra]] < num_sig) {
-                if (dict_rom[partes[letra]] % 5 != 0) {
-                    suma_resta -= dict_rom[partes[letra]];
-                    console.log("resta");
-                    console.log("resta=" + suma_resta);
-                }else{
-                    comprobar_iguales=false;
+            } else if (num_actual < num_sig) {
+                //if (dict_rom[partes[letra]] % 5 != 0) {
+                console.log("----" + num_actual);
+                if (num_actual == 5 || num_actual == 50 || num_actual == 500) {
+                    comprobar_iguales = true;
                     break;
                 }
+                suma_resta -= num_actual;
+
+                console.log("resta");
+                console.log("resta=" + suma_resta);
+                //} else {
+                //    break;
+                //}
             } else {
                 let suma_iguales1 = 0;
-                suma_iguales1 = dict_rom[partes[letra]] + dict_rom[partes[letra - 1]]
+                suma_iguales1 = num_actual + dict_rom[partes[letra - 1]]
                 comprobar_iguales = comprobarRom2(suma_iguales1);
                 if (!comprobar_iguales) {
-                    suma_resta += dict_rom[partes[letra]];
+                    suma_resta += num_actual;
                     console.log("suma");
                     console.log("suma-iguales=" + suma_resta);
                 }
@@ -94,10 +100,10 @@ function romanosLatinos() {
         // if (iguales) {
         //     comprobar_iguales = comprobarRom2(suma_resta);
         // }
-        if (comprobar_iguales || suma_resta==0)
+        if (comprobar_iguales || suma_resta == 0)
             alert("error");
         else
-            alert(suma_resta);
+            txt_rom_lat.innerHTML = suma_resta;
     }
 }
 
@@ -167,4 +173,3 @@ function comprobarLetrasRom(letra) {
         return true;
 
 }
-
