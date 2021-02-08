@@ -11,14 +11,19 @@
 // 4000-MMMM
 //const i = 1, v = 5, x = 10, l = 50, c = 100, d = 500, m = 1000;
 //const I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000;
+// Los multiplos de 5 no se pueden poner dos veces seguidas
+// Se pueden restar el primer numero menos el siguiente consecutivamente, menos los multiplos de 5 a otro numero
 var dict_rom = {
     "i": 1,
-    "v": 5,//no se pueden poner dos
+    "v": 5,//no se pueden poner dos----
     "x": 10,
-    "l": 50,//no se pueden poner dos
+
+    "l": 50,//no se pueden poner dos----
+
     "c": 100,
-    "d": 500,//no se pueden poner dos
+    "d": 500,//no se pueden poner dos----
     "m": 1000,
+
     "I": 1,
     "V": 5,
     "X": 10,
@@ -67,9 +72,14 @@ function romanosLatinos() {
                 }
 
             } else if (dict_rom[partes[letra]] < num_sig) {
-                suma_resta -= dict_rom[partes[letra]];
-                console.log("resta");
-                console.log("resta=" + suma_resta);
+                if (dict_rom[partes[letra]] % 5 != 0) {
+                    suma_resta -= dict_rom[partes[letra]];
+                    console.log("resta");
+                    console.log("resta=" + suma_resta);
+                }else{
+                    comprobar_iguales=false;
+                    break;
+                }
             } else {
                 let suma_iguales1 = 0;
                 suma_iguales1 = dict_rom[partes[letra]] + dict_rom[partes[letra - 1]]
@@ -84,7 +94,7 @@ function romanosLatinos() {
         // if (iguales) {
         //     comprobar_iguales = comprobarRom2(suma_resta);
         // }
-        if (comprobar_iguales)
+        if (comprobar_iguales || suma_resta==0)
             alert("error");
         else
             alert(suma_resta);
