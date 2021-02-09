@@ -74,7 +74,6 @@ function comprar(e) {
             precio: producto.precio
         });
         actualizarCarrito();
-
     }
 }
 
