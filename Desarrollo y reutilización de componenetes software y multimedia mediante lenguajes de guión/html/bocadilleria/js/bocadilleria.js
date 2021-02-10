@@ -50,6 +50,17 @@ var productos2 = [
         src: "../img/beer.png",
     }
 ];
+
+$(() => {
+    $("#img_carro").click(() => {
+        $("#div_carrito").toggle(500);
+    });
+});
+$("#bebidas").click(() => {
+    $("#div_bocadillos_bebidas").animate({ transform: rotateY(180) }, 100);
+})
+
+
 // ############### Mostrar los bocadillos en pantalla ###############
 function mostrarBocadillos() {
     var bocadillos = "";
@@ -84,10 +95,12 @@ mostrarBocadillos();
 var btn_bocadi = document.getElementById("bocadillos").addEventListener("click", function () { cambio_productos(productos) }), btn_bebidas = document.getElementById("bebidas").addEventListener("click", function () { cambio_productos(productos2) });
 
 function cambio_productos(a) {
-    if (a == productos)
+
+    if (a == productos) {
         mostrarBocadillos();
-    else
+    } else {
         mostrarBebidas();
+    }
 }
 
 // ############### Para comprar cada bocadillo ###############
@@ -95,13 +108,21 @@ document.getElementById("div_bocadillos_bebidas").addEventListener("click", comp
 var lineasCarrito = [];
 
 function comprar(e) {
+
+    for (let i = 0; i < 3; i++) {
+        $("#img_carro").animate({ left: '-60px' }, 100);
+        $("#img_carro").animate({ left: '0px', }, 100);
+
+        console.log("carro");
+    }
+
     let id = e.target.id;
     if (e.target.innerHTML == "Comprar") {
 
         let producto
-        if(id>=1 && id<=3)
+        if (id >= 1 && id <= 3)
             producto = productos.find(item => item.id == id);
-        else if(id>=4 && id<=6)
+        else if (id >= 4 && id <= 6)
             producto = productos2.find(item => item.id == id);
 
         let producto_carrito = lineasCarrito.find(item => item.id == producto.id);
@@ -151,4 +172,5 @@ function actualizarCarrito() {
      `;
     document.getElementById("carrito").innerHTML = textoCarrito;
 }
+
 

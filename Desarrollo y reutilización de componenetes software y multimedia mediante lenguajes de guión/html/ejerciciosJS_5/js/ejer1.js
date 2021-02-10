@@ -7,7 +7,6 @@ function comprobar() {
 
     let texto = "";
     if (palabra == "Donostia") {
-
         texto += `La primera letra "o" está en la posición: ${palabra.indexOf("o") + 1}, y la última está en la posición ${palabra.lastIndexOf("o") + 1}<br>`;
 
         texto += `En la posición 2 está el caracter: ${palabra.charAt(1)}<br>`;
@@ -16,44 +15,45 @@ function comprobar() {
     } else if (palabra == "En un lugar de la mancha de cuyo nombre no quiero acordarme") {
         texto += `La palabra "${palabra.substring(18, 25)}" está en la posición: ${palabra.indexOf("mancha")}<br>`;
         texto += `Los primeros 5 caracteres son: "${palabra.substring(0, 5)}"<br>`;
-        texto += `Los 3 ultimos caracteres son: "${palabra.substring(palabra.length - 3, palabra.length)}" y la última"${palabra.charAt(palabra.length - 1)}"`;
+        texto += `Los 3 ultimos caracteres son: "${palabra.substring(palabra.length - 3, palabra.length)}"`;
     } else {
         let letra_e = palabra.indexOf("e");
         let primera_letra = palabra.charAt(0);
         let ultima_letra = palabra.charAt(palabra.length - 1);
         if (letra_e != -1) {
-            texto += `Contiene la letra e en la posición ${letra_e + 1}`;
+            texto += `Contiene la letra "e" en la posición ${letra_e + 1}<br>`;
         }
-        
-        
-        //if (ultima_letra ==)
+        if (vocales(primera_letra)) {
+            texto += `Empieza por vocal "${primera_letra}"<br>`;
+        }
+
+        if (vocales(ultima_letra))
+            texto += `Termina por vocal "${ultima_letra}"<br>`;
 
     }
     p1.innerHTML = texto;
 }
-
 function vocales(vocal) {
-    let vocal=false;
+    var b = false;
     switch (vocal) {
-        case a:
-            vocal= true;
+        case "a":
+            b = true;
             break;
-        case e:
-            vocal= true;
+        case "e":
+            b = true;
             break;
-        case i:
-            vocal= true;
+        case "i":
+            b = true;
             break;
-        case o:
-            vocal= true;
+        case "o":
+            b = true;
             break;
-        case u:
-            vocal= true;
+        case "u":
+            b = true;
             break;
-
         default:
             break;
     }
-    return vocal;
+    return b;
 }
 

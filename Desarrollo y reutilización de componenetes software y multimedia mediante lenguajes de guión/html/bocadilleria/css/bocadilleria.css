@@ -27,6 +27,8 @@ header {
     height: 50%;
     padding-top: 1.5%;
     padding-left: 1%;
+    position: relative;
+    margin-right: 10px;
 }
 
 #navegador {
@@ -37,7 +39,7 @@ header {
     margin-left: 1%;
 }
 
-#navegador button{
+#navegador button {
     font-size: 150%;
     border-radius: 20px;
     border: none;
@@ -45,7 +47,7 @@ header {
 }
 
 #navegador button:hover {
-    background:#DADADA; 
+    background: #DADADA;
 }
 
 #a_factura {
@@ -58,7 +60,6 @@ header {
 #div_navegador_ayuda {
     display: flex;
     margin-top: 1%;
-    
 }
 
 #titulo_bocadilleria {
@@ -67,17 +68,24 @@ header {
 
 main {
     background: #DADADA;
-    height: 100%;
     width: 100%;
+    height: 90%;
     position: absolute;
+    display: flex;
 }
 
 /* Bocadillos */
 
 #div_bocadillos_bebidas {
     display: flex;
-    margin: auto;
+    /* margin: auto; */
+    margin-left: auto;
+    margin-right: auto;
     width: 70%;
+
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+
 }
 
 .img_bocadillo_bebida {
@@ -104,7 +112,6 @@ main {
 .div_ingredientes div {
     margin-top: 2%;
     border-radius: 20px;
-    
 }
 
 .fria:hover {
@@ -126,13 +133,20 @@ main {
     justify-content: space-between;
     margin-top: 1em;
 }
-.comprar{
+
+.comprar {
     border-radius: 20px;
     width: 50%;
     height: 40px;
-    background:#FF6969;
+    background: #FF6969;
 }
-#div_carrito{
+
+#div_carrito {
+    position: relative;
     display: flex;
     justify-content: right;
+}
+
+#div_desplegable {
+    width: 50%;
 }

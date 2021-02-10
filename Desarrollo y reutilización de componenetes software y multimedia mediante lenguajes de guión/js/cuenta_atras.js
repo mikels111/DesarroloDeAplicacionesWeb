@@ -9,14 +9,13 @@ var ano_ = fechas.getFullYear();
 
 
 var fecha_final;
-var fecha_finalHora;
 
 mes_ = mes_ + 1;
 function cuentaAtras() {
     fecha_final = document.getElementById("fecha").value;
     var verfi = verificar(fecha_final);
-    fecha_finalHora = new Date(fecha_final);
-    console.log(fecha_finalHora);
+
+    //console.log(fecha_finalHora.getSeconds());
 
     if (verfi) {
         console.log(fecha_final);
@@ -25,52 +24,33 @@ function cuentaAtras() {
         mes = partes[1];
         dia = partes[2];
 
-        setInterval(function () { diferenciaHora(); }, 1000);
+        setInterval(function () { diferenciaHora(fecha_final); }, 1000);
 
     } else
         alert("error");
-}
-
-function verificar(a) {
-    var fech = a.split("-");
-    ano = fech[0];
-    mes = fech[1];
-    dia = fech[2];
-
-    if (mes_.toString.length == 1)
-        mes_ = 0 + "" + mes_;
-
-    if (dia_.toString.length == 1)
-        dia_ = 0 + "" + dia_;
-
-    console.log(" la fecha de hoy " + ` ${ano_} ${mes_} ${dia_}`);
-    console.log(` fecha seleccionada ${ano} ${mes} ${dia}`);
-    if (a == null || a == "")
-        return false;
-    else if (ano < ano_)
-        return false;
-    else if (mes < mes_)
-        return false;
-    else if (dia <= dia_)
-        return false;
-    else
-        return true;
+        document.getElementById("cuenta").innerHTML = "";
 
 }
 
-function diferenciaHora() {
+function verificar(fecha_final) {
+    var fecha_finalHora = new Date(fecha_final);
     var fechasInicial = new Date();
+    if (fecha_finalHora - fechasInicial > 0)
+        return true
+    else
+        return false;
+}
+
+function diferenciaHora(fecha_final) {
+    var fecha_finalHora = new Date(fecha_final);
+
+    var fechasInicial = new Date();
+
     var fecha_dife = fecha_finalHora - fechasInicial;
-    console.log(fecha_dife);
-
-    var hora_ = fechasInicial.getHours();
-    var min_ = fechasInicial.getMinutes();
-    var seg_ = fechasInicial.getSeconds();
-    //console.log(seg_);
-
-    // document.getElementById("mes").innerHTML = 
-    //     document.getElementById("dia").innerHTML
-    document.getElementById("hora").innerHTML = hora_;
-    document.getElementById("min").innerHTML = min_;
-    document.getElementById("seg").innerHTML = " |"+fecha_dife/1000;
+    
+    document.getElementById("cuenta").innerHTML = Math.floor(fecha_dife / (1000 * 60 * 60 * 24 * 30)) + " Meses "+
+    Math.floor(fecha_dife / (1000 * 60 * 60 * 24)) + " Días " +
+    Math.floor((fecha_dife % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + " Horas "+
+    Math.floor((fecha_dife % (1000 * 60 * 60)) / (1000 * 60)) + " Minutos "+
+    Math.floor(fecha_dife % (1000 * 60) / 1000) + " Segundos";
 }
