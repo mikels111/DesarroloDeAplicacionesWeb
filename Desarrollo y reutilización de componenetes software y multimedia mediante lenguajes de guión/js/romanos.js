@@ -132,7 +132,11 @@ function comprobarRom(num_rom) {
                 let a = comprobarLetrasRom(partes[letra]);
                 if (a == false)
                     romano = false;
+                // if(partes[letra]!=partes[letra+1] && partes[letra]==partes[letra+2])
+                //     romano = false;
+                //     alert("asdf");
             }
+            
         } else
             //ha introducido numeros
             romano = false;
