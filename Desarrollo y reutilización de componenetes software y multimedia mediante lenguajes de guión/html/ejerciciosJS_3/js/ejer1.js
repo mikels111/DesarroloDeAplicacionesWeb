@@ -14,4 +14,3 @@ function mostrar() {
     let numRnd = Math.floor(Math.random() * 7) + 1;
     document.getElementById("p1").innerHTML=frases[numRnd];
 }
-alert(-100%5);

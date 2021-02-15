@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="h2_inicial" style="width: 50%; opacity: 0.2; font-size: 0.2em">Ejercicio 4.4 JQuery</h2>
+
+    <img id="ico_house" style="width: 50px" src="../img/house.ico" alt="house">
+    <ul style="margin-left: -150px; position: absolute;z-index: 999;" id="nav_lista">
+        <li><a href="https://www.google.es">Google</a></li>
+        <li><a href="https://www.cebanc.com">Cebanc</a></li>
+        <li><a href="http://cursos.cdea.cebanc.com/moodle/">Cebanc Moodle</a></li>
+        <li><a href="https://www.w3schools.com">W3 Schools</a></li>
+    </ul>
+    <div id="div1" style="width: 200px; height: 200px; background: red;"></div>
+    <div id="div2" style="width: 200px; height: 200px; background: blue;"></div>
+    <div id="div3" style="width: 200px; height: 200px; background: violet;"></div>
+    <button id="btn1">boton 1</button>
+    <button id="btn2">boton 2</button>
+    <button id="btn3">boton 3</button>
+    <button id="btn4">boton 4</button>
+
+    <div>
+        <img class="img_opacity" style="width:'150px'; height:150px; opacity: 0.5;" src="../img/3.png" alt="donosti">
+        <img class="img_opacity" style="width:'150px'; height:150px; opacity: 0.5;" src="../img/postre.jpg" alt="postre">
+        <img class="img_opacity" style="width:'150px'; height:150px; opacity: 0.5;" src="../img/refresco.jpg" alt="refresco">
+    </div>
+
+    <div class="acordeon">
+        <div id="div1" class="a">
+            <h2 style="background: lightblue">Primero</h2>
+            <img style="width:'150px'; height:150px; opacity: 0.5;" src="../img/3.png" alt="donosti">
+            <p style="background: grey">Imagen</p>
+        </div>
+        <div id="div2" class="a">
+            <h2 style="background: lightblue">Segundo</h2>
+            <img style="width:'150px'; height:150px; opacity: 0.5;" src="../img/refresco.jpg" alt="refresco">
+            <p style="background: grey">Imagen</p>
+        </div>
+        <div id="div3" class="a">
+            <h2 style="background: lightblue">Tercero</h2>
+            <img style="width:'150px'; height:150px; opacity: 0.5;" src="../img/postre.jpg" alt="postre">
+            <p style="background: grey">Imagen</p>
+        </div>
+    </div>
+
+
+    <div id="div_3seg">
+        <h2 style="background: lightblue">Div de 3 segundos</h2>
+        <img style="width:'150px'; height:150px; opacity: 0.5;" src="../img/3.png" alt="donosti">
+        <p style="background: grey">Imagen</p>
+    </div>
+
+    <button id="btn_animation">Animación</button><br>
+    <div style="width: 100px; height:100px; background: black; position: absolute;" id="div_negro">
+    </div><br><br><br><br><br><br>
+
+    <button id="btn_animation2">Animación 2</button>
+    <div style="width: 100px; height:100px; background: blue; position: absolute;" id="div_azul">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../js/ejer1.js"></script>
+</body>
+
+</html>
+
+<!--
+    12.	Crea otro div de tamaño inicial 100 x 100 y algún color de fondo
+a.	Crea un botón que al pulsar
+i.	Desplace el div 30px a la derecha
+ii.	Aumente el tamaño en 20px
+iii.	Disminuya la opacidad en 0.1
+
+14.	Crea un menú  con una lista y cuatro enlaces al principio del documento, después del h2
+a.	Pon un icono encima del menú
+b.	Haz que el menú aparezca oculto al principio con un margin-left negativo del ancho del menú
+c.	Dale una posición absoluta y un z-index: 999 para que se mantenga en el sitio y aparezca siempre por encima de los demás elementos
+d.	Al hacer click sobre el icono haz que aparezca o desaparezca con una animación
+
+
+ -->

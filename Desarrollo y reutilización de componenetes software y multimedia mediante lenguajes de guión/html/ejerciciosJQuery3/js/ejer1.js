@@ -20,14 +20,14 @@ $(document).ready(function () {
     });
 
     $("#btn2").click(function () {
-        $("#p1").html("<img src='3.png' alt='donostia'>");
+        $("#p1").html("<img src='../img/3.png' alt='donostia'>");
     });
     // ########### 3 ###########
     $("#btn3").click(function () {
         $("#rosa").before("<p>Rosa azul</p>");
     });
     $("#btn4").click(function () {
-        $("#rosa").after("<img class='img_creada' style='width:150px; height:150px;' src='huevo.jpg' alt='huevo'>");
+        $("#rosa").after("<img class='img_creada' style='width:150px; height:150px;' src='../img/huevo.jpg' alt='huevo'>");
     });
 
     $("#rosa").click(function () {
