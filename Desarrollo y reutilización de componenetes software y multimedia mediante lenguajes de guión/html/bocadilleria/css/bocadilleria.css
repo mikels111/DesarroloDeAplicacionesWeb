@@ -143,10 +143,17 @@ main {
 
 #div_carrito {
     position: relative;
-    display: flex;
-    justify-content: right;
 }
 
 #div_desplegable {
     width: 50%;
+}
+#imprimir{
+    border-radius: 20px;
+    width: 60%;
+    background: #FF6969;
+    margin:auto;
+}
+#div_btn{
+    text-align: center;
 }

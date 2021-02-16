@@ -53,32 +53,30 @@ var productos2 = [
 
 $(() => {
     $("#img_carro").click(() => {
-        $("#div_carrito").toggle(500);
+        // $("#div_carrito").toggle(500);
+        $("#div_carrito").slideToggle(900);
     });
 });
 $("#bebidas").click(() => {
     $("#div_bocadillos_bebidas").animate({ transform: rotateY(180) }, 100);
 })
 
-document.getElementById("btn_prueba").addEventListener("click", function () {
+document.getElementById("imprimir").addEventListener("click", function () {
     printDocument();
 });
-var doc = new jsPDF();
-var elementHTML = $('#carrito').html();
-
-var specialElementHandlers = {
-    '#elementH': function (element, renderer) {
-        return true;
-    }
-};
+console.log(document.getElementById("carrito").innerHTML);
 
 function printDocument() {
-    doc.fromHTML(elementHTML, 15, 15, {
-        'width': 170
-    });
-
-    // Save the PDF
-    doc.save('sample-document.pdf');
+    var opt = {
+        margin: 0,
+        filename: 'factura.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2,width:370,height:450},
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    const element = document.getElementById("carrito");
+    //if(element)
+    html2pdf().set(opt).from(element).save();
 }
 
 // ############### Mostrar los bocadillos en pantalla ###############
@@ -130,10 +128,8 @@ var lineasCarrito = [];
 function comprar(e) {
 
     for (let i = 0; i < 3; i++) {
-        $("#img_carro").animate({ left: '-60px' }, 100);
+        $("#img_carro").animate({ left: '-20px' }, 100);
         $("#img_carro").animate({ left: '0px', }, 100);
-
-        console.log("carro");
     }
 
     let id = e.target.id;
