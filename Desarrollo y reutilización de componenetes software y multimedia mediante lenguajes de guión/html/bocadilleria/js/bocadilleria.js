@@ -60,6 +60,26 @@ $("#bebidas").click(() => {
     $("#div_bocadillos_bebidas").animate({ transform: rotateY(180) }, 100);
 })
 
+document.getElementById("btn_prueba").addEventListener("click", function () {
+    printDocument();
+});
+var doc = new jsPDF();
+var elementHTML = $('#carrito').html();
+
+var specialElementHandlers = {
+    '#elementH': function (element, renderer) {
+        return true;
+    }
+};
+
+function printDocument() {
+    doc.fromHTML(elementHTML, 15, 15, {
+        'width': 170
+    });
+
+    // Save the PDF
+    doc.save('sample-document.pdf');
+}
 
 // ############### Mostrar los bocadillos en pantalla ###############
 function mostrarBocadillos() {
