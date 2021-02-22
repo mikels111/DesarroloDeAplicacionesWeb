@@ -53,60 +53,57 @@ var productos2 = [
 
 $(() => {
     $("#img_carro").click(() => {
-        $("#div_carrito").toggle(500);
+        // $("#div_carrito").toggle(500);
+        $("#div_carrito").animate({ width: 'toggle' }, 500);
     });
 });
-$("#bebidas").click(() => {
-    $("#div_bocadillos_bebidas").animate({ transform: rotateY(180) }, 100);
-})
 
-document.getElementById("btn_prueba").addEventListener("click", function () {
+document.getElementById("imprimir").addEventListener("click", function () {
     printDocument();
 });
-var doc = new jsPDF();
-var elementHTML = $('#carrito').html();
-
-var specialElementHandlers = {
-    '#elementH': function (element, renderer) {
-        return true;
-    }
-};
 
 function printDocument() {
-    doc.fromHTML(elementHTML, 15, 15, {
-        'width': 170
-    });
-
-    // Save the PDF
-    doc.save('sample-document.pdf');
+    var opt = {
+        margin: 0,
+        filename: 'factura.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, width: 370, height: 450 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    const element = document.getElementById("carrito");
+    //if(element)
+    html2pdf().set(opt).from(element).save();
 }
 
 // ############### Mostrar los bocadillos en pantalla ###############
 function mostrarBocadillos() {
     var bocadillos = "";
     productos.forEach(producto => {
-        bocadillos += `<div class="bocadillo_bebida_info" id="${producto.id}">
-    <h2>${producto.nombre}</h2>
-    <img class="img_bocadillo_bebida" src="${producto.src}" alt="${producto.alt}">
-    <div class="div_ingredientes">
-        ${producto.descripcion}
-    </div>
-    <button id="${producto.id}" class="comprar">Comprar</button>
-</div>`
+        bocadillos += `<div id="${producto.id}" class="card" style="width: 18rem;">
+        <img src="${producto.src}" class="card-img-top" alt="bocadillo">
+        <div class="card-body">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.descripcion}</p>
+            <a id="${producto.id}" href="#" class="btn">Comprar</a>
+        </div>
+    </div>`
     });
 
-    document.getElementById("div_bocadillos_bebidas").innerHTML = bocadillos;
+    document.getElementById("div_bocadillos_bebidas2").innerHTML = bocadillos;
 }
 function mostrarBebidas() {
     var bebidas = "";
     productos2.forEach(producto => {
-        bebidas += `<div class="bocadillo_bebida_info" id="${producto.id}">
-    <h2>${producto.nombre}</h2>
-    <img class="img_bocadillo_bebida" src="${producto.src}" alt="${producto.alt}">
-    <button id="${producto.id}" class="comprar">Comprar</button>
-</div>`
+        bebidas += `<div id="${producto.id}" class="card" style="width: 18rem;">
+        <img src="${producto.src}" class="card-img-top" alt="${producto.alt}">
+        <div class="card-body">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">Fria, Del Tiempo</p>
+            <a id="${producto.id}" href="#" class="btn">Comprar</a>
+        </div>
+    </div>`
     });
-    document.getElementById("div_bocadillos_bebidas").innerHTML = bebidas;
+    document.getElementById("div_bocadillos_bebidas2").innerHTML = bebidas;
 }
 mostrarBocadillos();
 
@@ -124,19 +121,18 @@ function cambio_productos(a) {
 }
 
 // ############### Para comprar cada bocadillo ###############
-document.getElementById("div_bocadillos_bebidas").addEventListener("click", comprar);
+document.getElementById("div_bocadillos_bebidas2").addEventListener("click", comprar);
 var lineasCarrito = [];
 
 function comprar(e) {
-
+    console.log("compra");
     for (let i = 0; i < 3; i++) {
-        $("#img_carro").animate({ left: '-60px' }, 100);
+        $("#img_carro").animate({ left: '-20px' }, 100);
         $("#img_carro").animate({ left: '0px', }, 100);
-
-        console.log("carro");
     }
 
     let id = e.target.id;
+    console.log(e.target.innerHTML);
     if (e.target.innerHTML == "Comprar") {
 
         let producto
@@ -163,6 +159,8 @@ function comprar(e) {
 }
 
 function actualizarCarrito() {
+
+
     var textoCarrito = `
         <tr>
             <th>Cantidad</th>
@@ -192,5 +190,3 @@ function actualizarCarrito() {
      `;
     document.getElementById("carrito").innerHTML = textoCarrito;
 }
-
-

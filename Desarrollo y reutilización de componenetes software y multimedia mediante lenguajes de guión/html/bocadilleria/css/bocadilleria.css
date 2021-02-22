@@ -1,5 +1,6 @@
 body {
-    font-family: 'Salsa', cursive;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #DADADA;
 }
 
 body a {
@@ -11,11 +12,11 @@ header {
     background: #FF6969;
 }
 
-#div_header {
+/* #div_header {
     display: flex;
     justify-content: space-between;
     margin: auto;
-}
+} */
 
 #div_header h1, img {
     padding-top: 0.2%;
@@ -23,10 +24,9 @@ header {
 }
 
 #img_carro {
-    width: 50px;
+    width: 80px;
     height: 50%;
-    padding-top: 1.5%;
-    padding-left: 1%;
+    padding: 1%;
     position: relative;
     margin-right: 10px;
 }
@@ -67,25 +67,31 @@ header {
 }
 
 main {
-    background: #DADADA;
-    width: 100%;
-    height: 90%;
-    position: absolute;
+    /* width: 100%;
+    height: 100%; */
+    /* position: absolute; */
     display: flex;
 }
 
 /* Bocadillos */
 
 #div_bocadillos_bebidas {
-    display: flex;
+    width: 100%;
     /* margin: auto; */
-    margin-left: auto;
+    /* display: flex; */
+    /* margin: auto; */
+    /* margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    
 
     transition: transform 0.6s;
-    transform-style: preserve-3d;
+    transform-style: preserve-3d; */
+}
 
+#div_bocadillos_bebidas2 {
+    width: 70%;
+    margin: auto;
+    margin-top: 1em;
 }
 
 .img_bocadillo_bebida {
@@ -142,11 +148,120 @@ main {
 }
 
 #div_carrito {
-    position: relative;
-    display: flex;
-    justify-content: right;
+    background: white;
+    border-radius: 15px;
+    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    /* position: absolute; */
+    /* right: 0em;*/
+    /* width: 20%;  */
+}
+
+#carrito {
+    margin: 0 auto 0 auto;
 }
 
 #div_desplegable {
+    width: 3%;
+}
+
+#imprimir {
+    /* border-radius: 20px; */
+    /* width: 60%; */
+    background: #FF6969;
+    /* margin: auto; */
+}
+
+#div_btn {
+    text-align: center;
+}
+
+#div1_titulo {
+    /* padding: 0% 20% 0% 20%; */
     width: 50%;
+}
+
+#burger_logo {
+    width: 30%;
+    margin: auto;
+}
+
+.navbar {
+    background: #FF6969;
+}
+
+.btn {
+    background: #FF6969;
+}
+
+.card {
+    border-radius: 20px;
+    margin: auto;
+}
+
+.card-img-top {
+    border-radius: 20px;
+    margin-top: 7px;
+}
+
+.navbar-brand {
+    /* width: 20%; */
+}
+
+#click_logo {
+    /* width: 20%; */
+    height: 90px;
+    margin-right: 2em;
+    text-align: center;
+}
+
+.nav-link {
+    font-size: 130%;
+}
+
+@media only screen and (max-width: 991px) {
+    #div1_titulo {
+        margin: 0%;
+    }
+}
+
+@media only screen and (max-width: 549px) {
+    
+    #carrito_fondo {
+        /* display: none;  */
+        position: absolute;
+        /*  */
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Sit on top */
+        
+        /* Location of the box */
+        
+    }
+    #div_carrito {
+        position: absolute;
+        /* height: 100%; */
+        width: 90%;
+        border-radius: 0px;
+        background: white;
+    }
+}
+
+@media only screen and (max-width: 609px) {
+    #img_carro {
+        width: 50px;
+    }
+    #div1_titulo {
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 609px) {
+    #click_logo {
+        /* height: 40px;  */
+    }
 }
