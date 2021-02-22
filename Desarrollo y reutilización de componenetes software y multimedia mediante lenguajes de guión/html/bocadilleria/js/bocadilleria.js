@@ -67,7 +67,7 @@ function printDocument() {
         margin: 0,
         filename: 'factura.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, width: 370, height: 450 },
+        html2canvas: { scale: 2, width: 670, height: 450 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
     const element = document.getElementById("carrito");
