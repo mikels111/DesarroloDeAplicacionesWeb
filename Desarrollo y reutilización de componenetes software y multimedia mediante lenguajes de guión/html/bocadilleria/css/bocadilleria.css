@@ -148,6 +148,7 @@ main {
 }
 
 #div_carrito {
+<<<<<<< HEAD
     background: white;
     border-radius: 15px;
     border-width: 1px;
@@ -161,6 +162,9 @@ main {
 
 #carrito {
     margin: 0 auto 0 auto;
+=======
+    position: relative;
+>>>>>>> 24c1204db53dddb1352fc606989281d6e6c6f0cc
 }
 
 #div_desplegable {
