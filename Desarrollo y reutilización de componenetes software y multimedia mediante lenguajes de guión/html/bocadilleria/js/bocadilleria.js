@@ -82,7 +82,8 @@ function mostrarBocadillos() {
         bocadillos += `<div id="${producto.id}" class="card" style="width: 18rem;">
         <img src="${producto.src}" class="card-img-top" alt="bocadillo">
         <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
+            <h4 class="card-title">${producto.nombre}</h4>
+            <h6>${producto.precio.toFixed(2)}€</h6>
             <p class="card-text">${producto.descripcion}</p>
             <a id="${producto.id}" href="#" class="btn">Comprar</a>
         </div>
@@ -97,7 +98,8 @@ function mostrarBebidas() {
         bebidas += `<div id="${producto.id}" class="card" style="width: 18rem;">
         <img src="${producto.src}" class="card-img-top" alt="${producto.alt}">
         <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
+            <h4 class="card-title">${producto.nombre}</h4>
+            <h6>${producto.precio.toFixed(2)}€</h6>
             <p class="card-text">Fria, Del Tiempo</p>
             <a id="${producto.id}" href="#" class="btn">Comprar</a>
         </div>
