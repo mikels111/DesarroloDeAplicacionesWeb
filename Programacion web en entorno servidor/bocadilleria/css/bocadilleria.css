@@ -1,0 +1,267 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #DADADA;
+}
+
+body a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background: #FF6969;
+}
+
+/* #div_header {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+} */
+
+#div_header h1, img {
+    padding-top: 0.2%;
+    padding-right: 0.2%;
+}
+
+#img_carro {
+    width: 80px;
+    height: 50%;
+    padding: 1%;
+    position: relative;
+    margin-right: 10px;
+}
+
+#navegador {
+    padding: 1.5% 1% 0% 1%;
+    border-style: solid;
+    border-radius: 20px;
+    height: 70px;
+    margin-left: 1%;
+}
+
+#navegador button {
+    font-size: 150%;
+    border-radius: 20px;
+    border: none;
+    background: inherit;
+}
+
+#navegador button:hover {
+    background: #DADADA;
+}
+
+#a_factura {
+    width: 50px;
+    height: 100%;
+    padding-top: 1.5%;
+    padding-right: 1%;
+}
+
+#div_navegador_ayuda {
+    display: flex;
+    margin-top: 1%;
+}
+
+#titulo_bocadilleria {
+    font-size: 300%;
+}
+
+main {
+    /* width: 100%;
+    height: 100%; */
+    /* position: absolute; */
+    display: flex;
+}
+
+/* Bocadillos */
+
+#div_bocadillos_bebidas {
+    width: 100%;
+    /* margin: auto; */
+    /* display: flex; */
+    /* margin: auto; */
+    /* margin-left: auto;
+    margin-right: auto;
+    
+
+    transition: transform 0.6s;
+    transform-style: preserve-3d; */
+}
+
+#div_bocadillos_bebidas2 {
+    width: 70%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.img_bocadillo_bebida {
+    width: 90%;
+    border-radius: 20px;
+}
+
+.bocadillo_bebida_info {
+    text-align: center;
+    width: 50%;
+    padding-left: 6%;
+}
+
+.div_ingredientes {
+    padding: 0.8%;
+    text-align: start;
+    font-size: 180%;
+    margin: auto;
+    width: 50%;
+    background: white;
+    border-radius: 20px;
+}
+
+.div_ingredientes div {
+    margin-top: 2%;
+    border-radius: 20px;
+}
+
+.fria:hover {
+    background: #FF6969;
+}
+
+.del_tiempo:hover {
+    background: #FF6969;
+}
+
+#div_factura {
+    margin: auto;
+    background: white;
+    width: 30%;
+}
+
+#div_fecha {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.comprar {
+    border-radius: 20px;
+    width: 50%;
+    height: 40px;
+    background: #FF6969;
+}
+
+#div_carrito {
+    background: white;
+    border-radius: 15px;
+    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    /* position: absolute; */
+    /* right: 0em;*/
+    /* width: 20%;  */
+}
+
+#carrito {
+    margin: 0 auto 0 auto;
+}
+
+#div_desplegable {
+    width: 3%;
+}
+
+#imprimir {
+    /* border-radius: 20px; */
+    /* width: 60%; */
+    background: #FF6969;
+    /* margin: auto; */
+}
+
+#div_btn {
+    text-align: center;
+}
+
+#div1_titulo {
+    /* padding: 0% 20% 0% 20%; */
+    width: 50%;
+}
+
+#burger_logo {
+    width: 30%;
+    margin: auto;
+}
+
+.navbar {
+    background: #FF6969;
+}
+
+.btn {
+    background: #FF6969;
+}
+
+.card {
+    border-radius: 20px;
+    margin: auto;
+}
+
+.card-img-top {
+    border-radius: 20px;
+    margin-top: 7px;
+}
+
+.navbar-brand {
+    /* width: 20%; */
+}
+
+#click_logo {
+    /* width: 20%; */
+    height: 90px;
+    margin-right: 2em;
+    text-align: center;
+}
+
+.nav-link {
+    font-size: 130%;
+}
+
+@media only screen and (max-width: 991px) {
+    #div1_titulo {
+        margin: 0%;
+    }
+}
+
+@media only screen and (max-width: 549px) {
+    
+    #carrito_fondo {
+        /* display: none;  */
+        position: absolute;
+        /*  */
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Sit on top */
+        
+        /* Location of the box */
+        
+    }
+    #div_carrito {
+        position: absolute;
+        /* height: 100%; */
+        width: 90%;
+        border-radius: 0px;
+        background: white;
+    }
+}
+
+@media only screen and (max-width: 609px) {
+    #img_carro {
+        width: 50px;
+    }
+    #div1_titulo {
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 609px) {
+    #click_logo {
+        /* height: 40px;  */
+    }
+}

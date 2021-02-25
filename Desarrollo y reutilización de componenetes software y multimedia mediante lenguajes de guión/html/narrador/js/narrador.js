@@ -4,10 +4,10 @@ let botonleer = document.getElementById("botonLeer");
 
 let lector = new SpeechSynthesisUtterance();
 let voces = [];
-speechSynthesis.addEventListener("voiceschanged", cargarVoces);
 
-textarea.addEventListener("click", leyendo);
-selector.addEventListener("change",cambioVoz);
+speechSynthesis.addEventListener("voiceschanged", cargarVoces);
+botonleer.addEventListener("click", leyendo);
+selector.addEventListener("change", cambioVoz);
 
 
 
@@ -26,6 +26,6 @@ function leyendo() {
 }
 function cambioVoz(e) {
     console.log(e.target.value);
-    
+
     lector.voice = voces.find(item => item.name === e.target.value);
 }
