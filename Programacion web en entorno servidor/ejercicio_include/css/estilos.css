@@ -1,0 +1,25 @@
+body{
+    width: 100%;
+}
+#logo{
+    height: 40px;
+}
+.img_contenido{
+    width: 150px;
+    height: 100px;
+}
+#cabecera{
+    display: flex;
+    border-radius: 20px;
+    padding: 10px;
+}
+#div_navegador{
+    margin-left: 1em;
+}
+#div_pie{
+    color: white;
+}
+main{
+    width: 50%;
+    margin: auto;
+}

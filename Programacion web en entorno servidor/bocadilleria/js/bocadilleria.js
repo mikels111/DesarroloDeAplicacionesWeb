@@ -51,6 +51,8 @@ var productos2 = [
     }
 ];
 
+
+
 $(() => {
     $("#img_carro").click(() => {
         // $("#div_carrito").toggle(500);
