@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <?php include("includes/inc_config.php"); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Contacto</title>
 </head>
 
 <body>
     <?php include("includes/inc_cabecera.php"); ?>
     <main>
-        <h1>Contacto</h1>
-        <form action="">
-            <label for="email">Correo electronico</label>
-            <input type="email" id="email"><br>
-            <label for="mensaje">Mensaje</label>
-            <textarea name="mensaje" id="text" cols="70" rows="10"></textarea>
-        </form>
+        <?php include("includes/inc_form_contacto.php");?>
     </main>
 
     <?php include("includes/inc_pie.php"); ?>

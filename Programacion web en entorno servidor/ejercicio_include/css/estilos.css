@@ -1,26 +1,49 @@
-body{
+body {
     width: 100%;
+    min-height: 100%;
     font-family: 'Roboto Mono', monospace;
+    position: relative;
+
 }
-#logo{
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#logo {
     height: 40px;
 }
-.img_contenido{
+
+.img_contenido {
     width: 150px;
     height: 100px;
 }
-#cabecera{
+
+#cabecera {
     display: flex;
     border-radius: 20px;
     padding: 10px;
+    background-color: lightgrey;
 }
-#div_navegador{
+
+#div_navegador {
     margin-left: 1em;
 }
-#div_pie{
-    color: white;
-}
-main{
+
+
+main {
     width: 50%;
     margin: auto;
+}
+
+footer {
+    
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+    color:black;
 }
