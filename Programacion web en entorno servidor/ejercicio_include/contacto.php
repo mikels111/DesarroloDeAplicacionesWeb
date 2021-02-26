@@ -17,7 +17,7 @@
             <label for="email">Correo electronico</label>
             <input type="email" id="email"><br>
             <label for="mensaje">Mensaje</label>
-            <textarea name="mensaje" id="text" cols="30" rows="10"></textarea>
+            <textarea name="mensaje" id="text" cols="70" rows="10"></textarea>
         </form>
     </main>
 
