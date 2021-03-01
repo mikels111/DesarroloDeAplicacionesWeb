@@ -13,8 +13,7 @@
     <main>
         <h1>Respuesta</h1>
         <?php
-        $numero = (int) "9";
-        echo $numero;
+
         if (isset($_REQUEST["nombre"])) {
             $nombre = trim($_REQUEST["nombre"]);
         } else {
@@ -51,6 +50,11 @@
         } else {
             $php = null;
         }
+        if (isset($_REQUEST["java"])) {
+            $java = "java";
+        } else {
+            $java = null;
+        }
 
 
         // foreach ($_POST as $key => $value) {
@@ -69,11 +73,11 @@
         }
 
         echo "<p>Bienvenid" . $genero . " esperamos que disfrutes</p>";
-        if ($html == "html" && $css == "css" && $js == "js") {
+        if ($html == "html" || $css == "css" || $js == "js") {
             echo "Tomamos nota de su solicitud de trabajo para diseñador";
-            if ($php == "php") {
-                echo "<p>Tomamos nota de su solicitud de trabajo para diseñador y programador</p>";
-            }
+        }
+        if ($php == "php" || $java == "java") {
+            echo "<p>Tomamos nota de su solicitud de trabajo para diseñador y programador</p>";
         }
         echo "<p>Enviaremos las novedades al correo " . $_REQUEST['email'] . " que nos ha suministrado. Saludos, Dpto atención cliente</p>";
 

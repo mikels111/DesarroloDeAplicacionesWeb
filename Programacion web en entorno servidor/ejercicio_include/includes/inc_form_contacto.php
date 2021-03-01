@@ -13,6 +13,7 @@
     <input type="checkbox" name="css" id="css" value="css">CSS3
     <input type="checkbox" name="js" id="js" value="js">Javascript
     <input type="checkbox" name="php" id="php" value="php">PHP
+    <input type="checkbox" name="java" id="java" value="java">Java
 </p>
 <p>Observaciones
     <textarea name="observaciones" id="observaciones" cols="50" rows="10"></textarea>
