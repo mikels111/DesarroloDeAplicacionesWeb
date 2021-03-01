@@ -3,7 +3,7 @@ body {
     min-height: 100%;
     font-family: 'Roboto Mono', monospace;
     position: relative;
-
+    background: rgb(65, 65, 65);
 }
 a{
     text-decoration: none;
@@ -21,7 +21,6 @@ a{
 
 #cabecera {
     display: flex;
-    border-radius: 20px;
     padding: 10px;
     background-color: lightgrey;
 }
@@ -32,16 +31,16 @@ a{
 
 
 main {
+    padding: 1rem;
     width: 50%;
     margin: auto;
+    background: white;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 footer {
-    
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    /* position: absolute; */
     padding: 1rem;
     background-color: #efefef;
     text-align: center;

@@ -13,28 +13,78 @@
     <main>
         <h1>Respuesta</h1>
         <?php
-        $anno=date('d/m/y');
-        echo "<p>$anno</p>";
-        $html = "";$css = "";$js = "";$hm = "";$genero = "";$php="";
+        $numero = (int) "9";
+        echo $numero;
+        if (isset($_REQUEST["nombre"])) {
+            $nombre = trim($_REQUEST["nombre"]);
+        } else {
+            //no dejar seguir
+        }
 
-        foreach ($_POST as $key => $value) {
-            $$key = $value;
-            echo "<p>$key=$value</p>";
+        if (strlen($nombre) > 0) {
+            echo "nombre correcto";
+        } else {
+            echo "nombre erroneo";
         }
-        if ($hm == "m") { 
-            $genero="a";
-        }else{
-            $genero="o";
+
+        echo $nombre;
+        $anno = date('d/m/y');
+        echo "<p>$anno</p>";
+        //$html = "";$css = "";$js = "";$hm = "";$genero = "";$php="";
+        if (isset($_REQUEST["html"])) {
+            $html = "html";
+        } else {
+            $html = null;
         }
+        if (isset($_REQUEST["css"])) {
+            $css = "css";
+        } else {
+            $css = null;
+        }
+        if (isset($_REQUEST["js"])) {
+            $js = "js";
+        } else {
+            $js = null;
+        }
+        if (isset($_REQUEST["php"])) {
+            $php = "php";
+        } else {
+            $php = null;
+        }
+
+
+        // foreach ($_POST as $key => $value) {
+        //     $$key = $value;
+        //     echo "<p>$key=$value</p>";
+        // }
+
+        if (isset($_REQUEST["hm"])) {
+            if ($_REQUEST["hm"] == "m") {
+                $genero = "a";
+            } else {
+                $genero = "o";
+            }
+        } else {
+            $genero = "m";
+        }
+
         echo "<p>Bienvenid" . $genero . " esperamos que disfrutes</p>";
         if ($html == "html" && $css == "css" && $js == "js") {
-            echo "<p>Guardado, hemos visto que quieres ser dieñador</p>";
+            echo "Tomamos nota de su solicitud de trabajo para diseñador";
+            if ($php == "php") {
+                echo "<p>Tomamos nota de su solicitud de trabajo para diseñador y programador</p>";
+            }
         }
-        if($php=="php"){
-            echo "<p>Guardado, hemos visto que quieres ser desarrollador</p>";
-        }
+        echo "<p>Enviaremos las novedades al correo " . $_REQUEST['email'] . " que nos ha suministrado. Saludos, Dpto atención cliente</p>";
 
+        // $para      = $_REQUEST['email'];
+        // $titulo    = 'Contacto';
+        // $mensaje   = "Hola " . $_REQUEST["email"] ." ...";
+        // $cabeceras = 'From: mikelseara11@gmail.com' . "\r\n" .
+        //     'Reply-To: mikelseara11@gmail.com' . "\r\n" .
+        //     'X-Mailer: PHP/' . phpversion();
 
+        // mail($para, $titulo, $mensaje, $cabeceras);
         ?>
     </main>
 
