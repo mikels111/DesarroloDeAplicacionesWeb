@@ -65,7 +65,11 @@
         {
             $variable = trim($variable);
             if (strlen($variable) > 0) {
-                return true;
+                if(is_numeric ($variable)){
+                    return false;
+                }else{
+                    return true;
+                }
             } else {
                 return false;
             }
