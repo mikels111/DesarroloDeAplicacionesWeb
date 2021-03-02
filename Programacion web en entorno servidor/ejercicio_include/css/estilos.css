@@ -3,7 +3,7 @@ body {
     min-height: 100%;
     font-family: 'Roboto Mono', monospace;
     position: relative;
-
+    background: rgb(65, 65, 65);
 }
 a{
     text-decoration: none;
@@ -21,25 +21,35 @@ a{
 
 #cabecera {
     display: flex;
-    border-radius: 20px;
     padding: 10px;
-    background-color: lightgrey;
+    padding-left: 10em;
+    background-color: #ADD3D8;
 }
 
 #div_navegador {
     margin-left: 1em;
+    padding-top: 0.5em;
 }
 
+#div_navegador a:hover{
+    color:rgb(116, 116, 116);
+}
+#div_navegador a{
+    padding:0.5em;
+}
 
 main {
+    padding: 1rem;
     width: 50%;
     margin: auto;
+    background: white;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 footer {
-    position: absolute;
-    width: 100%;
     padding: 1rem;
+    height: 100px;
     background-color: #efefef;
     text-align: center;
     color:black;
