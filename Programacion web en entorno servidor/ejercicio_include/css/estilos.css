@@ -27,8 +27,15 @@ a{
 
 #div_navegador {
     margin-left: 1em;
+    padding-top: 0.5em;
 }
 
+#div_navegador a:hover{
+    color:rgb(116, 116, 116);
+}
+#div_navegador a{
+    padding:0.5em;
+}
 
 main {
     padding: 1rem;
@@ -40,8 +47,8 @@ main {
 }
 
 footer {
-    /* position: absolute; */
     padding: 1rem;
+    height: 100px;
     background-color: #efefef;
     text-align: center;
     color:black;
