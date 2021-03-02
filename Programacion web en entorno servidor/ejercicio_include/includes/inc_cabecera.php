@@ -6,6 +6,7 @@
             <a id="info" href="informacion.php">Información</a>
             <a id="conte" href="contenido.php">Contenido</a>
             <a id="contacto" href="contacto.php">Contacto</a>
+            <a id="formulario" href="formulario.php">Formulario</a>
             </ul>
         </nav>
     </div>

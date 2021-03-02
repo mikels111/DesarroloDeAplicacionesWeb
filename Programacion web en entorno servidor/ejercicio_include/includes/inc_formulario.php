@@ -1,13 +1,16 @@
-<form action="respuesta.php" method="post">
-<p>nombre: <input type="text" name="nombre" id="nombre" placeholder="nombre" required></p>
-<p>Email: <input type="email" name="email"></p>
-
-<p>Año de nacimiento: <input type="number" name="ano" id="ano_nacimiento" min="1900" max="2003" required></p>
+<form method="post">
+<p>nombre: <input type="text" name="nombre" id="nombre" placeholder="nombre" value="<?php echo $nombre_form?>" required></p>
+<?php echo $nombreError?>
+<p>Email: <input type="email" name="email" value="<?php echo $email_form?>"></p>
+<?php echo $mailError?>
+<p>Año de nacimiento: <input type="number" name="ano" id="ano_nacimiento" required></p>
+<?php echo $annoError?>
 <p>
     Sexo:
-    <input type="radio" name="hm" id="mujer" value="m" checked> Mujer
+    <input type="radio" name="hm" id="mujer" value="m"> Mujer
     <input type="radio" name="hm" id="hombre" value="h"> Hombre
 </p>
+<?php echo $hmError?>
 <p>
     Conocimientos: 
     <input type="checkbox" name="html" id="html" value="html">HTML

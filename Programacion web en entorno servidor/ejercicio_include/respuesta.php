@@ -14,21 +14,13 @@
         <h1>Respuesta</h1>
         <?php
 
-        if (isset($_REQUEST["nombre"])) {
-            $nombre = trim($_REQUEST["nombre"]);
-        } else {
-            //no dejar seguir
-        }
+        
 
-        if (strlen($nombre) > 0) {
-            echo "nombre correcto";
-        } else {
-            echo "nombre erroneo";
-        }
 
-        echo $nombre;
-        $anno = date('d/m/y');
-        echo "<p>$anno</p>";
+
+        // echo $nombre;
+        // $anno = date('d/m/y');
+        // echo "<p>$anno</p>";
         //$html = "";$css = "";$js = "";$hm = "";$genero = "";$php="";
         if (isset($_REQUEST["html"])) {
             $html = "html";
