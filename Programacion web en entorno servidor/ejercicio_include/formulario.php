@@ -15,43 +15,63 @@
         <?php
 
         $nombreError = $mailError = $annoError = $hmError = '';
-        $email_form = $nombre_form = '';
+        $email_form = $nombre_form = $anno_form = $hm_form = '';
+        $anoi = 1900;
+        $anof = 2003;
+        $html = '';
+        $css = '';
+        $js = '';
+        $php = '';
+        $java = '';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             /* recoger variables del formulario */
             $verformulario = false;
+
             $nombre = recogerVar($_POST['nombre']);
             $email = recogerVar($_POST['email']);
             $anno = recogerVarNum($_POST['ano']);
+            $hm = true;
+            $nacido = $_POST['nacido'];
+
             //..
             /* validar variables */
 
-            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $mailError = "<span class='error'>Email Incorrecto </span>";
-                $email_form = $_POST['email'];
-                $nombre_form = $_POST['nombre'];
-                $verformulario = true;
+
+            foreach ($_POST as $key => $value) {
+                if ($key == $value) {
+                    $$key = "checked";
+                }
             }
-
-
-            // if(si esta mal el nombre){
-
-            // }
 
             if ($nombre == false) {
                 $nombreError = "<span class='error'>Nombre incorrecto</span>";
             }
             if ($email == false) {
                 $mailError = "<span class='error'>Email incorrecto</span>";
+            } else {
+                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $mailError = "<span class='error'>Email Incorrecto </span>";
+                    $email = false;
+                }
             }
             if ($anno == false) {
                 $annoError = "<span class='error'>Año incorrecto</span>";
             }
             if (!isset($_POST['hm'])) {
                 $hmError = "<span class='error'>Sexo incorrecto</span>";
+                $_POST['hm'] = "m";
+                $hm = false;
+            } else {
+                if ($_POST['hm'] <> "m" && $_POST['hm'] <> "h") {
+                    $hmError = "<span class='error'>Sexo incorrecto</span>";
+                    $hm = false;
+                }
             }
-            if ($nombre == false || $email == false || $anno == false || !isset($_POST['hm'])) {
-                $email_form = $_POST['email'];
+            if ($nombre == false || $email == false || $anno == false || $hm == false) {
                 $nombre_form = $_POST['nombre'];
+                $email_form = $_POST['email'];
+                $anno_form = $_POST['ano'];
+                $hm_form = $_POST['hm'];
                 $verformulario = true;
             }
         } else {
@@ -61,32 +81,7 @@
             $verformulario = true;
         }
 
-        function recogerVar($variable)
-        {
-            $variable = trim($variable);
-            if (strlen($variable) > 0) {
-                if(is_numeric ($variable)){
-                    return false;
-                }else{
-                    return true;
-                }
-            } else {
-                return false;
-            }
-        }
-        function recogerVarNum($numero)
-        {
-            $numero = trim($numero);
-            if (is_numeric($numero)) {
-                if ($numero >= 1900 && $numero <= 2003) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
+        
 
         if ($verformulario == true) {
             ?>

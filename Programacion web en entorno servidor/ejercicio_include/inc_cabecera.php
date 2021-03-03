@@ -10,5 +10,4 @@
             <a id="Server" href="server.php">Server</a>
         </nav>
     </div>
-    
 </header>
