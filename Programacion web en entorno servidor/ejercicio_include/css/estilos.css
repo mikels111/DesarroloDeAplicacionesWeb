@@ -5,7 +5,8 @@ body {
     position: relative;
     background: rgb(65, 65, 65);
 }
-a{
+
+a {
     text-decoration: none;
     color: inherit;
 }
@@ -22,7 +23,7 @@ a{
 #cabecera {
     display: flex;
     padding: 10px;
-    background-color: #ADD3D8;
+    background-color: rgb(221, 230, 231);
 }
 
 #div_navegador {
@@ -30,11 +31,12 @@ a{
     padding-top: 0.5em;
 }
 
-#div_navegador a:hover{
-    color:rgb(116, 116, 116);
+#div_navegador a:hover {
+    color: rgb(116, 116, 116);
 }
-#div_navegador a{
-    padding:0.5em;
+
+#div_navegador a {
+    padding: 0.5em;
 }
 
 main {
@@ -51,8 +53,42 @@ footer {
     height: 100px;
     background-color: #efefef;
     text-align: center;
-    color:black;
+    color: black;
 }
-.error{
+
+.error {
     color: red;
+}
+
+#panel {
+    display: flex;
+}
+
+.divs_panel {
+    border: solid;
+    width: 33.3%;
+    margin: 1em;
+}
+
+.btn_sig_conf {
+    border: solid;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    padding: 1em;
+}
+
+.encendido {
+    background: rgb(157, 164, 165);
+    padding: 1em;
+    text-align: center;
+}
+
+.apagado {
+    background: inherit;
+    padding: 1em;
+    text-align: center;
+}
+.confirm{
+    background: green;
 }

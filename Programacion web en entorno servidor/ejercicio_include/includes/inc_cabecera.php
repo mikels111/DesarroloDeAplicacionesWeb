@@ -9,6 +9,7 @@
             <a id="formulario" href="formulario.php">Formulario</a>
             <a id="Server" href="server.php">Server</a>
             <a id="subirArchivo" href="subir.php">Subir Archivo</a>
+            <a id="sesiones" href="sesiones.php">Sesiones</a>
         </nav>
     </div>
     
