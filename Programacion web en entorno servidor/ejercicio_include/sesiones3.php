@@ -24,19 +24,18 @@ if (!isset($_SESSION["ip"])) {
         $color2 = "class='apagado'";
         $color3 = "class='encendido'";
         include("includes/inc_panel_sesiones.php");
-        ?>
-        <?php
-        if (isset($_POST['direccion']) && isset($_POST['codpostal'])) {
+        if (isset($_POST['direccion']) && isset($_POST['codpostal']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
             $_SESSION['direccion'] = $_POST['direccion'];
             $_SESSION['codpostal'] = $_POST['codpostal'];
+            echo "<br>" . $_SESSION['nombre'] . "<br>" . $_SESSION['apellido'] . "<br>" . $_SESSION['direccion'] . "<br>" . $_SESSION['codpostal'];
         }
-        echo "<br>" . $_SESSION['nombre'] . "<br>" . $_SESSION['apellido'] . "<br>" . $_SESSION['direccion'] . "<br>" . $_SESSION['codpostal']
+        
         ?>
-
         <form method="">
             <button type="submit" class="btn_sig_conf confirm">Confirmar</button>
-        </form>
-        
+            
+        </form><a href="sesiones2.php"><button class="btn_sig_conf"><-- Atras</button></a>
+        <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
         
     </main>
 

@@ -34,4 +34,6 @@ function recogerVarNum($numero)
         return false;
     }
 }
+
+setcookie("ultima_pagina", $_SERVER['REQUEST_URI'], time()+60*60*24*30);
 ?>

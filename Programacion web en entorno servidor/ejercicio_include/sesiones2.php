@@ -28,13 +28,15 @@ if (!isset($_SESSION["ip"])) {
         $color1 = "class='apagado'";
         $color2 = "class='encendido'";
         $color3 = "class='apagado'";
+        include("includes/inc_panel_sesiones.php");
         ?>
-        <?php include("includes/inc_panel_sesiones.php"); ?>
         <form action="sesiones3.php" method="POST">
             <p>Direccion: <input type="text" name="direccion" id="direc"></p>
             <p>CodPostal <input type="text" name="codpostal" id="postal"></p>
             <button type="submit" class="btn_sig_conf">Siguiente --></button>
-        </form>
+            
+        </form><a href="sesiones.php"><button class="btn_sig_conf"><-- Atras</button></a>
+        <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
         
     </main>
 

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["ip"])) {
+    /* desviamos a la página de error sesion */
+    header("location:caducada.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +17,10 @@
 </head>
 
 <body>
-    
-    <h1>Sesion caducada</h1>
-    
-    
+    <?php
+    session_destroy();
+    ?>
+    <h1>Sesion cerrada</h1>
 </body>
 
 </html>

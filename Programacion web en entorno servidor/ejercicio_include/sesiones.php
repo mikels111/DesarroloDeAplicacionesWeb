@@ -1,9 +1,5 @@
 <?php session_start();
-if (!isset($_SESSION["ip"])) {
-    /* desviamos a la página de error sesion */
-    header("location:caducada.php");
-    exit;
-}
+$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,15 +22,17 @@ if (!isset($_SESSION["ip"])) {
         $color1 = "class='encendido'";
         $color2 = "class='apagado'";
         $color3 = "class='apagado'";
+        include("includes/inc_panel_sesiones.php");
         ?>
-        <?php include("includes/inc_panel_sesiones.php"); ?>
-
         <form action="sesiones2.php" method="POST">
             <p>Nombre: <input type="text" name="nombre" id="nomb"></p>
             <p>Apellidos <input type="text" name="apellido" id="ape"></p>
             <button type="submit" class="btn_sig_conf">Siguiente --></button>
         </form>
-        
+        <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
+        <?php 
+        echo $_COOKIE['ultima_pagina'];
+        ?>
     </main>
 
     <?php include("includes/inc_pie.php"); ?>
