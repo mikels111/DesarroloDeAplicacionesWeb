@@ -31,7 +31,6 @@ $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
         </form>
         <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
         <?php 
-        echo $_COOKIE['ultima_pagina'];
         ?>
     </main>
 

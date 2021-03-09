@@ -35,7 +35,8 @@ if (!isset($_SESSION["ip"])) {
             <p>CodPostal <input type="text" name="codpostal" id="postal"></p>
             <button type="submit" class="btn_sig_conf">Siguiente --></button>
             
-        </form><a href="sesiones.php"><button class="btn_sig_conf"><-- Atras</button></a>
+        </form>
+        <a href="sesiones.php"><button class="btn_sig_conf"><-- Atras</button></a>
         <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
         
     </main>

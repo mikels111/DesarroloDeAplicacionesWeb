@@ -10,6 +10,7 @@
             <a id="Server" href="server.php">Server</a>
             <a id="subirArchivo" href="subir.php">Subir Archivo</a>
             <a id="sesiones" href="sesiones.php">Sesiones</a>
+            <a id="cambio_tema" href="tema.php">Cambiar tema</a>
         </nav>
     </div>
     

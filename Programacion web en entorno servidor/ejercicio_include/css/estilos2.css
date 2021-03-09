@@ -1,9 +1,9 @@
 body {
     width: 100%;
     min-height: 100%;
-    font-family: 'Roboto Mono', monospace;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
-    background: rgb(65, 65, 65);
+    background: rgb(156, 156, 156);
 }
 
 a {
@@ -23,7 +23,7 @@ a {
 #cabecera {
     display: flex;
     padding: 10px;
-    background-color: rgb(221, 230, 231);
+    background-color: rgb(192, 162, 99);
 }
 
 #div_navegador {
@@ -49,10 +49,8 @@ main {
 }
 
 footer {
-    position:relative;
-    margin-top: -200px;
     padding: 1rem;
-    height: 50px;
+    height: 100px;
     background-color: #efefef;
     text-align: center;
     color: black;
