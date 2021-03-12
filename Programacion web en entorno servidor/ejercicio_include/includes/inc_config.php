@@ -5,6 +5,7 @@ if (isset($_POST['tema'])) {
 }
 if (!isset($_COOKIE['tema'])) {
     setcookie('tema', "estilos.css");
+    echo '<meta http-equiv="refresh" content="0.1; url=http://172.17.15.6/mikels">';
 }
 ?>
 <link rel="stylesheet" href="css/normalize.css">

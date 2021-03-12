@@ -11,16 +11,19 @@
 
 <body>
     <?php include("includes/inc_cabecera.php"); ?>
-    <main>
-        <h1>contenido</h1>
-        <img class="img_contenido" src="img/donosti1.png" alt="donosti1">
-        <img class="img_contenido" src="img/donosti2.png" alt="donosti1">
-        <img class="img_contenido" src="img/donosti3.png" alt="donosti1">
-        <img class="img_contenido" src="img/pasta.jpg" alt="donosti1">
+    <div id="main_container">
+        <main>
 
-    </main>
+            <h1>contenido</h1>
+            <img class="img_contenido" src="img/donosti1.png" alt="donosti1">
+            <img class="img_contenido" src="img/donosti2.png" alt="donosti1">
+            <img class="img_contenido" src="img/donosti3.png" alt="donosti1">
+            <img class="img_contenido" src="img/pasta.jpg" alt="donosti1">
 
-    <?php include("includes/inc_pie.php"); ?>
+        </main>
+
+        
+    </div>
 </body>
 
 </html>

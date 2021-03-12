@@ -18,30 +18,32 @@ if (!isset($_SESSION["ip"])) {
 
 <body>
     <?php include("includes/inc_cabecera.php"); ?>
-    <main>
+    <div id="main_container">
+        <main>
 
-        <?php
-        if (isset($_POST['nombre']) && isset($_POST['apellido'])) {
-            $_SESSION['nombre'] = $_POST['nombre'];
-            $_SESSION['apellido'] = $_POST['apellido'];
-        }
-        $color1 = "class='apagado'";
-        $color2 = "class='encendido'";
-        $color3 = "class='apagado'";
-        include("includes/inc_panel_sesiones.php");
-        ?>
-        <form action="sesiones3.php" method="POST">
-            <p>Direccion: <input type="text" name="direccion" id="direc"></p>
-            <p>CodPostal <input type="text" name="codpostal" id="postal"></p>
-            <button type="submit" class="btn_sig_conf">Siguiente --></button>
-            
-        </form>
-        <a href="sesiones.php"><button class="btn_sig_conf"><-- Atras</button></a>
-        <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
+            <?php
+            if (isset($_POST['nombre']) && isset($_POST['apellido'])) {
+                $_SESSION['nombre'] = $_POST['nombre'];
+                $_SESSION['apellido'] = $_POST['apellido'];
+            }
+            $color1 = "class='apagado'";
+            $color2 = "class='encendido'";
+            $color3 = "class='apagado'";
+            include("includes/inc_panel_sesiones.php");
+            ?>
+            <form action="sesiones3.php" method="POST">
+                <p>Direccion: <input type="text" name="direccion" id="direc"></p>
+                <p>CodPostal <input type="text" name="codpostal" id="postal"></p>
+                <button type="submit" class="btn_sig_conf">Siguiente --></button>
+
+            </form>
+            <a href="sesiones.php"><button class="btn_sig_conf">
+                    <-- Atras</button> </a> <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
+
+        </main>
+
         
-    </main>
-
-    <?php include("includes/inc_pie.php"); ?>
+    </div>
 </body>
 
 </html>

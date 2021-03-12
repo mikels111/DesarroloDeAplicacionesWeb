@@ -11,15 +11,18 @@
 
 <body>
     <?php include("includes/inc_cabecera.php"); ?>
-    <main>
-        <form method="POST">
-            <button name="tema" value="estilos.css">tema 1</button>
-            <button name="tema" value="estilos1.css">tema 2</button>
-            <button name="tema" value="estilos2.css">tema 3</button>
-            <button name="tema" value="estilos3.css">tema 4</button>
-        </form>
-    </main>
-    <?php include("includes/inc_pie.php"); ?>
+    <div id="main_container">
+        <main>
+            <form method="POST">
+                <button name="tema" value="estilos.css">tema 1</button>
+                <button name="tema" value="estilos1.css">tema 2</button>
+                <button name="tema" value="estilos2.css">tema 3</button>
+                <button name="tema" value="estilos3.css">tema 4</button>
+            </form>
+        </main>
+
+        
+    </div>
 </body>
 
 </html>

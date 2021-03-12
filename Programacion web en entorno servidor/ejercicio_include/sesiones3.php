@@ -18,28 +18,30 @@ if (!isset($_SESSION["ip"])) {
 
 <body>
     <?php include("includes/inc_cabecera.php"); ?>
-    <main>
-        <?php
-        $color1 = "class='apagado'";
-        $color2 = "class='apagado'";
-        $color3 = "class='encendido'";
-        include("includes/inc_panel_sesiones.php");
-        if (isset($_POST['direccion']) && isset($_POST['codpostal']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
-            $_SESSION['direccion'] = $_POST['direccion'];
-            $_SESSION['codpostal'] = $_POST['codpostal'];
-            echo "<br>" . $_SESSION['nombre'] . "<br>" . $_SESSION['apellido'] . "<br>" . $_SESSION['direccion'] . "<br>" . $_SESSION['codpostal'];
-        }
-        
-        ?>
-        <form method="">
-            <button type="submit" class="btn_sig_conf confirm">Confirmar</button>
-            
-        </form><a href="sesiones2.php"><button class="btn_sig_conf"><-- Atras</button></a>
-        <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
-        
-    </main>
+    <div id="main_container">
+        <main>
+            <?php
+            $color1 = "class='apagado'";
+            $color2 = "class='apagado'";
+            $color3 = "class='encendido'";
+            include("includes/inc_panel_sesiones.php");
+            if (isset($_POST['direccion']) && isset($_POST['codpostal']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
+                $_SESSION['direccion'] = $_POST['direccion'];
+                $_SESSION['codpostal'] = $_POST['codpostal'];
+                echo "<br>" . $_SESSION['nombre'] . "<br>" . $_SESSION['apellido'] . "<br>" . $_SESSION['direccion'] . "<br>" . $_SESSION['codpostal'];
+            }
 
-    <?php include("includes/inc_pie.php"); ?>
+            ?>
+            <form method="">
+                <button type="submit" class="btn_sig_conf confirm">Confirmar</button>
+
+            </form><a href="sesiones2.php"><button class="btn_sig_conf">
+                    <-- Atras</button> </a> <a href="cerrarSesion.php"><button>Cerrar Session</button></a>
+
+        </main>
+
+        
+    </div>
 </body>
 
 </html>

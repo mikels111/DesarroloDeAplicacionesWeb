@@ -1,8 +1,8 @@
 body {
-    width: 100%;
-    min-height: 100%;
-    font-family: serif;
     position: relative;
+    /* width: 100%; */
+    /* min-height: 100%; */
+    font-family: serif;
     background: rgb(65, 65, 65);
 }
 
@@ -48,9 +48,21 @@ main {
     margin-top: 1rem;
 }
 
+
+#main_container {
+    height: 100vh;
+    /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    /* height of your footer */
+}
+
 footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 1rem;
-    height: 100px;
     background-color: #efefef;
     text-align: center;
     color: black;

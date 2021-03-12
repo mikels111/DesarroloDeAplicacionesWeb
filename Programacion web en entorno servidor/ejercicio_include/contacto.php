@@ -11,11 +11,15 @@
 
 <body>
     <?php include("includes/inc_cabecera.php"); ?>
-    <main>
-        <?php include("includes/inc_form_contacto.php");?>
-    </main>
+    <div id="main_container">
+        <main>
 
-    <?php include("includes/inc_pie.php"); ?>
+            <?php include("includes/inc_form_contacto.php"); ?>
+
+        </main>
+
+        
+    </div>
 </body>
 
 </html>
