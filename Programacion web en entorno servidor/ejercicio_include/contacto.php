@@ -17,8 +17,6 @@
             <?php include("includes/inc_form_contacto.php"); ?>
 
         </main>
-
-        
     </div>
 </body>
 

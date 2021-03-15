@@ -25,11 +25,16 @@ if (!isset($_SESSION["ip"])) {
             $color2 = "class='apagado'";
             $color3 = "class='encendido'";
             include("includes/inc_panel_sesiones.php");
-            if (isset($_POST['direccion']) && isset($_POST['codpostal']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
+
+            if (isset($_POST['direccion']) && isset($_POST['codpostal'])) {
                 $_SESSION['direccion'] = $_POST['direccion'];
                 $_SESSION['codpostal'] = $_POST['codpostal'];
-                echo "<br>" . $_SESSION['nombre'] . "<br>" . $_SESSION['apellido'] . "<br>" . $_SESSION['direccion'] . "<br>" . $_SESSION['codpostal'];
             }
+
+
+            // if (isset($_SESSION['direccion']) && isset($_SESSION['codpostal']) && isset($_SESSION['nombre']) && isset($_SESSION['apellido'])) {
+                echo "<br>" . $_SESSION['nombre'] . "<br>" . $_SESSION['apellido'] . "<br>" . $_SESSION['direccion'] . "<br>" . $_SESSION['codpostal'];
+            // }
 
             ?>
             <form method="">
@@ -40,7 +45,7 @@ if (!isset($_SESSION["ip"])) {
 
         </main>
 
-        
+
     </div>
 </body>
 

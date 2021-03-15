@@ -20,8 +20,6 @@
                 <button name="tema" value="estilos3.css">tema 4</button>
             </form>
         </main>
-
-        
     </div>
 </body>
 

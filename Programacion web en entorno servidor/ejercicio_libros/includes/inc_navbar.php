@@ -26,6 +26,7 @@
                 </ul>
             </div>
         </div>
+        <button style="margin-right:1em;" type="button" class="btn btn-dark">Dark</button>
     </nav>
 </body>
 
