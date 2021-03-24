@@ -49,14 +49,6 @@ main {
     padding-bottom: 2em;
 }
 
-#main_container {
-    height: 100vh;
-    /* will cover the 100% of viewport */
-    /* overflow: hidden; */
-    /* display: block; */
-    position: relative;
-    /* height of your footer */
-}
 
 footer {
     bottom: 0;

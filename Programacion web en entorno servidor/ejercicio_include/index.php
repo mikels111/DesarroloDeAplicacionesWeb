@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_URI'] != "/mikels/index.php") {
+if ($_SERVER['REQUEST_URI'] != "/mikels/ejercicio_include/index.php") {
     header("location:" . $_COOKIE['ultima_pagina']);
 }
 ?>

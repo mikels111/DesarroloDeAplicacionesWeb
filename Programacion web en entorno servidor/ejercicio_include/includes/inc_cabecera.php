@@ -11,6 +11,7 @@
             <a id="subirArchivo" href="subir.php">Subir Archivo</a>
             <a id="sesiones" href="sesiones.php">Sesiones</a>
             <a id="cambio_tema" href="tema.php">Cambiar tema</a>
+            <a id="mail" href="mail.php">mail</a>
         </nav>
     </div>
     

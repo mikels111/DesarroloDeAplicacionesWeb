@@ -1,11 +1,12 @@
 <?php
 if (isset($_POST['tema'])) {
     setcookie('tema', $_POST['tema']);
-    echo '<meta http-equiv="refresh" content="0.1; url=http://172.17.15.6/mikels">';
+    echo '<meta http-equiv="refresh" content="0.1; url="' . $_COOKIE['ultima_pagina'] . '">';
 }
 if (!isset($_COOKIE['tema'])) {
     setcookie('tema', "estilos.css");
-    echo '<meta http-equiv="refresh" content="0.1; url=http://172.17.15.6/mikels">';
+    // echo "--------->".$_SERVER['REQUEST_URI'];
+    // echo '<meta http-equiv="refresh" content="0.1; url=http://212.142.193.210:16001/"' . $_SERVER['REQUEST_URI'] . '">';
 }
 ?>
 <link rel="stylesheet" href="css/normalize.css">
@@ -55,5 +56,50 @@ if ($_SERVER['REQUEST_URI'] == "/mikels/index.php") {
     $cont = $_COOKIE['contador'] + 1;
     setcookie("contador", $cont);
 }
+
+
+$correofrom = "mikelseara11@gmail.com";
+$para = "mikelseara25@gmail.com";
+$titulo = "hola";
+
+if (!isset($_POST['nombre']) and !isset($_POST['mail'])) {
+    $nombre = "";
+    $mail = "mail";
+} else {
+    $nombre = $_POST['nombre'];
+    $mail = $_POST['mail'];
+}
+
+$mensaje = '
+        <html>
+        <head>
+          <title>Correo enviado mediante la orden mail</title>
+        </head>
+        <body>
+        <p></p>
+          <header style="background:rgb(221, 230, 231);"><span style="margin-left:50%; padding-top:2em; padding-bottom:2em;">Mikel Seara</span></header>
+          <main style="width:50%; margin:auto;">Estimad@ ' . $nombre . ' <br> hemos recibido su solicitud de información</main>
+          <footer style="background:rgb(116, 116, 116);">Copyrigth | Mikel Seara</footer>
+         </body>
+        </html>
+        ';
+
+use PHPMailer\PHPMailer\PHPMailer;
+echo "----->".$mail;
+require '../../vendor/autoload.php';
+// $mensaje = 'Hola que tal';
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->SMTPDebug = 2;
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPAuth = true;
+$mail->Username = 'mikelseara11@gmail.com';
+$mail->Password = '';
+$mail->setFrom('mikelseara11@gmail.com', 'mikel');
+// $mail->addReplyTo('mikelseara11@gmail.com', 'mikel');
+$mail->addAddress($mail, 'mikel');
+$mail->Subject = 'Testing PHPMailer';
+$mail->msgHTML($mensaje);
 
 ?>
