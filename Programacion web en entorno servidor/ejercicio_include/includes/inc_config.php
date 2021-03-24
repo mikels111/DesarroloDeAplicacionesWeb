@@ -62,15 +62,12 @@ $correofrom = "mikelseara11@gmail.com";
 $para = "mikelseara25@gmail.com";
 $titulo = "hola";
 
-if (!isset($_POST['nombre']) and !isset($_POST['mail'])) {
-    $nombre = "";
-    $mail = "mail";
-} else {
-    $nombre = $_POST['nombre'];
-    $mail = $_POST['mail'];
-}
+use PHPMailer\PHPMailer\PHPMailer;
 
-$mensaje = '
+require '../../vendor/autoload.php';
+
+if (isset($_POST['nombre']) and isset($_POST['mail'])) {
+    $mensaje = '
         <html>
         <head>
           <title>Correo enviado mediante la orden mail</title>
@@ -78,28 +75,24 @@ $mensaje = '
         <body>
         <p></p>
           <header style="background:rgb(221, 230, 231);"><span style="margin-left:50%; padding-top:2em; padding-bottom:2em;">Mikel Seara</span></header>
-          <main style="width:50%; margin:auto;">Estimad@ ' . $nombre . ' <br> hemos recibido su solicitud de información</main>
+          <main style="width:50%; margin:auto;">Estimad@ ' . $_POST['nombre'] . ' <br> hemos recibido su solicitud de información</main>
           <footer style="background:rgb(116, 116, 116);">Copyrigth | Mikel Seara</footer>
          </body>
         </html>
         ';
-
-use PHPMailer\PHPMailer\PHPMailer;
-echo "----->".$mail;
-require '../../vendor/autoload.php';
-// $mensaje = 'Hola que tal';
-$mail = new PHPMailer;
-$mail->isSMTP();
-$mail->SMTPDebug = 2;
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->SMTPAuth = true;
-$mail->Username = 'mikelseara11@gmail.com';
-$mail->Password = '';
-$mail->setFrom('mikelseara11@gmail.com', 'mikel');
-// $mail->addReplyTo('mikelseara11@gmail.com', 'mikel');
-$mail->addAddress($mail, 'mikel');
-$mail->Subject = 'Testing PHPMailer';
-$mail->msgHTML($mensaje);
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 2;
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPAuth = true;
+    $mail->Username = 'mikelseara11@gmail.com';
+    $mail->Password = '';
+    $mail->setFrom('mikelseara11@gmail.com', 'mikel');
+    // $mail->addReplyTo('mikelseara11@gmail.com', 'mikel');
+    $mail->addAddress($_POST['mail'], 'mikel');
+    $mail->Subject = 'Testing PHPMailer';
+    $mail->msgHTML($mensaje);
+}
 
 ?>
