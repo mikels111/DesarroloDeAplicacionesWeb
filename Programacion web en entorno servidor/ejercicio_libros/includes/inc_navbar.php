@@ -26,7 +26,7 @@
                 </ul>
             </div>
         </div>
-        <button style="margin-right:1em;" type="button" class="btn btn-dark">Dark</button>
+        <button style="margin-right:1em;" type="button" class="btn btn-dark">Usuario</button>
     </nav>
 </body>
 
