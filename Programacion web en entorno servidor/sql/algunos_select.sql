@@ -5,3 +5,7 @@ SELECT employees.first_name FROM employees, dept_emp WHERE employees.emp_no=dept
 SELECT employees.first_name,employees.last_name,salaries.salary,salaries.from_date,salaries.to_date FROM salaries,employees WHERE employees.emp_no=10001 AND employees.emp_no=salaries.emp_no ORDER BY salaries.from_date DESC;
 
 SELECT DISTINCT salaries.emp_no FROM salaries WHERE salaries.salary=(SELECT MAX(salary) FROM salaries);
+
+SELECT DISTINCT(dept_manager.emp_no), employees.first_name, employees.last_name, departments.dept_name
+FROM dept_manager,employees, departments
+WHERE dept_manager.emp_no=employees.emp_no AND dept_manager.dept_no=departments.dept_no;
