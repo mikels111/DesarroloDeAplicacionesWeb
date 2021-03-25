@@ -9,6 +9,11 @@ SELECT employees.first_name,employees.last_name,salaries.salary,salaries.from_da
 --OBTENER LOS 5 MAYORES SALARIOS DE PERSONAS DISTINTAS.
 SELECT DISTINCT(salaries.emp_no) FROM salaries WHERE salaries.salary=(SELECT MAX(salary) FROM salaries);
 
+SELECT MAX(salaries.salary), salaries.emp_no
+FROM salaries
+GROUP BY salaries.emp_no 
+LIMIT 5;
+
 
 --OBTENER LA LISTA DE TODOS LOS JEFES ACTUALES (NOMBRE, APELLIDO, NOMBRE DEPARTAMENTO) 
 SELECT DISTINCT(dept_manager.emp_no), employees.first_name, employees.last_name, departments.dept_name
