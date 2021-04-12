@@ -16,7 +16,7 @@ if (!isset($_COOKIE['tema'])) {
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 
 <?php
-function recogerVar($variable)
+function recogerVar($variable, $mail = false)
 {
     $variable = trim($variable);
     $variable = stripslashes($variable);
@@ -26,7 +26,26 @@ function recogerVar($variable)
         if (is_numeric($variable)) {
             return false;
         } else {
-            return true;
+            if ($mail) {
+                if (filter_var($variable, FILTER_VALIDATE_EMAIL)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        }
+    } else {
+        return false;
+    }
+}
+
+function recogerPassword($password_form)
+{
+    if (strlen($password_form) > 0) {
+        if (is_numeric($variable)) {
+            return false;
         }
     } else {
         return false;
@@ -44,6 +63,61 @@ function recogerVarNum($numero)
     } else {
         return false;
     }
+}
+
+function registro($nombre, $apellidos, $correo, $password)
+{
+    include("includes/pdo/conexion.php");
+    $query = "INSERT INTO USUARIOS(nombre,email) VALUES ('mikel','mikelseara11@gmail.com')";
+    // $mbd=query($query);
+    try {
+        $consulta=$mbd->prepare($query);
+        $consulta->execute();
+        var_dump($consulta);
+
+        // echo $consulta;
+        // foreach ($mbd->query($query) as $fila) {
+        //     echo "resultados " . count($fila);
+        //     if ($fila == 0) {
+        //         echo "no resultados";
+        //     } else {
+        //         foreach ($fila as $key => $valor) {
+        //             echo "<p>$key = $valor</p>";
+        //         }
+        //     }
+        //     // echo "fila-->".$fila;
+        //     // echo "mbd-->".$mbd;
+        //     // echo "-->" . count($mbd->query($query));
+
+        // }
+
+
+        //echo $mbd;
+        $mbd = null;
+    } catch (PDOException $e) {
+        print "¡Error!: " . $e->getMessage() . "<br/>";
+        die();
+    }
+
+    // try {
+    //     foreach ($mbd->query($query) as $fila) {
+    //         echo '<tr style="border:solid;border-width: thin;">';
+    //         ///* bloque foreach 
+    //         foreach ($fila as $key => $valor) {
+    //             echo "<td style='border:solid;border-width: thin;'>$key = $valor</td>";
+    //         }
+    //         //fin bloque foreach */
+
+    //         /*  vista en tabla
+    //     echo '<td>' . $fila['id'] . '</td><td>' .  $fila['nombre'] . '</td><td>' .$fila['ip'] . '</td><td>' .$fila['fecha'] . '</td><td>' . $fila['horaini'] . '</td><td>' . $fila['idusuario'] . '</td>';
+
+    //     echo '</tr>';
+    //     */
+    //         //print_r ($fila);
+    //     }
+    // } catch (\Throwable $th) {
+    //     //throw $th;
+    // }
 }
 
 setcookie("ultima_pagina", $_SERVER['REQUEST_URI'], time() + 60 * 60 * 24 * 30);

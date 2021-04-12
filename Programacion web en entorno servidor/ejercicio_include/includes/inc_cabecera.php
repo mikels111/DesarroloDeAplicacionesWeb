@@ -12,6 +12,7 @@
             <a id="sesiones" href="sesiones.php">Sesiones</a>
             <a id="cambio_tema" href="tema.php">Cambiar tema</a>
             <a id="mail" href="mail.php">mail</a>
+            <a id="registro" href="registro.php">Registro</a>
         </nav>
     </div>
     

@@ -22,7 +22,7 @@
             $html = '';
             $css = '';
             $js = '';
-            $php = '';
+            $php = '';  
             $java = '';
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 /* recoger variables del formulario */
