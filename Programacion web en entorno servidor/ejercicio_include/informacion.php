@@ -21,6 +21,7 @@
 
         
     </div>
+    <?php include("includes/inc_pie.php")?>
 </body>
 
 </html>

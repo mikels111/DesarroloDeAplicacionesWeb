@@ -7,7 +7,7 @@ SELECT employees.first_name
 FROM employees, dept_emp 
 WHERE employees.emp_no=dept_emp.emp_no AND 
 dept_emp.dept_no='D003' AND 
-dept_emp.to_date = '9999-01-01';
+dept_emp.to_date LIKE '9999-01-01';
 
 --OBTERNER LAS NOMINAS DE UN EMPLEADO ORDENADAS POR FECHA. (nOMBRE APELLIDO, NOMINA FROM_DATE TO_DATE)
 
@@ -28,21 +28,8 @@ SELECT DISTINCT(dept_manager.emp_no), employees.first_name, employees.last_name,
 FROM dept_manager,employees, departments
 WHERE dept_manager.emp_no=employees.emp_no AND dept_manager.dept_no=departments.dept_no AND dept_manager.to_date='9999-01-01';
 
-
--- obtener todos los puestos en los que ha trabajado el empleado 10010 ordenado por fecha
-SELECT employees.first_name, departments.dept_name, dept_emp.from_date,dept_emp.to_date 
-FROM employees,departments,dept_emp 
-WHERE employees.emp_no=10010 AND employees.emp_no=dept_emp.emp_no AND dept_emp.dept_no=departments.dept_no 
-ORDER BY dept_emp.from_date
-
---obtener todos los empleados ingenieros actuales
-SELECT employees.first_name, employees.emp_no, titles.title, dept_emp.from_date, dept_emp.to_date 
-FROM employees,dept_emp,titles 
-WHERE employees.emp_no=dept_emp.emp_no AND titles.to_date='9999-01-01' AND titles.emp_no=employees.emp_no AND titles.title='Engineer'
-
 --Suma de todos los salarios de cada empleado
 SELECT SUM(salaries.salary), salaries.emp_no, employees.first_name
 FROM salaries,employees
 WHERE employees.emp_no=salaries.emp_no
 GROUP BY salaries.emp_no
-

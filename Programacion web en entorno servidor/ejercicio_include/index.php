@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_URI'] != "/mikels/ejercicio_include/index.php") {
 
         
     </div>
+    <?php include("includes/inc_pie.php")?>
 </body>
 
 </html>

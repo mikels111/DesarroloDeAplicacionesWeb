@@ -1,6 +1,6 @@
 <header>
     <div id="cabecera">
-        <img id="logo" src="img/logo.png" alt="logo">
+        <img id="logo" src="img/logophp.ico" alt="logo">
         <nav id="div_navegador">
             <a id="inicio" href="index.php">Inicio</a>
             <a id="info" href="informacion.php">Información</a>

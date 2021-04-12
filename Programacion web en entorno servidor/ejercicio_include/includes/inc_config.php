@@ -67,57 +67,36 @@ function recogerVarNum($numero)
 
 function registro($nombre, $apellidos, $correo, $password)
 {
-    include("includes/pdo/conexion.php");
-    $query = "INSERT INTO USUARIOS(nombre,email) VALUES ('mikel','mikelseara11@gmail.com')";
-    // $mbd=query($query);
+
+    $insert = "INSERT INTO usuarios(nombre,apellidos,email,password) VALUES ('" . $nombre . "','" . $apellidos . "','" . $correo . "','" . $password . "')";
+    $consulta = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
+    $consulta2 = "SELECT * FROM usuarios WHERE nombre='" . $nombre . "'";
     try {
-        $consulta=$mbd->prepare($query);
-        $consulta->execute();
-        var_dump($consulta);
+        include("includes/pdo/conexion.php");
+        $result = $mbd->query($consulta);
+        $result2 = $mbd->query($consulta2);
 
-        // echo $consulta;
-        // foreach ($mbd->query($query) as $fila) {
-        //     echo "resultados " . count($fila);
-        //     if ($fila == 0) {
-        //         echo "no resultados";
-        //     } else {
-        //         foreach ($fila as $key => $valor) {
-        //             echo "<p>$key = $valor</p>";
-        //         }
-        //     }
-        //     // echo "fila-->".$fila;
-        //     // echo "mbd-->".$mbd;
-        //     // echo "-->" . count($mbd->query($query));
+        if ($result->rowCount() > 0) {
+            echo "Dirección de correo electronico en uso ";
+            return false;
+        } else {
+            if ($result2->rowCount() > 0) {
+                echo "Nombre de usuario en uso";
+                return false;
+            } else {
+                if ($mbd->query($insert) == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
 
-        // }
-
-
-        //echo $mbd;
         $mbd = null;
     } catch (PDOException $e) {
         print "¡Error!: " . $e->getMessage() . "<br/>";
         die();
     }
-
-    // try {
-    //     foreach ($mbd->query($query) as $fila) {
-    //         echo '<tr style="border:solid;border-width: thin;">';
-    //         ///* bloque foreach 
-    //         foreach ($fila as $key => $valor) {
-    //             echo "<td style='border:solid;border-width: thin;'>$key = $valor</td>";
-    //         }
-    //         //fin bloque foreach */
-
-    //         /*  vista en tabla
-    //     echo '<td>' . $fila['id'] . '</td><td>' .  $fila['nombre'] . '</td><td>' .$fila['ip'] . '</td><td>' .$fila['fecha'] . '</td><td>' . $fila['horaini'] . '</td><td>' . $fila['idusuario'] . '</td>';
-
-    //     echo '</tr>';
-    //     */
-    //         //print_r ($fila);
-    //     }
-    // } catch (\Throwable $th) {
-    //     //throw $th;
-    // }
 }
 
 setcookie("ultima_pagina", $_SERVER['REQUEST_URI'], time() + 60 * 60 * 24 * 30);

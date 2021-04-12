@@ -7,6 +7,7 @@ OBTENER LOS 5 MAYORES SALARIOS DE PERSONAS DISTINTAS.
 OBTENER LA LISTA DE TODOS LOS JEFES ACTUALES (NOMBRE, APELLIDO, NOMBRE DEPARTAMENTO) 
 
 
-
-
+obtener todos los puestos en los que ha trabajado el empleado 10010 ordenado por fecha
+obtener todos los empleados ingenieros actuales
+mujeres del departamento de ventas que hayan ganado entre 50000 y 60000
  
