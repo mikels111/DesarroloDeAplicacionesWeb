@@ -45,7 +45,7 @@
 				?>
 				<form name="registro" method="post">
 					<p>Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo $nombre_form ?>" maxlength="30" /></p>
-					<p>Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo $apellido_form ?>" maxlength="30" /></p>
+					<p>Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo $apellido_form ?>" maxlength="30" /></p><p><?php echo $apellidos_form?></p>
 					<p>Email: <input type="text" name="correo" id="correo" value="<?php echo $email_form ?>" /></p>
 					<p>Contraseña: <input type="password" name="password" id="password" value="<?php echo $contrasena_form ?>" maxlength="9" /></p>
 					<?php echo $mensaje ?>
@@ -53,25 +53,16 @@
 				</form>
 			<?php
 			} else {
-
-				/*if(registro($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['password'])){
-						$mensaje = '<p>Registro completado</p>';
-					}else{
-						$mensaje = '<p>Error, registro no completado</p>';
-					}*/
-				
 				//hacer SELECT para mirar si está el registro
-				$registrar=registro($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['password']);
-
-				if($registrar){
-					echo "<p style='color:white; background:lightgreen;'>Registrado</p>";
-				}else{
-					echo ", intentalo de nuevo";
-				}
+				// $registrar=registro($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['password']);
+				registro2($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['password']);
+				// if($registrar){
+				// 	echo "<p style='color:white; background:lightgreen;'>Registrado</p>";
+				// }else{
+				// 	echo ", intentalo de nuevo";
+				// }
 				
-
-				$query = '';
-				echo $mensaje;
+				// echo $mensaje;
 			}
 			?>
 		</main>

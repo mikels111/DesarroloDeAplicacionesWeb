@@ -64,17 +64,18 @@ function recogerVarNum($numero)
     }
 }
 
+// Registro con PDO
 function registro($nombre, $apellidos, $correo, $password)
 {
-
     $insert = "INSERT INTO usuarios(nombre,apellidos,email,password) VALUES ('" . $nombre . "','" . $apellidos . "','" . $correo . "','" . $password . "')";
     $consulta = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
     $consulta2 = "SELECT * FROM usuarios WHERE nombre='" . $nombre . "'";
     try {
         include("includes/pdo/conexion.php");
+        //  La variable $mbd está en conexion.php
         $result = $mbd->query($consulta);
         $result2 = $mbd->query($consulta2);
-
+        // https://stackoverflow.com/questions/33795123/php-header-redirect-with-parameter-->(Para hacer redireccion con parametros)
         if ($result->rowCount() > 0) {
             echo "Dirección de correo electronico en uso ";
             return false;
@@ -97,6 +98,35 @@ function registro($nombre, $apellidos, $correo, $password)
         die();
     }
 }
+// Registro con MySQLi
+function registro2($nombre, $apellidos, $correo, $password)
+{
+    // Conexion a la base de datos con MySQLi
+    $servername = "localhost";
+    $username = "usuario1";
+    $passw = "usuario1";
+    $dbname = "Mikels";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $passw, $dbname);
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    echo "Connected successfully";
+
+    $sql = "INSERT INTO usuarios (nombre, apellidos, email, password)
+    VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Registrado correctamente";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
 
 setcookie("ultima_pagina", $_SERVER['REQUEST_URI'], time() + 60 * 60 * 24 * 30);
 
@@ -105,7 +135,7 @@ if ($_SERVER['REQUEST_URI'] == "/mikels/ejercicio_include/index.php") {
     if (isset($_COOKIE['contador'])) {
         $cont = $_COOKIE['contador'] + 1;
         setcookie("contador", $cont);
-    }else{
+    } else {
         setcookie("contador", 1);
     }
 }
