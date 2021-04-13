@@ -36,7 +36,7 @@ WHERE employees.emp_no=10010 AND employees.emp_no=dept_emp.emp_no AND dept_emp.d
 ORDER BY dept_emp.from_date
 
 --obtener todos los empleados ingenieros actuales
-SELECT employees.first_name, employees.emp_no, titles.title, dept_emp.from_date, dept_emp.to_date 
+SELECT DISTINCT employees.first_name as nombre, employees.emp_no as num_empleado, titles.title as titulo,titles.from_date as Ingeniero_desde, titles.to_date as Ingeniero_hasta
 FROM employees,dept_emp,titles 
 WHERE employees.emp_no=dept_emp.emp_no AND titles.to_date='9999-01-01' AND titles.emp_no=employees.emp_no AND titles.title='Engineer'
 

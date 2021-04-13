@@ -3,14 +3,13 @@ if (isset($_POST['tema'])) {
     setcookie('tema', $_POST['tema']);
     echo '<meta http-equiv="refresh" content="0.1; url="' . $_COOKIE['ultima_pagina'] . '">';
 }
-if (!isset($_COOKIE['tema'])) {
-    setcookie('tema', "estilos.css");
-    // echo "--------->".$_SERVER['REQUEST_URI'];
-    // echo '<meta http-equiv="refresh" content="0.1; url=http://212.142.193.210:16001/"' . $_SERVER['REQUEST_URI'] . '">';
-}
 ?>
 <link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/<?php echo $_COOKIE['tema'] ?>">
+<link rel="stylesheet" href="css/<?php if (isset($_COOKIE['tema'])) {
+                                        echo $_COOKIE['tema'];
+                                    } else {
+                                        echo 'estilos.css';
+                                    } ?>">
 <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
@@ -101,13 +100,14 @@ function registro($nombre, $apellidos, $correo, $password)
 
 setcookie("ultima_pagina", $_SERVER['REQUEST_URI'], time() + 60 * 60 * 24 * 30);
 
-if (!isset($_COOKIE['contador'])) {
-    setcookie("contador", 0);
-}
 
-if ($_SERVER['REQUEST_URI'] == "/mikels/index.php") {
-    $cont = $_COOKIE['contador'] + 1;
-    setcookie("contador", $cont);
+if ($_SERVER['REQUEST_URI'] == "/mikels/ejercicio_include/index.php") {
+    if (isset($_COOKIE['contador'])) {
+        $cont = $_COOKIE['contador'] + 1;
+        setcookie("contador", $cont);
+    }else{
+        setcookie("contador", 1);
+    }
 }
 
 
