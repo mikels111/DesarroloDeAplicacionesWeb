@@ -15,15 +15,29 @@ if (isset($_POST['tema'])) {
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 
 <?php
-function recogerVar($variable, $mail = false)
+//Patterns para los campos de registro
+$password_pattern = "/^(?=.*[!@#$%^&*-])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/"; // https://www.coding.academy/blog/how-to-use-regular-expressions-to-check-password-strength
+$user_pattern = "/^[A-Za-z][A-Za-z0-9]{5,31}$/";
+$fecha_pattern = "/^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/";
+$number_pattern = "/[0-9]{9}/";
+
+function filter($variable)
 {
     $variable = trim($variable);
     $variable = stripslashes($variable);
     $variable = htmlspecialchars($variable);
+    return $variable;
+}
 
+function recogerVar($variable, $mail = false, $telf = false, $fecha_nac = false)
+{
     if (strlen($variable) > 0) {
         if (is_numeric($variable)) {
-            return false;
+            if ($telf) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             if ($mail) {
                 if (filter_var($variable, FILTER_VALIDATE_EMAIL)) {
@@ -31,6 +45,8 @@ function recogerVar($variable, $mail = false)
                 } else {
                     return false;
                 }
+            } else if ($fecha_nac) {
+                return true;
             } else {
                 return true;
             }
@@ -99,7 +115,7 @@ function registro($nombre, $apellidos, $correo, $password)
     }
 }
 // Registro con MySQLi
-function registro2($nombre, $apellidos, $correo, $password)
+function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $telefono)
 {
     // Conexion a la base de datos con MySQLi
     $servername = "localhost";
@@ -114,17 +130,37 @@ function registro2($nombre, $apellidos, $correo, $password)
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "Connected successfully";
 
-    $sql = "INSERT INTO usuarios (nombre, apellidos, email, password)
-    VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "')";
+    // Registro
+    $correct_nombre = true;
+    $correct_mail = true;
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Registrado correctamente";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+    $sql = "SELECT * FROM usuarios WHERE login='" . $nombre . "'";
+    $sql2 = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
+    $result = $conn->query($sql);
+    $result2 = $conn->query($sql2);
+
+    if ($result->num_rows > 0) {
+        echo "Ese usuario ya existe";
+        $correct_nombre = false;
+    }
+    if ($result2->num_rows > 0) {
+        echo "Esa dirección de correo electronico ya existe";
+        $correct_mail = false;
     }
 
+    if ($correct_nombre and $correct_mail) {
+        $sql = "INSERT INTO usuarios (nombre, apellidos, email, password,)
+        VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Registro completado</p>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    } else {
+        header("Location: registro.php?registro=" . false);
+    }
     $conn->close();
 }
 
