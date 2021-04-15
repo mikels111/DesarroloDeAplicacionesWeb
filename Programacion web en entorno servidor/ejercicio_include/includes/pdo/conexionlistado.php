@@ -2,9 +2,14 @@
 
 try {
     include("conexion.php");
-    $query = 'SELECT * from conexion';
+    $query = 'SELECT * from usuarios';
     echo '<table style="border:solid;border-width: thin;">';
+    $result = $mbd->query($query);
+    $valores = $result->fetch(PDO::FETCH_ASSOC);
+    echo $valores["id"];
+
     foreach($mbd->query($query) as $fila) {
+    echo $fila[0];
        echo '<tr style="border:solid;border-width: thin;">';
        ///* bloque foreach 
        foreach ($fila as $key => $valor)

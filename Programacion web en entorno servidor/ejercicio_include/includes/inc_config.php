@@ -132,11 +132,14 @@ function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $t
     }
 
     // Registro
+    $token_confirmacion = bin2hex(random_bytes((20 - (20 % 2)) / 2));
+
     $correct_nombre = true;
     $correct_mail = true;
 
-    $sql = "SELECT * FROM usuarios WHERE login='" . $nombre . "'";
+    $sql = "SELECT * FROM usuarios WHERE login='" . $usuario . "'";
     $sql2 = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
+
     $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
 
@@ -150,11 +153,12 @@ function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $t
     }
 
     if ($correct_nombre and $correct_mail) {
-        $sql = "INSERT INTO usuarios (nombre, apellidos, email, password,)
-        VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "')";
+        $sql = "INSERT INTO usuarios (nombre, apellidos, email, password, login, fecha_nacimiento, num_tlf, token, estado)
+        VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "','" . $usuario . "','" . $fecha . "','" . $telefono . "','" . $token_confirmacion . "','N')";
 
         if ($conn->query($sql) === TRUE) {
             echo "<p>Registro completado</p>";
+            header("Location: registro_enviado.php?email=" . $correo."&token=" . $token_confirmacion);
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -181,9 +185,7 @@ $correofrom = "mikelseara11@gmail.com";
 $para = "mikelseara25@gmail.com";
 $titulo = "hola";
 
-use PHPMailer\PHPMailer\PHPMailer;
 
-require '../../vendor/autoload.php';
 
 if (isset($_POST['nombre']) and isset($_POST['mail'])) {
     $mensaje = '
@@ -199,19 +201,30 @@ if (isset($_POST['nombre']) and isset($_POST['mail'])) {
          </body>
         </html>
         ';
+}
+use PHPMailer\PHPMailer\PHPMailer;
+
+require '../../vendor/autoload.php';
+function mail_phpMailer($correo, $mensaje)
+{
+    
     $mail = new PHPMailer;
     $mail->isSMTP();
     $mail->SMTPDebug = 2;
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'mikelseara11@gmail.com';
-    $mail->Password = '';
-    $mail->setFrom('mikelseara11@gmail.com', 'mikel');
+    $mail->Username = 'mikelseara89@gmail.com';
+    $mail->Password = '1121rsnm';
+    $mail->setFrom('mikelseara89@gmail.com', 'mikel');
     // $mail->addReplyTo('mikelseara11@gmail.com', 'mikel');
-    $mail->addAddress($_POST['mail'], 'mikel');
-    $mail->Subject = 'Testing PHPMailer';
+    $mail->addAddress($correo, 'mikel');
+    $mail->Subject = 'Confirmar registro';
     $mail->msgHTML($mensaje);
+    if($mail->send()){
+        return true;
+    }else{
+        return false;
+    }
 }
-
 ?>

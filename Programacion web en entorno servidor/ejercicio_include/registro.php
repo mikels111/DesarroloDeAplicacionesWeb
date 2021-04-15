@@ -62,7 +62,7 @@
 					<p>Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo $apellido_form ?>" maxlength="30" /></p>
 					<p>Nombre de usuario: <input type="text" name="user" id="usuario" value="<?php echo $usuario_form ?>"></p>
 					<p>Email: <input type="text" name="correo" id="correo" value="<?php echo $email_form ?>" /></p>
-					<p>Contraseña: <input type="password" name="password" id="password" value="<?php echo $contrasena_form ?>" maxlength="9" /></p>
+					<p>Contraseña: <input type="password" name="password" id="password" value="<?php echo $contrasena_form ?>"/></p>
 					<p>Fecha de nacimiento <input type="date" name="fecha_nacimiento" id="nacimiento" value="<?php echo $fecha_nacimiento_form ?>"></p>
 					<p>Teléfono <input type="tel" name="telefono" id="telefono" value="<?php echo $telefono_form ?>"></p>
 					<?php echo $mensaje ?>
