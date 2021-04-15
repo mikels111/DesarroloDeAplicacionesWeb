@@ -42,6 +42,9 @@
 					$email_form = $_POST['correo'];
 					$apellido_form = $_POST['apellidos'];
 					$contrasena_form = $_POST['password'];
+					$usuario_form = $_POST['user'];
+					$fecha_nacimiento_form = $_POST['fecha_nacimiento'];
+					$telefono_form = $_POST['telefono'];
 					$verformulario = true;
 					$mensaje = '<p style="color:red;">Algun dato es erroneo</p>';
 				} else {

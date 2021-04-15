@@ -56,16 +56,16 @@ function recogerVar($variable, $mail = false, $telf = false, $fecha_nac = false)
     }
 }
 
-function recogerPassword($password_form)
-{
-    if (strlen($password_form) > 0) {
-        if (is_numeric($variable)) {
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
+// function recogerPassword($password_form)
+// {
+//     if (strlen($password_form) > 0) {
+//         if (is_numeric($variable)) {
+//             return false;
+//         }
+//     } else {
+//         return false;
+//     }
+// }
 function recogerVarNum($numero)
 {
     $numero = trim($numero);
