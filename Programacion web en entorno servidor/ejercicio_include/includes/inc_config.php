@@ -1,9 +1,17 @@
 <?php
+
+// composer require sentry/sdk;
+// Sentry\init(['dsn' => 'https://c45868751ba046648f972d80481db36a@o573209.ingest.sentry.io/5723488' ]);
+// throw new Exception("My first Sentry error!");
+
 if (isset($_POST['tema'])) {
     setcookie('tema', $_POST['tema']);
     echo '<meta http-equiv="refresh" content="0.1; url="' . $_COOKIE['ultima_pagina'] . '">';
 }
 ?>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/<?php if (isset($_COOKIE['tema'])) {
                                         echo $_COOKIE['tema'];
@@ -13,6 +21,7 @@ if (isset($_POST['tema'])) {
 <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
 
 <?php
 //Patterns para los campos de registro
@@ -115,57 +124,75 @@ function registro($nombre, $apellidos, $correo, $password)
     }
 }
 // Registro con MySQLi
+
 function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $telefono)
 {
-    // Conexion a la base de datos con MySQLi
-    $servername = "localhost";
-    $username = "usuario1";
-    $passw = "usuario1";
-    $dbname = "Mikels";
+    try {
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $passw, $dbname);
+        // Conexion a la base de datos con MySQLi
+        $servername = "localhost";
+        $username = "usuario1";
+        $passw = "usuario1";
+        $dbname = "Mikels";
 
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $passw, $dbname);
 
-    // Registro
-    $token_confirmacion = bin2hex(random_bytes((20 - (20 % 2)) / 2));
-
-    $correct_nombre = true;
-    $correct_mail = true;
-
-    $sql = "SELECT * FROM usuarios WHERE login='" . $usuario . "'";
-    $sql2 = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
-
-    $result = $conn->query($sql);
-    $result2 = $conn->query($sql2);
-
-    if ($result->num_rows > 0) {
-        echo "Ese usuario ya existe";
-        $correct_nombre = false;
-    }
-    if ($result2->num_rows > 0) {
-        echo "Esa dirección de correo electronico ya existe";
-        $correct_mail = false;
-    }
-
-    if ($correct_nombre and $correct_mail) {
-        $sql = "INSERT INTO usuarios (nombre, apellidos, email, password, login, fecha_nacimiento, num_tlf, token, estado)
-        VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "','" . $usuario . "','" . $fecha . "','" . $telefono . "','" . $token_confirmacion . "','N')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "<p>Registro completado</p>";
-            header("Location: registro_enviado.php?email=" . $correo."&token=" . $token_confirmacion);
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
         }
-    } else {
-        header("Location: registro.php?registro=" . false);
+
+        // REGISTRO
+
+        // Crear un token para la confirmacion de la cuenta
+        $token_confirmacion = bin2hex(random_bytes((20 - (20 % 2)) / 2));
+
+        // DateTime para guardar en la BD la fecha de alta
+        $fecha_alta = new DateTime();
+        $fecha_format = $fecha_alta->format('Y/m/d');
+
+        // Variables para saber si el usuario y el email existen en la BD
+        $correct_nombre = true;
+        $correct_mail = true;
+
+        // Sentencias SQL para consultar si el usuario y el correo existen
+        $sql = "SELECT * FROM usuarios WHERE login='" . $usuario . "'";
+        $sql2 = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
+
+        // Se guardan los resultados de las consultas anteriores en variables
+        $result = $conn->query($sql);
+        $result2 = $conn->query($sql2);
+
+        // Si alguna de las consultas devuelven más de una fila es que ya está en la BD
+        if ($result->num_rows > 0) {
+            echo "Ese usuario ya existe";
+            $correct_nombre = false;
+        }
+        if ($result2->num_rows > 0) {
+            echo "Esa dirección de correo electronico ya existe";
+            $correct_mail = false;
+        }
+        // Si el usuario y el email no estan registrados en la BD se procede con la inserción
+        if ($correct_nombre and $correct_mail) {
+            $sql = "INSERT INTO usuarios (nombre, apellidos, email, password, login, fecha_nacimiento, num_tlf, token, estado, fecha_alta)
+        VALUES ('" . $nombre . "', '" . $apellidos . "', '" . $correo . "','" . $password . "','" . $usuario . "','" . $fecha . "','" . $telefono . "','" . $token_confirmacion . "','N','" . $fecha_format . "')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "<p>Registro completado</p>";
+                header("Location: registro_enviado.php?email=" . $correo . "&token=" . $token_confirmacion);
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+                header("Location: registro.php?registro=" . true);
+            }
+        } else {
+            header("Location: registro.php?registro=" . false);
+        }
+        $conn->close();
+    } catch (PDOException $e) {
+        header("Location: registro.php?registro=" . true);
+        // Utilizar Sentry o alguno parecido para tener un seguimiento de los errores que ocurran
     }
-    $conn->close();
 }
 
 setcookie("ultima_pagina", $_SERVER['REQUEST_URI'], time() + 60 * 60 * 24 * 30);
@@ -202,12 +229,13 @@ if (isset($_POST['nombre']) and isset($_POST['mail'])) {
         </html>
         ';
 }
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 require '../../vendor/autoload.php';
 function mail_phpMailer($correo, $mensaje)
 {
-    
+
     $mail = new PHPMailer;
     $mail->isSMTP();
     $mail->SMTPDebug = 2;
@@ -221,9 +249,9 @@ function mail_phpMailer($correo, $mensaje)
     $mail->addAddress($correo, 'mikel');
     $mail->Subject = 'Confirmar registro';
     $mail->msgHTML($mensaje);
-    if($mail->send()){
+    if ($mail->send()) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }

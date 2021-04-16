@@ -13,7 +13,6 @@
 
 	<?php
 	include("includes/inc_cabecera.php");
-
 	?>
 	<div id="main_container">
 		<main>
@@ -21,6 +20,8 @@
 			if (isset($_REQUEST['registro'])) {
 				if ($_REQUEST['registro'] == false) {
 					echo "<p style='color:red;'>El nombre o el correo están en uso</p>";
+				}else{
+					echo "<p>Ha ocurrido un error, intentelo mas tarde</p>";
 				}
 			}
 			$nombre_form = $email_form = $apellido_form = $contrasena_form = $usuario_form = $fecha_nacimiento_form = $telefono_form = '';

@@ -16,6 +16,11 @@
         <main>
             <?php
             if (isset($_REQUEST['token'])) {
+                try {
+                    
+                } catch (PDOException $e) {
+
+                }
                 // Datos de la BD
                 $servername = "localhost";
                 $username = "usuario1";
@@ -35,9 +40,10 @@
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     $valor = $result->fetch_assoc();
-                    $user_id = $valor["id"];;
+                    $user_id = $valor["id"];
                     $sql = "UPDATE usuarios SET estado='A' WHERE id=" . $user_id;
                     $conn->query($sql);
+                    echo "Usuario confirmado, bienvenido";
                 }
             }
             ?>

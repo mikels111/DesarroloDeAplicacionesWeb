@@ -21,13 +21,13 @@
             </head>
                 <body>
                     <p></p>
-                    <header style="background:rgb(221, 230, 231);"></header>
-                        <div style="padding-top:2em; padding-bottom:2em;"><h2>Confirmación de registro</h2></div>
+                    <header></header>
+                        <div style="padding-top:2em; padding-bottom:2em;background:rgb(221, 230, 231);"><h2>Confirmación de registro</h2></div>
                     </header>
                       <main style="width:50%; margin:auto;">
-                        <h3>Para confirmar su registro haga click en este enlace: http://212.142.193.210:16001/mikels/ejercicio_include/registro_confirmar.php?token='.$_REQUEST["token"].'</h3>
+                        <a href="http://212.142.193.210:16001/mikels/ejercicio_include/registro_confirmar.php?token='.$_REQUEST["token"].'"><h3>Para confirmar su registro haga click aquí</h3></a>
                       </main>
-                      <footer style="color:white;background:rgb(116, 116, 116);">Copyrigth | Mikel Seara</footer>
+                      <footer style="color:white;background:rgb(116, 116, 116);">PHP | Mikel Seara</footer>
                 </body>
             </html>';
 

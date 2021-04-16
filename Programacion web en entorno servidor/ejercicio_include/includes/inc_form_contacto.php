@@ -1,6 +1,6 @@
 <form action="respuesta.php" method="post">
 <p>nombre: <input type="text" name="nombre" id="nombre" placeholder="nombre" required></p>
-<p>Email: <input type="email" name="email"></p>
+<p>Email: <input type="email" name="email" id="email"></p>
 
 <p>Año de nacimiento: <input type="number" name="ano" id="ano_nacimiento" min="1900" max="2003" required></p>
 <p>
