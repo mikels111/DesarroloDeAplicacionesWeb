@@ -21,28 +21,21 @@
         $result = $db->query($sql);
         $result_fetch_all = $result->fetchAll(PDO::FETCH_ASSOC);
         $cadena = "";
+        $id = "";
 
         include("includes/columnas.html");
         foreach ($result_fetch_all as $fila) {
             $last_item = array_key_last($fila);
-            echo "-->".$last_item."<--";
             $cadena = "";
             echo "<tr>";
             foreach ($fila as $key => $value) {
                 echo "<td>$value</td>";
-                // switch(key)-->devuelve:"id="<--y le encadenas $value
-                if (!empty($value)) {
-                    if ($key != $last_item) {
-                        $cadena = $cadena . "$key=$value&";
-                    }else{
-                        $cadena = $cadena . "$key=$value";
-                    }
+                if ($key == 'id') {
+                    $id = $value;
                 }
             }
-
-            echo $cadena;
             echo "
-            <td><a href='insert_update.php?" . $cadena . "'>Editar</a></td>
+            <td><a href='insert_update.php?id=" . $id . "'>Editar</a></td>
             <td><a href='insert_update.php'>Borrar</a></td>
 
             </tr>";
