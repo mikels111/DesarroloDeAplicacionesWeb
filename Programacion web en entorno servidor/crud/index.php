@@ -11,37 +11,39 @@
 <body>
     <?php
     include('includes/conexion.php');
-
-
-    // print_r($array_result);
     ?>
-    <table>
+    <table style="border:1px solid;">
         <?php
         $sql = 'SELECT * FROM usuarios';
         $result = $db->query($sql);
         $result_fetch_all = $result->fetchAll(PDO::FETCH_ASSOC);
-        $cadena = "";
         $id = "";
 
         include("includes/columnas.html");
+        include("includes/config.php");
+        
         foreach ($result_fetch_all as $fila) {
             $last_item = array_key_last($fila);
             $cadena = "";
-            echo "<tr>";
-            foreach ($fila as $key => $value) {
-                echo "<td>$value</td>";
-                if ($key == 'id') {
-                    $id = $value;
+            ?>
+            <tr>
+                <?php
+                    foreach ($fila as $key => $value) {
+                        echo "<td style='border:1px solid;'>$value</td>";
+                        if ($key == 'id') {
+                            $id = $value;
+                        }
+                    }
+                    ?>
+                <td><a href='insert_update.php?id=<?php echo $id ?>'>Editar</a></td>
+                <td><button onclick='
+                let confirm=window.confirm("¿Estás seguro de que quieres borrarlo?");
+                if(confirm){
+                    <?php borrar($id); ?>;
                 }
-            }
-            echo "
-            <td><a href='insert_update.php?id=" . $id . "'>Editar</a></td>
-            <td><a href='insert_update.php'>Borrar</a></td>
-
-            </tr>";
-        }
-        ?>
-
+                '>Borrar</button></td>
+            </tr>
+        <?php } ?>
     </table>
     <p><a href="insert_update.php">Insertar</a></p>
     <p><a href="excel.php">Generar Excel</a></p>

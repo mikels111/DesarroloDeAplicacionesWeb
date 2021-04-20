@@ -1,5 +1,4 @@
 <?php
-
 $dbname = 'Mikels';
 $usuario = 'usuario1';
 $clave = 'usuario1';
