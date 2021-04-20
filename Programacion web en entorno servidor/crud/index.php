@@ -19,9 +19,10 @@
         $result_fetch_all = $result->fetchAll(PDO::FETCH_ASSOC);
         $id = "";
 
+
         include("includes/columnas.html");
         include("includes/config.php");
-        
+        $var_json = borrar($id);
         foreach ($result_fetch_all as $fila) {
             $last_item = array_key_last($fila);
             $cadena = "";
@@ -37,9 +38,10 @@
                     ?>
                 <td><a href='insert_update.php?id=<?php echo $id ?>'>Editar</a></td>
                 <td><button onclick='
+                var my_var = <?php echo json_encode($var_json); ?>;
                 let confirm=window.confirm("¿Estás seguro de que quieres borrarlo?");
                 if(confirm){
-                    <?php borrar($id); ?>;
+                    print(my_var);
                 }
                 '>Borrar</button></td>
             </tr>
