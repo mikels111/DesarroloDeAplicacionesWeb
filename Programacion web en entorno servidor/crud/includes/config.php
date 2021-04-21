@@ -9,3 +9,4 @@ function borrar($id_borrar)
     $sql_borrar = "DELETE FROM usuarios WHERE id='" . $id_borrar . "'";
     $db_borrar->query($sql_borrar);
 }
+

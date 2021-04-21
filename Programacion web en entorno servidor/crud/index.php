@@ -25,19 +25,22 @@
         include("includes/config.php");
         $var_json = borrar($id);
         foreach ($result_fetch_all as $fila) {
-            $last_item = array_key_last($fila);
-        ?>
+            ?>
             <tr>
                 <?php
-                foreach ($fila as $key => $value) {
-                    echo "<td style='border:1px solid;'>$value</td>";
-                    if ($key == 'id') {
-                        $id = $value;
+                    foreach ($fila as $key => $value) {
+                        echo "<td style='border:1px solid;'>$value</td>";
+                        if ($key == 'id') {
+                            $id = $value;
+                        }
                     }
-                }
-                ?>
+                    ?>
                 <td><a href='insert_update.php?id=<?php echo $id ?>'>Editar</a></td>
-                <td><button onclick="borrar(<?php echo $id ?>)">Borrar</button></td>
+                <td><button onclick="
+                let confirm = window.confirm('¿Estas seguro de que quieres borrar el registro?');
+                if (confirm){
+                    borrar(<?php echo $id ?>);
+                }">Borrar</button></td>
                 <!-- https://code.tutsplus.com/es/tutorials/how-to-call-a-php-function-from-javascript--cms-36508 -->
             </tr>
         <?php } ?>
@@ -55,6 +58,9 @@
             }).done(function(msg) {
                 alert("Data Saved: " + msg);
             });
+        }
+        function editar(id){
+
         }
     </script>
 </body>

@@ -139,9 +139,9 @@ function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $t
         $conn = mysqli_connect($servername, $username, $passw, $dbname);
 
         // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+        // if (!$conn) {
+        //     die("Connection failed: " . mysqli_connect_error());
+        // }
 
         // REGISTRO
 
@@ -160,7 +160,7 @@ function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $t
         $sql = "SELECT * FROM usuarios WHERE login='" . $usuario . "'";
         $sql2 = "SELECT * FROM usuarios WHERE email='" . $correo . "'";
 
-        // Se guardan los resultados de las consultas anteriores en variables
+        // Se guardan los resultados de las consultas de arriba^ en variables
         $result = $conn->query($sql);
         $result2 = $conn->query($sql2);
 
@@ -191,7 +191,6 @@ function registro2($nombre, $apellidos, $correo, $password, $usuario, $fecha, $t
         $conn->close();
     } catch (PDOException $e) {
         header("Location: registro.php?registro=" . true);
-        // Utilizar Sentry o alguno parecido para tener un seguimiento de los errores que ocurran
     }
 }
 

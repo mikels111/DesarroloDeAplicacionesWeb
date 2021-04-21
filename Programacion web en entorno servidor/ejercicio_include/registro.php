@@ -25,6 +25,7 @@
 				}
 			}
 			$nombre_form = $email_form = $apellido_form = $contrasena_form = $usuario_form = $fecha_nacimiento_form = $telefono_form = '';
+			$nombre_error= $email_error= $apellido_error = $contrasena_error = $usuario_error = $usuario_error = $fecha_nacimiento_error = $telefono_error = '';
 			$verformulario = true;
 			$mensaje = '';
 			
@@ -51,21 +52,40 @@
 				} else {
 					$verformulario = false;
 				}
+				
+				if(!$nombre){
+					$nombre_error = "<p style='color:red;'>El nombre sólo puede contener caracteres alfanumericos</p>";
+				}
+				if(!$apellido){
+					$apellido_error = "<p style='color:red;'>El apellido sólo puede contener caracteres alfanumericos</p>";
+				}
+				if(!$email){
+					$email_error = "<p style='color:red;'>El email no es correcto</p>";
+				}
+				if(!$contrasena){
+					$contrasena_error = "<p style='color:red;'>La contraseña debe tener al menos 8 caracteres, uno de ellos mayuscula y otro un caracter especial(@,#,&,%...)</p>";
+				}
+				if(!$usuario){
+					$usuario_error = "<p style='color:red;'>El nombre de usuario debe tener como maximo 31 y como minimo 5 caracteres alfanumericos</p>";
+				}
+				if(!$fecha_nacimiento){
+					$fecha_nacimiento_error = "<p style='color:red;'>La fecha no es correcta</p>";
+				}
+				if(!$telefono){
+					$telefono_error = "<p style='color:red;'>El telefono debe tener 9 caracteres</p>";
+				}
 			}
 
 			if ($verformulario) {
 				?>
 				<form name="registro" method="post">
-					<p>Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo $nombre_form ?>" maxlength="30" /></p>
-					<p>
-						<!--variable de que el campo está mal introducido-->
-					</p>
-					<p>Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo $apellido_form ?>" maxlength="30" /></p>
-					<p>Nombre de usuario: <input type="text" name="user" id="usuario" value="<?php echo $usuario_form ?>"></p>
-					<p>Email: <input type="text" name="correo" id="correo" value="<?php echo $email_form ?>" /></p>
-					<p>Contraseña: <input type="password" name="password" id="password" value="<?php echo $contrasena_form ?>"/></p>
-					<p>Fecha de nacimiento <input type="date" name="fecha_nacimiento" id="nacimiento" value="<?php echo $fecha_nacimiento_form ?>"></p>
-					<p>Teléfono <input type="tel" name="telefono" id="telefono" value="<?php echo $telefono_form ?>"></p>
+					<p>Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo $nombre_form ?>" maxlength="30" /> <?php echo $nombre_error ?></p>
+					<p>Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo $apellido_form ?>" maxlength="30" /><?php echo $apellido_error ?></p>
+					<p>Nombre de usuario: <input type="text" name="user" id="usuario" value="<?php echo $usuario_form ?>"><?php echo $usuario_error ?></p>
+					<p>Email: <input type="text" name="correo" id="correo" value="<?php echo $email_form ?>" /><?php echo $email_error ?></p>
+					<p>Contraseña: <input type="password" name="password" id="password" value="<?php echo $contrasena_form ?>"/><?php echo $contrasena_error ?></p>
+					<p>Fecha de nacimiento <input type="date" name="fecha_nacimiento" id="nacimiento" value="<?php echo $fecha_nacimiento_form ?>"><?php echo $fecha_nacimiento_error ?></p>
+					<p>Teléfono <input type="tel" name="telefono" id="telefono" value="<?php echo $telefono_form ?>"><?php echo $telefono_error ?></p>
 					<?php echo $mensaje ?>
 					<input type="submit" value="Registro" />
 				</form>

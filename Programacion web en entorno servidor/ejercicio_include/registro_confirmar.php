@@ -16,11 +16,7 @@
         <main>
             <?php
             if (isset($_REQUEST['token'])) {
-                try {
-                    
-                } catch (PDOException $e) {
-
-                }
+                
                 // Datos de la BD
                 $servername = "localhost";
                 $username = "usuario1";

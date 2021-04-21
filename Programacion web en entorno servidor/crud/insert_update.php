@@ -11,18 +11,21 @@
 <body>
     <?php
     include('includes/conexion.php');
-    if(isset($_REQUEST['id'])){
-        $sql = 'SELECT * FROM usuarios WHERE id='.$_REQUEST['id'];
+    if (isset($_REQUEST['id'])) {
+        $sql = 'SELECT * FROM usuarios WHERE id=' . $_REQUEST['id'];
         $result = $db->query($sql);
         $result_fetch = $result->fetch(PDO::FETCH_ASSOC);
         print_r($result_fetch);
-        include('includes/formulario.php');
-    }else{
-        echo "<h2>Pagina no encontrada</h2>";
-        include('includes/formulario.php');
-    }
-    ?>
-    
+        ?>
+        <form action="update.php" method="post">
+            <?php include('includes/formulario.php'); ?>
+        </form>
+    <?php } else { ?>
+        <form action="insert.php" method="get">
+            <?php include('includes/formulario.php'); ?>
+        </form>
+    <?php } ?>
+
 </body>
 
 </html>
