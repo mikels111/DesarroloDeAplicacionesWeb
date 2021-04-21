@@ -25,7 +25,6 @@
         $var_json = borrar($id);
         foreach ($result_fetch_all as $fila) {
             $last_item = array_key_last($fila);
-            $cadena = "";
             ?>
             <tr>
                 <?php
@@ -37,18 +36,14 @@
                     }
                     ?>
                 <td><a href='insert_update.php?id=<?php echo $id ?>'>Editar</a></td>
-                <td><button onclick='
-                var my_var = <?php echo json_encode($var_json); ?>;
-                let confirm=window.confirm("¿Estás seguro de que quieres borrarlo?");
-                if(confirm){
-                    print(my_var);
-                }
-                '>Borrar</button></td>
+                <td><button onclick="borrar(<?php echo $id?>)">Borrar</button></td>
+                <!-- https://code.tutsplus.com/es/tutorials/how-to-call-a-php-function-from-javascript--cms-36508 -->
             </tr>
         <?php } ?>
     </table>
     <p><a href="insert_update.php">Insertar</a></p>
     <p><a href="excel.php">Generar Excel</a></p>
+    <script src="js/borrar.js"></script>
 </body>
 
 </html>
