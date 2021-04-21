@@ -21,7 +21,6 @@
         echo "<h2>Pagina no encontrada</h2>";
         include('includes/formulario.php');
     }
-    
     ?>
     
 </body>
