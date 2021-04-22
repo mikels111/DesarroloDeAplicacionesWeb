@@ -17,14 +17,20 @@
         $result_fetch = $result->fetch(PDO::FETCH_ASSOC);
         print_r($result_fetch);
         ?>
-        <form action="update.php" method="post">
+        <form action="update.php" method="get">
+            <input type="hidden" name="id" value="<?php echo $_REQUEST['id']?>">
             <?php include('includes/formulario.php'); ?>
+            <input type="submit" value="Continuar">
         </form>
     <?php } else { ?>
         <form action="insert.php" method="get">
             <?php include('includes/formulario.php'); ?>
+            <input type="submit" value="Continuar">
         </form>
-    <?php } ?>
+    <?php } 
+    
+    
+    ?>
 
 </body>
 

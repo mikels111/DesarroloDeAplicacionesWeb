@@ -50,4 +50,3 @@
     <label for="fecha_token">Fecha de token</label>
     <input type="text" name="fecha_token" value="<?php if (isset($result_fetch['fecha_token'])) echo $result_fetch['fecha_token'] ?>">
 </p>
-<input type="submit" value="Continuar">
