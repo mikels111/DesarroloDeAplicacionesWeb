@@ -11,18 +11,23 @@
 
 <body>
     <?php
+    if (isset($_GET['excel'])) {
+        $filename = 'Usuario_' . date("Ymdhis") . '.xls';
+        header("Content-Type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=\"$filename\"");
+    }
     include('includes/conexion.php');
 
-    if(isset($_REQUEST['update'])){
-        if($_REQUEST['update']){
+    if (isset($_REQUEST['update'])) {
+        if ($_REQUEST['update']) {
             echo "<h2>actualizado</h2>";
-        }else{
+        } else {
             echo "<h2>No actualizado</h2>";
         }
-    }else if(isset($_REQUEST['insert'])){
-        if($_REQUEST['insert']){
+    } else if (isset($_REQUEST['insert'])) {
+        if ($_REQUEST['insert']) {
             echo "<h2>Usuario insertado</h2>";
-        }else{
+        } else {
             echo "<h2>Usuario NO insertado</h2>";
         }
     }
@@ -60,7 +65,7 @@
         <?php } ?>
     </table>
     <p><a href="insert_update.php">Insertar</a></p>
-    <p><a href="excel.php">Generar Excel</a></p>
+    <p><a href="index.php?excel=s">Generar Excel</a></p>
     <script>
         function borrar(id) {
             $.ajax({
@@ -70,11 +75,8 @@
                     id: id
                 }
             }).done(function(msg) {
-                alert("Data Saved: " + msg);
+                window.location="index.php";
             });
-        }
-        function editar(id){
-
         }
     </script>
 </body>
