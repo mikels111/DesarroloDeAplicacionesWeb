@@ -1,3 +1,18 @@
+/* Navegador */
 .navbar{
-    background-color: black;
+    /* background-color: rgb(107, 171, 255); */
+    background-color: rgb(223, 152, 95);
+}
+.container-fluid{/*Bootstrap*/
+    padding-left: 350px;
+}
+/* Contenido central */
+#ms-main{
+    min-height: 1000px;
+}
+/* flexbox peliculas */
+#ms-content-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

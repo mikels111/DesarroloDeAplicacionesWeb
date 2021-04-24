@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="img/popcorn.svg" alt="" width="30" height="24">
