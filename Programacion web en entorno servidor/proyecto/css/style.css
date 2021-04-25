@@ -1,39 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-body{
+body {
     font-family: 'Open Sans', sans-serif;
 }
+
+
 /* Navegador */
-.navbar{
+
+.navbar {
+    /*Bootstrap*/
     /* background-color: rgb(107, 171, 255); */
     background-color: rgb(223, 152, 95);
-    box-shadow:  0px 0px 20px gray;
+    box-shadow: 0px 0px 20px gray;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
-.container-fluid{/*Bootstrap*/
+
+.container-fluid {
+    /*Bootstrap*/
     width: 1200px;
 }
-#titulo{
-    background-color: rgb(223, 152, 95);
-    margin:auto;
-}
+
+
 /* Contenido central */
-#ms-main{
-    
-    padding-top: 20px;
+
+.titulo {
+    background-color: rgb(223, 152, 95);
+    margin: 30px 0 30px 44%;
+}
+
+#ms-main {
+    padding-top: 67px;
     padding-bottom: 20px;
     min-height: 900px;
     background-color: lightgrey;
 }
-#ms-content{
+
+#ms-content {
     box-shadow: 0px 0px 20px grey;
     padding-top: 30px;
     max-width: 1250px;
-    margin:0 auto;
+    margin: 0 auto;
     background-color: white;
     min-height: 900px;
 }
 
+
 /* flexbox peliculas */
-#ms-film-flexbox{
+
+#ms-film-flexbox {
     /* padding:5px 10px 30px 10px; */
     margin-left: 90px;
     display: flex;
@@ -41,22 +58,84 @@ body{
     justify-content: flex-start;
     align-content: flex-start;
 }
-.card{/*bootstrap*/
-    margin:0 10px 10px 10px;
+
+.card {
+    /*bootstrap*/
+    margin: 0 10px 10px 10px;
 }
+
+
+/* Botones de consulta de horarios */
+
+.btn-horarios {
+    padding: 5px 5px;
+}
+
+
 /* Footer */
-footer{
-  background-color: #1b1e1f;
-  border:1px solid #333;
-  color: #d1d4d6;
-  text-align: center;
-  margin:0 auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  box-shadow:  0px 0px 40px gray;
+
+footer {
+    background-color: #1b1e1f;
+    border: 1px solid #333;
+    color: #d1d4d6;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 40px gray;
 }
-#ms-div-footer{
+
+#ms-div-footer {
     /* margin:50% 0 50% 0; */
-    
-    
+}
+
+
+/* Flexbox media query */
+
+@media only screen and (max-width: 1227px) {
+    #ms-film-flexbox {
+        margin-left: 75px;
+    }
+}
+
+@media only screen and (max-width: 1183px) {
+    #ms-film-flexbox {
+        margin-left: 35px;
+    }
+}
+
+@media only screen and (max-width: 1095px) {
+    #ms-film-flexbox {
+        margin-left: 125px;
+    }
+}
+
+@media only screen and (max-width: 1010px) {
+    #ms-film-flexbox {
+        margin-left: 75px;
+    }
+}
+
+@media only screen and (max-width: 922px) {
+    #ms-film-flexbox {
+        margin-left: 115px;
+    }
+}
+
+@media only screen and (max-width: 826px) {
+    #ms-film-flexbox {
+        margin-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 753px) {
+    #ms-film-flexbox {
+        margin-left: 50px;
+    }
+}
+
+@media only screen and (max-width: 686px) {
+    #ms-film-flexbox {
+        margin-left: 120px;
+    }
 }

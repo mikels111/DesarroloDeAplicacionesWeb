@@ -11,14 +11,9 @@
 <body>
     <?php
     include('includes/conexion.php');
-    if (isset($_REQUEST['id'])) {
-        $sql = 'SELECT * FROM usuarios WHERE id=' . $_REQUEST['id'];
-        $result = $db->query($sql);
-        $result_fetch = $result->fetch(PDO::FETCH_ASSOC);
-        print_r($result_fetch);
-        ?>
+    if (isset($_REQUEST['id'])) { ?>
         <form action="update.php" method="get">
-            <input type="hidden" name="id" value="<?php echo $_REQUEST['id']?>">
+            <input type="hidden" name="id" value="<?php echo $_REQUEST['id'] ?>">
             <?php include('includes/formulario.php'); ?>
             <input type="submit" value="Continuar">
         </form>
@@ -27,9 +22,9 @@
             <?php include('includes/formulario.php'); ?>
             <input type="submit" value="Continuar">
         </form>
-    <?php } 
-    
-    
+    <?php }
+
+
     ?>
 
 </body>

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img style="margin-left:40%;" src="img/popcorn.svg" alt="" width="30" height="24">
+            <img style="margin-left:30%;" src="img/popcorn.svg" alt="" width="30" height="24">
             <h6>Cartelera</h6>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
