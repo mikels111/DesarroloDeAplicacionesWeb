@@ -13,6 +13,14 @@
             <span class="badge bg-primary titulo">
                 <h4>Películas</h4>
             </span>
+            <p>
+                <label for="fecha">Fecha:</label>
+                <select name="fecha" id="fecha" class="form-select-sm">
+                    <option value="fecha1">01-05-2021</option>
+                    <option value="fecha1">06-05-2021</option>
+                </select>
+
+            </p>
             <div id="ms-film-flexbox">
                 <div class="card" style="width: 12rem;">
                     <img src="img/peli1.jpg" class="img-fluid" alt="pelic">

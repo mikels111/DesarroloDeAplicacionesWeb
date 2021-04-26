@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="manejo_fichero.php">Manejo de ficheros</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="decode_json.php">Json</a>
+                        </li>
                     </ul>
                 </div>
             </div>
