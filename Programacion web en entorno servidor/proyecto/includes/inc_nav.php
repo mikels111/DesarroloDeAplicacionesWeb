@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="#">Login</a>
+                    <a class="nav-link text-light" aria-current="page" href="login.php">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#">Acerca</a>

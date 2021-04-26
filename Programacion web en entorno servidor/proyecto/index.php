@@ -9,7 +9,7 @@
     <?php include('includes/inc_nav.php') ?>
     <div id="ms-main">
         <div id="ms-content">
-            <?php include('includes/corousel.php') ?>
+            <?php include('includes/carousel.php') ?>
             <span class="badge bg-primary titulo">
                 <h4>Películas</h4>
             </span>
