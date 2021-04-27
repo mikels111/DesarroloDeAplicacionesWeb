@@ -6,4 +6,5 @@
 <link rel="stylesheet" href="css/dist/css/bootstrap.css">
 <script src="css/dist/js/bootstrap.js"></script>
 <link rel="stylesheet" href="css/style.css">
-<title><?php echo "nombre pagina de url";?></title>
+<link rel="shortcut icon" href="img/popcorn.ico" type="image/x-icon">
+<title>Cartelera</title>

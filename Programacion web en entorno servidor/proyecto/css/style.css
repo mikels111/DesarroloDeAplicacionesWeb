@@ -3,7 +3,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-
 /* Navegador */
 
 .navbar {
@@ -23,7 +22,6 @@ body {
     width: 1200px;
 }
 
-
 /* Contenido central */
 
 .titulo {
@@ -31,14 +29,14 @@ body {
     margin: 30px 0 30px 44%;
 }
 
-#ms-main {
+.ms-main {
     padding-top: 67px;
     padding-bottom: 20px;
     min-height: 900px;
     background-color: lightgrey;
 }
 
-#ms-content {
+.ms-content {
     box-shadow: 0px 0px 20px grey;
     padding-top: 30px;
     max-width: 1250px;
@@ -47,7 +45,16 @@ body {
     min-height: 900px;
 }
 
+/* Contenido central Detalle pelicula */
 
+.ms-detalle-film {
+    margin: 50px;
+}
+.ms-peli_detalle {
+    width: 251px;
+    height: 378px;
+    border-radius: 10px;
+}
 /* flexbox peliculas */
 
 #ms-film-flexbox {
@@ -64,17 +71,13 @@ body {
     margin: 0 10px 10px 10px;
 }
 
-
 /* Botones de consulta de horarios */
 
 .btn-horarios {
     padding: 5px 5px;
 }
 
-.ms-peli_detalle{
-    width: 350px;
-    height: 510px;
-}
+
 
 /* Footer */
 
@@ -92,7 +95,6 @@ footer {
 #ms-div-footer {
     /* margin:50% 0 50% 0; */
 }
-
 
 /* Flexbox media query */
 

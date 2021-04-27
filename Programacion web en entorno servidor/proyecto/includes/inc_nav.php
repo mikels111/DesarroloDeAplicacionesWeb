@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
             <img style="margin-left:30%;" src="img/popcorn.svg" alt="" width="30" height="24">
             <h6>Cartelera</h6>
         </a>

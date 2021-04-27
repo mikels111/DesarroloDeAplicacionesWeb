@@ -7,20 +7,23 @@
 
 <body>
     <?php include('includes/inc_nav.php') ?>
-    <div id="ms-main">
-        <div id="ms-content">
+    <div class="ms-main">
+        <div class="ms-content">
             <?php include('includes/carousel.php') ?>
             <span class="badge bg-primary titulo">
                 <h4>Películas</h4>
             </span>
             <p>
-                <label for="fecha">Fecha:</label>
-                <select name="fecha" id="fecha" class="form-select-sm">
-                    <option value="fecha1">01-05-2021</option>
-                    <option value="fecha1">06-05-2021</option>
-                </select>
-
+                <form action="">
+                    <label for="fecha">Fecha:</label>
+                    <select name="fecha" id="fecha" class="form-select-sm">
+                        <option value="fecha1">01-05-2021</option>
+                        <option value="fecha1">06-05-2021</option>
+                    </select>
+                    <input type="submit" value="Filtrar">
+                </form>
             </p>
+            <hr>
             <div id="ms-film-flexbox">
                 <div class="card" style="width: 12rem;">
                     <img src="img/peli1.jpg" class="img-fluid" alt="pelic">
@@ -28,7 +31,7 @@
                         <h5 class="card-title">
                             Jeanne Dielman, 23, Quai du Commerce 1080 Bruxelles</h5>
                         <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
+                        <a href="detalle_film.php" class="btn btn-primary btn-horarios">Consultar horarios</a>
                     </div>
                 </div>
                 <div class="card" style="width: 12rem;">
@@ -64,7 +67,7 @@
                     </div>
                 </div>
                 <div class="card" style="width: 12rem;">
-                    <img src="img/peli6.jpg" class="img-fluid" alt="pelic">
+                    <img src="https://image.tmdb.org/t/p/w500/s8Jd8T2UktNkECPfaleruDt3zUf.jpg" class="img-fluid" alt="pelic">
                     <div class="card-body">
                         <h5 class="card-title">Barton Fink</h5>
                         <p class="card-text"></p>
