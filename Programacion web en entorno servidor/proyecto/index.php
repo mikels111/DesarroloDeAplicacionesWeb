@@ -25,63 +25,51 @@
             </p>
             <hr>
             <div id="ms-film-flexbox">
-                <div class="card" style="width: 12rem;">
-                    <img src="img/peli1.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Jeanne Dielman, 23, Quai du Commerce 1080 Bruxelles</h5>
-                        <p class="card-text"></p>
-                        <a href="detalle_film.php" class="btn btn-primary btn-horarios">Consultar horarios</a>
+                <?php
+                include('includes/conexion.php');
+                $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A'";
+                $result = $conn->query($sql_select_peli);
+
+                $ruta_imagenes = "https://image.tmdb.org/t/p/w500";
+                foreach ($result as $peli) { ?>
+                    <div class="card" style="width: 12rem;">
+                        <?php
+                            $id_moviedb = "";
+                            $poster = "";
+                            $titulo = "";
+                            $clasificación = "";
+                            $duracion = "";
+                            $genero = "";
+                            foreach ($peli as $key => $value) {
+                                if ($key == 'id_moviedb')
+                                    $id_moviedb = $value;
+                                else if ($key == 'poster')
+                                    $poster = $ruta_imagenes . $value;
+                                else if ($key == 'titulo')
+                                    $titulo = $value;
+                                else if ($key == 'clasificacion')
+                                    $clasificación = $value;
+                                else if ($key == 'duracion')
+                                    $duracion = $value;
+                                else if ($key == 'genero')
+                                    $genero = $value;
+                            }
+                            ?>
+
+                        <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $titulo; ?></h5>
+                            <p class="card-text">
+                                <span class="badge bg-secondary"><?php echo $clasificación ?></span>
+                                <span class="badge bg-secondary"><?php echo $duracion . "min" ?></span>
+                                <span class="badge bg-secondary"><?php echo $genero ?></span>
+                            </p>
+                            <a href="detalle_film.php?id=<?php echo $id_moviedb ?>" class="btn btn-primary btn-horarios">Consultar horarios</a>
+                        </div>
+                        <?php ?>
                     </div>
-                </div>
-                <div class="card" style="width: 12rem;">
-                    <img src="img/peli2.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">Miedo y asco en Las Vegas</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 12rem;">
-                    <img src="img/peli3.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">Toro Salvaje</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 12rem;">
-                    <img src="img/peli4.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">E.T, el extraterrestre</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 12rem;">
-                    <img src="img/peli5.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">El imperio del sol</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 12rem;">
-                    <img src="https://image.tmdb.org/t/p/w500/s8Jd8T2UktNkECPfaleruDt3zUf.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">Barton Fink</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 12rem;">
-                    <img src="https://pics.filmaffinity.com/la_grande_bellezza-366210175-large.jpg" class="img-fluid" alt="pelic">
-                    <div class="card-body">
-                        <h5 class="card-title">La gran belleza</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
-                    </div>
-                </div>
+                <?php }
+                ?>
             </div>
             <!-- fin flexbox -->
 

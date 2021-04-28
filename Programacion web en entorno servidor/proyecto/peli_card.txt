@@ -1,0 +1,8 @@
+<div class="card" style="width: 12rem;">
+                    <img src="img/peli2.jpg" class="img-fluid" alt="pelic">
+                    <div class="card-body">
+                        <h5 class="card-title">Miedo y asco en Las Vegas</h5>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary btn-horarios">Consultar horarios</a>
+                    </div>
+                </div>
