@@ -3,6 +3,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+hr {
+    width: 90%;
+    margin: 0 0 0 40px;
+}
+
 
 /* Navegador */
 
@@ -61,14 +66,15 @@ body {
 }
 
 .ms-detalle-titulo {
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 
 /*  Elementos de index */
 
 .ms-select-fecha {
-    margin-left: 30px;
+    margin-left: 40px;
+    margin-bottom: 20px;
 }
 
 .ms-titulo-carousel {

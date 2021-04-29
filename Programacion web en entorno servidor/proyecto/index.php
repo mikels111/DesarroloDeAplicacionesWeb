@@ -22,7 +22,7 @@
                 </select>
                 <input type="submit" value="Filtrar">
             </form>
-
+            
             <hr>
             <div id="ms-film-flexbox">
                 <?php

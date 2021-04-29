@@ -17,6 +17,12 @@
       <h2 class="ms-titulo-carousel">Fear and Loathing in Las Vegas</h2>
       </div>
     </div>
+    <div class="carousel-item">
+      <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/l1HWd2rQ0XDNP9FUT4ZQJIQdEgp.jpg" style="margin:auto;" class="d-block w-50" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="-webkit-text-stroke: 1px black;">
+      <h2 class="ms-titulo-carousel"></h2>
+      </div>
+    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
