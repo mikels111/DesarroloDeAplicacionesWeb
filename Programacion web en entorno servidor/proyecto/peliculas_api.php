@@ -12,7 +12,7 @@
     <?php
     if (isset($_REQUEST['id'])) {
         $id = $_REQUEST['id'];
-        $url = "https://api.themoviedb.org/3/movie/$id?api_key=98fee347b91da83932ea8b9daa0edece&language=en-US";
+        $url = "https://api.themoviedb.org/3/movie/$id?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
         $resultado = file_get_contents($url);
         $json_peli = json_decode($resultado);
         // print_r($json_peli);

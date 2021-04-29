@@ -22,7 +22,7 @@
                 </select>
                 <input type="submit" value="Filtrar">
             </form>
-            
+
             <hr>
             <div id="ms-film-flexbox">
                 <?php
@@ -34,27 +34,32 @@
                 foreach ($result as $peli) { ?>
                     <div class="card" style="width: 12rem;">
                         <?php
-                        $id_moviedb = "";
-                        $poster = "";
-                        $titulo = "";
-                        $clasificación = "";
-                        $duracion = "";
-                        $genero = "";
-                        foreach ($peli as $key => $value) {
-                            if ($key == 'id_moviedb')
-                                $id_moviedb = $value;
-                            else if ($key == 'poster')
-                                $poster = $ruta_imagenes . $value;
-                            else if ($key == 'titulo')
-                                $titulo = $value;
-                            else if ($key == 'clasificacion')
-                                $clasificación = $value;
-                            else if ($key == 'duracion')
-                                $duracion = $value;
-                            else if ($key == 'genero')
-                                $genero = $value;
-                        }
-                        ?>
+                            $id_moviedb = "";
+                            $poster = "";
+                            $titulo = "";
+                            $clasificación = "";
+                            $duracion = "";
+                            $genero = "";
+
+                            foreach ($peli as $key => $value) {
+                                if ($key == 'id_moviedb')
+                                    $id_moviedb = $value;
+                                else if ($key == 'clasificacion')
+                                    $clasificación = $value;
+                                else if ($key == 'duracion')
+                                    $duracion = $value;
+                                else if ($key == 'genero')
+                                    $genero = $value;
+                            }
+                            $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
+                            $resultado = file_get_contents($url);
+                            $json_peli = json_decode($resultado);
+
+                            $titulo = $json_peli->title;
+                            $poster = $json_peli->poster_path;
+                            $poster = $ruta_imagenes . $poster;
+
+                            ?>
 
                         <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
                         <div class="card-body">
@@ -74,8 +79,25 @@
             <!-- fin flexbox -->
 
             <span class="badge bg-primary titulo">
-                <h4>Noticias</h4>
+                <h4>Contacto</h4>
             </span>
+
+            <form class="ms-form-contacto">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </div>
     <footer>
