@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#">Acerca</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="peliculas_api.php">api</a>
+                </li>
             </ul>
         </div>
     </div>
