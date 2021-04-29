@@ -15,19 +15,20 @@
             <?php
 
             if (isset($_REQUEST['id'])) {
-                $sql_peli_detalle = "SELECT titulo FROM pelicula WHERE id_moviedb=" . $_REQUEST['id'];
+                $sql_peli_detalle = "SELECT titulo,poster FROM pelicula WHERE id_moviedb=" . $_REQUEST['id'];
                 $result = $conn->query($sql_peli_detalle);
-                print_r($result->num_rows);
-                var_dump($result);
-                foreach ($result as $key => $value) {
-                    echo "$key->$value";
+                $titulo=$poster="";
+                while ($object=$result->fetch_object()) {
+                    $titulo=$object->titulo;
+                    $poster=$object->poster;
                 }
+
                 ?>
                 <div class="ms-detalle">
-                    <h2>Película</h2>
+                    <h2 class="ms-detalle-titulo"><?php echo $titulo?></h2>
                     <hr>
                     <div class="ms-detalle-film">
-                        <img class="ms-peli_detalle" src="" alt="poster">
+                        <img class="ms-peli_detalle" src="https://image.tmdb.org/t/p/w500<?php echo $poster?>" alt="poster">
                     </div>
 
                 </div>

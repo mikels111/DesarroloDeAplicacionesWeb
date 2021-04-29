@@ -3,6 +3,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+
 /* Navegador */
 
 .navbar {
@@ -21,6 +22,7 @@ body {
     /*Bootstrap*/
     width: 1200px;
 }
+
 
 /* Contenido central */
 
@@ -45,20 +47,41 @@ body {
     min-height: 900px;
 }
 
+
 /* Contenido central Detalle pelicula */
 
 .ms-detalle-film {
     margin: 50px;
 }
+
 .ms-peli_detalle {
     width: 251px;
     height: 378px;
     border-radius: 10px;
 }
+
+.ms-detalle-titulo {
+    margin-left: 30px;
+}
+
+
+/*  Elementos de index */
+
+.ms-select-fecha {
+    margin-left: 30px;
+}
+
+.ms-titulo-carousel {
+    color: rgb(223, 152, 95);
+    font-weight: 900;
+}
+
+
 /* flexbox peliculas */
 
 #ms-film-flexbox {
     /* padding:5px 10px 30px 10px; */
+    margin-top: 50px;
     margin-left: 90px;
     display: flex;
     flex-wrap: wrap;
@@ -71,12 +94,12 @@ body {
     margin: 0 10px 10px 10px;
 }
 
+
 /* Botones de consulta de horarios */
 
 .btn-horarios {
     padding: 5px 5px;
 }
-
 
 
 /* Footer */
@@ -95,6 +118,7 @@ footer {
 #ms-div-footer {
     /* margin:50% 0 50% 0; */
 }
+
 
 /* Flexbox media query */
 
@@ -140,8 +164,47 @@ footer {
     }
 }
 
+@media only screen and (max-width: 712px) {
+    #ms-film-flexbox {
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (max-width: 629px) {
+    #ms-film-flexbox {
+        margin-left: 5px;
+    }
+}
+
 @media only screen and (max-width: 686px) {
     #ms-film-flexbox {
         margin-left: 120px;
+    }
+}
+
+@media only screen and (max-width: 505px) {
+    #ms-film-flexbox {
+        margin-left: 140px;
+    }
+    .titulo {
+        margin-left: 37%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #ms-film-flexbox {
+        margin-left: 100px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #ms-film-flexbox {
+        margin-left: 100px;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    #ms-film-flexbox {
+        margin-left: 80px;
     }
 }
