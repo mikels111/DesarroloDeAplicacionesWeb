@@ -8,6 +8,9 @@ hr {
     margin: 0 0 0 40px;
 }
 
+.h4_titulo {
+    margin-bottom: 0px;
+}
 
 /* Navegador */
 
@@ -28,7 +31,6 @@ hr {
     width: 1200px;
 }
 
-
 /* Contenido central */
 
 .titulo {
@@ -46,12 +48,12 @@ hr {
 .ms-content {
     box-shadow: 0px 0px 20px grey;
     padding-top: 30px;
+    padding-bottom: 40px;
     max-width: 1250px;
     margin: 0 auto;
     background-color: white;
     min-height: 900px;
 }
-
 
 /* Contenido central Detalle pelicula */
 
@@ -62,7 +64,6 @@ hr {
     height: 50px;
     background: #ababac;
 }
-
 
 /* Poster y tabla de detalle */
 
@@ -100,7 +101,6 @@ hr {
     padding-top: 5px;
 }
 
-
 /*  Elementos de index */
 
 .ms-select-fecha {
@@ -117,14 +117,20 @@ hr {
     padding: 30px 50px 50px 50px;
 }
 
-.ms-radios-contacto {
+.ms-radios-contacto * {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.ms-check-contacto * {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.ms-div-contacto {
+    margin-bottom: 20px;
     display: flex;
 }
-
-.ms-radios-contacto * {
-    margin: 5px;
-}
-
 
 /* flexbox peliculas */
 
@@ -143,13 +149,17 @@ hr {
     margin: 0 10px 10px 10px;
 }
 
-
 /* Botones de consulta de horarios */
 
 .btn-horarios {
     padding: 5px 5px;
 }
 
+/* login */
+#ms-form-login{
+    padding-left: 353px;
+    padding-right: 353px;
+}
 
 /* Footer */
 
@@ -167,7 +177,6 @@ footer {
 #ms-div-footer {
     /* margin:50% 0 50% 0; */
 }
-
 
 /* Flexbox media query */
 
@@ -199,6 +208,14 @@ footer {
     #ms-film-flexbox {
         margin-left: 115px;
     }
+    /* Divs de formulario de contacto */
+    .ms-div-contacto {
+        display: block;
+    }
+    #ms-form-login{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
 }
 
 @media only screen and (max-width: 826px) {
@@ -228,6 +245,14 @@ footer {
 @media only screen and (max-width: 686px) {
     #ms-film-flexbox {
         margin-left: 120px;
+    }
+    /* flex de los detalle de pelicula */
+    .ms-detalle-film {
+        display: block;
+    }
+    /* Tabla de detalles */
+    .ms-table-detalle {
+        margin-top: 40px;
     }
 }
 

@@ -6,12 +6,6 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://m.media-amazon.com/images/M/MV5BNjU5MTg4MDUyNF5BMl5BanBnXkFtZTgwNTA3MTg5MTE@._V1_.jpg" style="margin:auto;" class="d-block w-50" alt="...">
-      <div class="carousel-caption d-none d-md-block" style="-webkit-text-stroke: 1px black;">
-        <h2 class="ms-titulo-carousel">E.T. the Extra-Terrestrial</h2>
-      </div>
-    </div>
-    <div class="carousel-item">
       <img src="https://m.media-amazon.com/images/M/MV5BMjI0MDM5MjkzNF5BMl5BanBnXkFtZTgwODI4OTIwMjE@._V1_.jpg" style="margin:auto;" class="d-block w-50" alt="...">
       <div class="carousel-caption d-none d-md-block" style="-webkit-text-stroke: 1px black;">
       <h2 class="ms-titulo-carousel">Fear and Loathing in Las Vegas</h2>

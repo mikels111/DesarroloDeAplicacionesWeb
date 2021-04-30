@@ -11,7 +11,7 @@
         <div class="ms-content">
             <?php include('includes/carousel.php') ?>
             <span class="badge bg-primary titulo">
-                <h4>Películas</h4>
+                <h4 class="h4_titulo">Películas</h4>
             </span>
 
             <form class="ms-select-fecha" action="">
@@ -32,35 +32,33 @@
 
                 if ($result->num_rows > 0) {
                     $ruta_imagenes = "https://image.tmdb.org/t/p/w500";
-                    foreach ($result as $peli) { ?>
+                    $id_moviedb = $poster = $titulo = $clasificación = $duracion = $genero = "";
+                    while ($object = $result->fetch_object()) { 
+                        $id_moviedb=$object->id_moviedb;
+                        $clasificacion=$object->clasificacion;
+                        $duracion=$object->duracion;
+                        $genero=$object->genero;?>
                         <div class="card" style="width: 12rem;">
                             <?php
-                            $id_moviedb = "";
-                            $poster = "";
-                            $titulo = "";
-                            $clasificación = "";
-                            $duracion = "";
-                            $genero = "";
+                                    // foreach ($peli as $key => $value) {
+                                    //     if ($key == 'id_moviedb')
+                                    //         $id_moviedb = $value;
+                                    //     else if ($key == 'clasificacion')
+                                    //         $clasificación = $value;
+                                    //     else if ($key == 'duracion')
+                                    //         $duracion = $value;
+                                    //     else if ($key == 'genero')
+                                    //         $genero = $value;
+                                    // }
+                                    $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
+                                    $resultado = file_get_contents($url);
+                                    $json_peli = json_decode($resultado);
 
-                            foreach ($peli as $key => $value) {
-                                if ($key == 'id_moviedb')
-                                    $id_moviedb = $value;
-                                else if ($key == 'clasificacion')
-                                    $clasificación = $value;
-                                else if ($key == 'duracion')
-                                    $duracion = $value;
-                                else if ($key == 'genero')
-                                    $genero = $value;
-                            }
-                            $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
-                            $resultado = file_get_contents($url);
-                            $json_peli = json_decode($resultado);
+                                    $titulo = $json_peli->title;
+                                    $poster = $json_peli->poster_path;
+                                    $poster = $ruta_imagenes . $poster;
 
-                            $titulo = $json_peli->title;
-                            $poster = $json_peli->poster_path;
-                            $poster = $ruta_imagenes . $poster;
-
-                            ?>
+                                    ?>
 
                             <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
                             <div class="card-body">
@@ -81,40 +79,9 @@
             <!-- fin flexbox -->
 
             <span class="badge bg-primary titulo">
-                <h4 id="contacto">Contacto</h4>
+                <h4 id="contacto" class="h4_titulo">Contacto</h4>
             </span>
-
-            <form class="ms-form-contacto">
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <label for="experiencia">Experiencia en la página</label>
-                <div id="experiencia" class="ms-radios-contacto">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Muy Buena
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Buena
-                        </label>
-                    </div>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <?php include('includes/inc_form_contacto.php') ?>
         </div>
     </div>
     <footer>

@@ -9,7 +9,9 @@
     <?php include('includes/inc_nav.php') ?>
     <div class="ms-main">
         <div class="ms-content">
-            
+            <div id="ms-form-login">
+                <?php include('includes/inc_login.php'); ?>
+            </div>
         </div>
     </div>
     <footer>

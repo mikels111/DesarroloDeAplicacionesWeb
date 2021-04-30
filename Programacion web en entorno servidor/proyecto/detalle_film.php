@@ -55,42 +55,36 @@
                                 $actores = $actores . ', ';
                         } else
                             break;
+                        $actores = $actores . $actor->name;
 
-                        foreach ($actor as $key => $value) {
-                            if ($key == 'name') {
-                                $actores = $actores . $value;
-                            }
-                        }
                         $i++;
                     }
                     foreach ($crew as $puesto) {
-                        foreach ($puesto as $key => $value) {
-                            if ($key == 'job' and $value == 'Director') {
-                                $director = $puesto->name;
-                            }
+                        if (($puesto->job) == 'Director') {
+                            $director = $puesto->name;
                         }
                     }
 
 
-            ?>
+                    ?>
                     <div class="ms-detalle">
                         <h2 class="ms-detalle-titulo"><?php echo $titulo ?></h2>
                         <hr>
                         <div class="ms-detalle-film">
                             <img class="ms-peli_poster" src="https://image.tmdb.org/t/p/w500<?php echo $poster ?>" alt="poster">
                             <?php include('includes/inc_tabla_detalle.php'); //titulo_original,actores,director,clasificación,duración,genero y fecha_estreno 
-                            ?>
+                                    ?>
                         </div>
 
 
                     </div>
                 <?php
-                }else{
+                    } else {
+                        echo "<h2>Película no encontrada</h2>";
+                    }
+                } else {
                     echo "<h2>Película no encontrada</h2>";
-                }
-            } else {
-                echo "<h2>Película no encontrada</h2>";
-                ?>
+                    ?>
 
             <?php }
             ?>
