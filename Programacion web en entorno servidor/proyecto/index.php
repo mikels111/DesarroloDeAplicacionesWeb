@@ -30,10 +30,11 @@
                 $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A'";
                 $result = $conn->query($sql_select_peli);
 
-                $ruta_imagenes = "https://image.tmdb.org/t/p/w500";
-                foreach ($result as $peli) { ?>
-                    <div class="card" style="width: 12rem;">
-                        <?php
+                if ($result->num_rows > 0) {
+                    $ruta_imagenes = "https://image.tmdb.org/t/p/w500";
+                    foreach ($result as $peli) { ?>
+                        <div class="card" style="width: 12rem;">
+                            <?php
                             $id_moviedb = "";
                             $poster = "";
                             $titulo = "";
@@ -61,36 +62,52 @@
 
                             ?>
 
-                        <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $titulo; ?></h5>
-                            <p class="card-text">
-                                <span class="badge bg-secondary"><?php echo $clasificación ?></span>
-                                <span class="badge bg-secondary"><?php echo $duracion . "min" ?></span>
-                                <span class="badge bg-secondary"><?php echo $genero ?></span>
-                            </p>
-                            <a href="detalle_film.php?id=<?php echo $id_moviedb ?>" class="btn btn-primary btn-horarios">Consultar horarios</a>
+                            <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $titulo; ?></h5>
+                                <p class="card-text">
+                                    <span class="badge bg-secondary"><?php echo $clasificación ?></span>
+                                    <span class="badge bg-secondary"><?php echo $duracion . "min" ?></span>
+                                    <span class="badge bg-secondary"><?php echo $genero ?></span>
+                                </p>
+                                <a href="detalle_film.php?id=<?php echo $id_moviedb ?>" class="btn btn-primary btn-horarios">Consultar horarios</a>
+                            </div>
+                            <?php ?>
                         </div>
-                        <?php ?>
-                    </div>
                 <?php }
+                }
                 ?>
             </div>
             <!-- fin flexbox -->
 
             <span class="badge bg-primary titulo">
-                <h4>Contacto</h4>
+                <h4 id="contacto">Contacto</h4>
             </span>
 
             <form class="ms-form-contacto">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="experiencia">Experiencia en la página</label>
+                <div id="experiencia" class="ms-radios-contacto">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Muy Buena
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Buena
+                        </label>
+                    </div>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
