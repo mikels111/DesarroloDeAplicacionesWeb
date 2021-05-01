@@ -8,3 +8,5 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="img/popcorn.ico" type="image/x-icon">
 <title>Cartelera</title>
+<?php
+session_start();?>

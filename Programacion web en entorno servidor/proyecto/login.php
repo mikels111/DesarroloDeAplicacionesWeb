@@ -10,7 +10,11 @@
     <div class="ms-main">
         <div class="ms-content">
             <div id="ms-form-login">
-                <?php include('includes/inc_login.php'); ?>
+                <?php include('includes/inc_login.php'); 
+                if(isset($_REQUEST['login'])){
+                    echo "<p style='color:red;'>Usuario incorrecto</p>";
+                }
+                ?>
             </div>
         </div>
     </div>

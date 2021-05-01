@@ -15,9 +15,25 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="#">Acerca</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="peliculas_api.php">api</a>
-                </li>
+                <?php
+                if (isset($_SESSION['loged_in'])) {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="cerrar_sesion.php">Salir</a>
+                    </li>
+                <?php
+                }
+                if (isset($_COOKIE['admin'])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="lista_peliculas.php">Películas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="peliculas_api.php">API</a>
+                    </li>
+                <?php
+                }
+                ?>
+
             </ul>
         </div>
     </div>

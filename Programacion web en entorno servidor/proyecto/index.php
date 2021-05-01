@@ -2,13 +2,14 @@
 <html lang="es">
 
 <head>
-    <?php include('includes/inc_head.php') ?>
+    <?php include('includes/inc_head.php');?>
 </head>
 
 <body>
     <?php include('includes/inc_nav.php') ?>
     <div class="ms-main">
         <div class="ms-content">
+
             <?php include('includes/carousel.php') ?>
             <span class="badge bg-primary titulo">
                 <h4 class="h4_titulo">Películas</h4>
@@ -33,32 +34,32 @@
                 if ($result->num_rows > 0) {
                     $ruta_imagenes = "https://image.tmdb.org/t/p/w500";
                     $id_moviedb = $poster = $titulo = $clasificación = $duracion = $genero = "";
-                    while ($object = $result->fetch_object()) { 
-                        $id_moviedb=$object->id_moviedb;
-                        $clasificacion=$object->clasificacion;
-                        $duracion=$object->duracion;
-                        $genero=$object->genero;?>
+                    while ($object = $result->fetch_object()) {
+                        $id_moviedb = $object->id_moviedb;
+                        $clasificacion = $object->clasificacion;
+                        $duracion = $object->duracion;
+                        $genero = $object->genero; ?>
                         <div class="card" style="width: 12rem;">
                             <?php
-                                    // foreach ($peli as $key => $value) {
-                                    //     if ($key == 'id_moviedb')
-                                    //         $id_moviedb = $value;
-                                    //     else if ($key == 'clasificacion')
-                                    //         $clasificación = $value;
-                                    //     else if ($key == 'duracion')
-                                    //         $duracion = $value;
-                                    //     else if ($key == 'genero')
-                                    //         $genero = $value;
-                                    // }
-                                    $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
-                                    $resultado = file_get_contents($url);
-                                    $json_peli = json_decode($resultado);
+                            // foreach ($peli as $key => $value) {
+                            //     if ($key == 'id_moviedb')
+                            //         $id_moviedb = $value;
+                            //     else if ($key == 'clasificacion')
+                            //         $clasificación = $value;
+                            //     else if ($key == 'duracion')
+                            //         $duracion = $value;
+                            //     else if ($key == 'genero')
+                            //         $genero = $value;
+                            // }
+                            $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
+                            $resultado = file_get_contents($url);
+                            $json_peli = json_decode($resultado);
 
-                                    $titulo = $json_peli->title;
-                                    $poster = $json_peli->poster_path;
-                                    $poster = $ruta_imagenes . $poster;
+                            $titulo = $json_peli->title;
+                            $poster = $json_peli->poster_path;
+                            $poster = $ruta_imagenes . $poster;
 
-                                    ?>
+                            ?>
 
                             <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
                             <div class="card-body">
