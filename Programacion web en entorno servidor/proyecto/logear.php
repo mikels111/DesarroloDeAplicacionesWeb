@@ -12,8 +12,6 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
             $_SESSION['loged_in'] = true; //crear variable de sesion
             $sql = "SELECT * FROM usuarios WHERE login='$user' AND rol='A'";
             if (($conn->query($sql))->num_rows > 0) { // el usuario es admin(query)
-                // redirigir a index con login a true y user = "admin"
-                //crear variable de sesion (github hace con cookie)
                 $token = bin2hex(random_bytes((20 - (20 % 2)) / 2));
                 setcookie('admin', $token, time() + 1 * 1 * 60 * 60);
             }

@@ -7,6 +7,7 @@
 <script src="css/dist/js/bootstrap.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="img/popcorn.ico" type="image/x-icon">
+<!-- <script src="../js/jquery-3.6.0.min.js"></script> -->
 <title>Cartelera</title>
 <?php
 session_start();?>

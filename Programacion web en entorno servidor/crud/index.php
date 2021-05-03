@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crud</title>
-    <script src="jquery-3.6.0.min.js"></script>
+    
 </head>
 
 <body>
@@ -66,6 +66,7 @@
     </table>
     <p><a href="insert_update.php">Insertar</a></p>
     <p><a href="index.php?excel=s">Generar Excel</a></p>
+    
     <script>
         function borrar(id) {
             $.ajax({

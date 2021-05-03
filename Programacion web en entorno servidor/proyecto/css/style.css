@@ -12,6 +12,14 @@ hr {
     margin-bottom: 0px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
 
 /* Navegador */
 
@@ -37,7 +45,6 @@ hr {
     width: 1200px;
 }
 
-
 /* Contenido central */
 
 .titulo {
@@ -62,7 +69,6 @@ hr {
     min-height: 900px;
 }
 
-
 /* Contenido central Detalle pelicula */
 
 .ms-detalle {}
@@ -72,7 +78,6 @@ hr {
     height: 50px;
     background: #ababac;
 }
-
 
 /* Poster y tabla de detalle */
 
@@ -110,7 +115,6 @@ hr {
     padding-top: 5px;
 }
 
-
 /*  Elementos de index */
 
 .ms-select-fecha {
@@ -142,7 +146,6 @@ hr {
     display: flex;
 }
 
-
 /* flexbox peliculas */
 
 #ms-film-flexbox {
@@ -160,13 +163,11 @@ hr {
     margin: 0 10px 10px 10px;
 }
 
-
 /* Botones de consulta de horarios */
 
 .btn-horarios {
     padding: 5px 5px;
 }
-
 
 /* login */
 
@@ -175,6 +176,11 @@ hr {
     padding-right: 353px;
 }
 
+/* Lista de películas */
+
+.ms-tabla-peliculas {
+    padding: 40px;
+}
 
 /* Footer */
 
@@ -192,7 +198,6 @@ footer {
 #ms-div-footer {
     /* margin:50% 0 50% 0; */
 }
-
 
 /* Flexbox media query */
 

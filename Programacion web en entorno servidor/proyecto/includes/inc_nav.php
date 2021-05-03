@@ -9,15 +9,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Acerca</a>
-                </li>
+
                 <?php
                 if (isset($_SESSION['loged_in'])) {
-                ?>
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="cerrar_sesion.php">Salir</a>
                     </li>
@@ -33,7 +28,9 @@
                 <?php
                 }
                 ?>
-
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="login.php">Login</a>
+                </li>
             </ul>
         </div>
     </div>
