@@ -11,7 +11,7 @@
             <ul class="navbar-nav">
 
                 <?php
-                if (isset($_SESSION['loged_in'])) {
+                if (isset($_SESSION['loged_in']) or isset($_COOKIE['admin'])) {
                     ?>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="cerrar_sesion.php">Salir</a>
