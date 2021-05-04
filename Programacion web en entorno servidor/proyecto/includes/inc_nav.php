@@ -20,10 +20,10 @@
                 }
                 if (isset($_COOKIE['admin'])) { ?>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="lista_peliculas.php">Películas</a>
+                        <a class="nav-link text-light" href="admin/lista_peliculas.php">Películas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="peliculas_api.php">API</a>
+                        <a class="nav-link text-light" href="admin/peliculas_api.php">API</a>
                     </li>
                 <?php
                 }

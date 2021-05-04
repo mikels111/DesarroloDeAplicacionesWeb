@@ -21,6 +21,20 @@ a:hover {
     color: inherit;
 }
 
+.ms-peli-input {
+    width: 230px;
+}
+
+#ms-form-peli {
+    display: flex;
+    margin: 0 90px 0 90px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+#ms-form-peli *{
+    margin:0 10px 0 10px;
+}
 /* Navegador */
 
 .navbar-brand {

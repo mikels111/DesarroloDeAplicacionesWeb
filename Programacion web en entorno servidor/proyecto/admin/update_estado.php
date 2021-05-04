@@ -1,6 +1,6 @@
 <?php
 // actualizar peli
-include('includes/conexion.php');
+include('../includes/conexion.php');
 $sql = "SELECT * FROM pelicula WHERE id=" . $_POST['id'];
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
