@@ -41,7 +41,7 @@
             <option value="Comedia" <?php if(isset($genero) and $genero=="Comedia") echo 'selected';?>>Comedia</option>
             <option value="Crimen" <?php if(isset($genero) and $genero=="Crimen") echo 'selected';?>>Crimen</option>
             <option value="Drama" <?php if(isset($genero) and $genero=="Drama") echo 'selected';?>>Drama</option>
-            <option value="Fantasia" <?php if(isset($genero) and $genero=="Fantasía") echo 'selected';?>>Fantasía</option>
+            <option value="Fantasía" <?php if(isset($genero) and $genero=="Fantasía") echo 'selected';?>>Fantasía</option>
             <option value="Suspense" <?php if(isset($genero) and $genero=="Suspense") echo 'selected';?>>Suspense</option>
         </select>
     </div>

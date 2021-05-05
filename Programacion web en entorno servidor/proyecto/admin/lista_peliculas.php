@@ -54,6 +54,20 @@
     <div class="ms-main">
         <div class="ms-content">
             <?php
+            if (isset($_REQUEST['update'])) {
+                if ($_REQUEST['update'] == true) {
+                    echo "<h5 style='color:green;margin-left:40px;'>Pelicula actualizada</h5>";
+                }else{
+                    echo "<h5 style='color:red;margin-left:40px;'>Pelicula no actualizada</h5>";
+                }
+            }
+            if (isset($_REQUEST['insert'])) {
+                if ($_REQUEST['insert'] == true) {
+                    echo "<h5 style='color:green;margin-left:40px;'>Pelicula insertada</h5>";
+                }else{
+                    echo "<h5 style='color:red;margin-left:40px;'>Pelicula no insertada</h5>";
+                }
+            }
             if (isset($_COOKIE['admin'])) {
                 ?>
                 <div class="ms-tabla-peliculas">

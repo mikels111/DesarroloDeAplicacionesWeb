@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <?php include('includes/inc_head.php');?>
+    <?php include('includes/inc_head.php'); ?>
 </head>
 
 <body>
@@ -33,39 +33,45 @@
 
                 if ($result->num_rows > 0) {
                     $ruta_imagenes = "https://image.tmdb.org/t/p/w500";
-                    $id_moviedb = $poster = $titulo = $clasificación = $duracion = $genero = "";
+                    $id_moviedb = $poster = $titulo = $clasificacion = $duracion = $genero = "";
                     while ($object = $result->fetch_object()) {
                         $id_moviedb = $object->id_moviedb;
                         $clasificacion = $object->clasificacion;
                         $duracion = $object->duracion;
-                        $genero = $object->genero; ?>
+                        $genero = $object->genero;
+                        $titulo = $object->titulo;
+                        $poster = $ruta_imagenes.$object->poster; ?>
                         <div class="card" style="width: 12rem;">
                             <?php
-                            // foreach ($peli as $key => $value) {
-                            //     if ($key == 'id_moviedb')
-                            //         $id_moviedb = $value;
-                            //     else if ($key == 'clasificacion')
-                            //         $clasificación = $value;
-                            //     else if ($key == 'duracion')
-                            //         $duracion = $value;
-                            //     else if ($key == 'genero')
-                            //         $genero = $value;
-                            // }
-                            $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
-                            $resultado = file_get_contents($url);
-                            $json_peli = json_decode($resultado);
+                                    // foreach ($peli as $key => $value) {
+                                    //     if ($key == 'id_moviedb')
+                                    //         $id_moviedb = $value;
+                                    //     else if ($key == 'clasificacion')
+                                    //         $clasificación = $value;
+                                    //     else if ($key == 'duracion')
+                                    //         $duracion = $value;
+                                    //     else if ($key == 'genero')
+                                    //         $genero = $value;
+                                    // }
+                                    if ($id_moviedb != null) {
+                                        $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
 
-                            $titulo = $json_peli->title;
-                            $poster = $json_peli->poster_path;
-                            $poster = $ruta_imagenes . $poster;
+                                        $resultado = file_get_contents($url);
+                                        if ($resultado != false) {
+                                            $json_peli = json_decode($resultado);
+                                            $titulo = $json_peli->title;
+                                            $poster = $json_peli->poster_path;
+                                            $poster = $ruta_imagenes . $poster;
+                                        }
+                                    }
 
-                            ?>
+                                    ?>
 
-                            <img src="<?php echo $poster; ?>" class="img-fluid" alt="pelic">
+                            <img src="<?php echo $poster; ?>" class="img-fluid" alt="poster_pelicula">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $titulo; ?></h5>
                                 <p class="card-text">
-                                    <span class="badge bg-secondary"><?php echo $clasificación ?></span>
+                                    <span class="badge bg-secondary"><?php echo $clasificacion ?></span>
                                     <span class="badge bg-secondary"><?php echo $duracion . "min" ?></span>
                                     <span class="badge bg-secondary"><?php echo $genero ?></span>
                                 </p>
