@@ -23,7 +23,7 @@
 
                     <?php
                     if (isset($_SESSION['loged_in']) or isset($_COOKIE['admin'])) {
-                        ?>
+                    ?>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="../cerrar_sesion.php">Salir</a>
                         </li>
@@ -50,17 +50,27 @@
         <div class="ms-content">
 
             <?php
-            include('../includes/conexion');
+            include('../includes/conexion.php');
 
             if (isset($_REQUEST['id'])) {
                 $sql = "SELECT * FROM pelicula WHERE id=" . $_REQUEST['id'];
-                $conn->query($sql);
-                ?>
-                <form action="update.php">
+                $result = $conn->query($sql);
+                while ($object = $result->fetch_object()) {
+                    $titulo_original = $object->titulo;
+                    $clasificacion = $object->clasificacion;
+                    $duracion = $object->duracion;
+                    $genero = $object->genero;
+                    $fecha_estreno = $object->fecha_estreno;
+                    $estado = $object->estado;
+                    $poster = $object->poster;
+                }
+            ?>
+                <form action="update.php" method='post'>
+                    <input type="hidden" name="id" value="<?php echo $_REQUEST['id']?>">
                     <?php include('../includes/inc_form_peli.php'); ?>
                 </form>
             <?php } else { ?>
-                <form action="insert.php">
+                <form action="insert.php" method="post">
                     <?php include('../includes/inc_form_peli.php'); ?>
                 </form>
             <?php }
