@@ -84,19 +84,19 @@
     <label for="check_notifi" class="form-label">Te gustaría recibir notificaciones de: </label>
     <div id="check_notifi" class="ms-check-contacto ms-div-contacto">
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones" value="estrenos">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones[]" value="estrenos">
             <label class="form-check-label" for="exampleCheck1">Estrenos</label>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones" value="promociones">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones[]" value="promociones">
             <label class="form-check-label" for="exampleCheck1">Promociones</label>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones" value="noticias">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones[]" value="noticias">
             <label class="form-check-label" for="exampleCheck1">Noticias</label>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones" value="preventas">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="notificaciones[]" value="preventas">
             <label class="form-check-label" for="exampleCheck1">Preventas</label>
         </div>
     </div>

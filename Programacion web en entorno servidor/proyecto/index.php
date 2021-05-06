@@ -40,7 +40,7 @@
                         $duracion = $object->duracion;
                         $genero = $object->genero;
                         $titulo = $object->titulo;
-                        $poster = $ruta_imagenes.$object->poster; ?>
+                        $poster = $ruta_imagenes . $object->poster; ?>
                         <div class="card" style="width: 12rem;">
                             <?php
                                     // foreach ($peli as $key => $value) {
@@ -88,7 +88,18 @@
             <span class="badge bg-primary titulo">
                 <h4 id="contacto" class="h4_titulo">Contacto</h4>
             </span>
-            <?php include('includes/inc_form_contacto.php') ?>
+
+            <?php
+            if (isset($_REQUEST['insert'])) {
+                if ($_REQUEST['insert'] == true) {
+                    echo '<h4 style="color:green;">Gracias por su colaboración</h4>';
+                }else{
+                    echo '<h4 style="color:red;">Ha ocurrido un error</h4>';
+                }
+            }
+            include('includes/inc_form_contacto.php');
+
+            ?>
         </div>
     </div>
     <footer>

@@ -17,6 +17,7 @@
     curl_setopt($ch, CURLOPT_URL, "http://212.142.193.210:16001/mikels/proyecto/update_estado.php");
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+    curl_setopt($ch, CURLOPT_HEAD, $fields);
     $data = curl_exec($ch);
     echo gettype($data);
     echo $data;
