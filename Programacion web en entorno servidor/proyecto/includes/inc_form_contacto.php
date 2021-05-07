@@ -80,6 +80,7 @@
             </label>
         </div>
     </div>
+    
     <!-- Notificaciones -->
     <label for="check_notifi" class="form-label">Te gustaría recibir notificaciones de: </label>
     <div id="check_notifi" class="ms-check-contacto ms-div-contacto">
