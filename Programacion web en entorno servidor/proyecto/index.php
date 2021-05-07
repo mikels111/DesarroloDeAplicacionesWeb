@@ -92,14 +92,14 @@
             <?php
             if (isset($_REQUEST['insert'])) {
                 if ($_REQUEST['insert']) {
-                    echo '<h4 style="color:green;">Gracias por su colaboración</h4>';
+                    echo '<h4 style="color:green; margin-left:50px;">Gracias por su colaboración</h4>';
                 }else{
-                    echo '<h4 style="color:red;">Ha ocurrido un error</h4>';
+                    echo '<h4 style="color:red; margin-left:50px;">Ha ocurrido un error</h4>';
                 }
             }
             if(isset($_REQUEST['email'])){
                 if(!$_REQUEST['email']){
-                    echo '<h6 style="color:red;">Necesitamos su correo electronico</h6>';
+                    echo '<h6 style="color:red; margin-left:50px;">Necesitamos su correo electronico</h6>';
                 }
             }
             include('includes/inc_form_contacto.php');
