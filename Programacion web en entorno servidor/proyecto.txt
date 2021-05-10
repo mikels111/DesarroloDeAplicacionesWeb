@@ -1,0 +1,2 @@
+El proyecto está en "mikels/proyecto"
+He intentado hacer el filtrado de películas en el inicio, pero no me ha dado tiempo para hacerlo como quería, te dejo el intento de filtrar en la carpeta "proyecto_filtrar". La única diferencia que hay con la carpeta "proyecto" es que tiene una carpeta "php" en la que hay un fichero  'filtrar_peliculas.php'. En este fichero la idea inicial era que le llegara la fecha que eligiera el usuario e hiciera la consulta en la base de datos y devolviera el resultado al 'index.php'. 

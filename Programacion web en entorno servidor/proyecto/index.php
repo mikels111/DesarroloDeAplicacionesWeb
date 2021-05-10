@@ -15,7 +15,7 @@
             <span class="badge bg-primary titulo">
                 <h4 class="h4_titulo">Películas</h4>
             </span>
-
+<!--  action="php/filtrar_peliculas.php"-->
             <form class="ms-select-fecha" action="php/filtrar_peliculas.php">
                 <label for="fecha">Fecha:</label>
                 <select name="fecha" id="fecha" class="form-select-sm">
@@ -33,17 +33,20 @@
                     }
                     ?>
                 </select>
-                <input type="submit" value="Filtrar">
+                <!-- <input type="button" name="enviar" value="Enviar" href="javascript:;" onclick="$.post('php/filtrar_peliculas.php',{fecha:$('#fecha').val()});"> -->
+                <input type="submit" value="enviar">
             </form>
             <hr>
             <div id="ms-film-flexbox">
+                <h2 id="texto">texto</h2>
                 <?php
                 // include('php/filtrar_peliculas.php');
 
-                if(isset($_POST['query'])){
-                    echo '<h2>llega</h2>';
+                if (isset($_POST['fecha'])) {
+                    $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A' AND fecha_estreno=" . $_POST['query'];
+                } else {
+                    $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A'";
                 }
-                $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A'";
                 $result = $conn->query($sql_select_peli);
 
                 if ($result->num_rows > 0) {
@@ -58,29 +61,29 @@
                         $poster = $ruta_imagenes . $object->poster; ?>
                         <div class="card" style="width: 12rem;">
                             <?php
-                            // foreach ($peli as $key => $value) {
-                            //     if ($key == 'id_moviedb')
-                            //         $id_moviedb = $value;
-                            //     else if ($key == 'clasificacion')
-                            //         $clasificación = $value;
-                            //     else if ($key == 'duracion')
-                            //         $duracion = $value;
-                            //     else if ($key == 'genero')
-                            //         $genero = $value;
-                            // }
-                            if ($id_moviedb != null) {
-                                $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
+                                    // foreach ($peli as $key => $value) {
+                                    //     if ($key == 'id_moviedb')
+                                    //         $id_moviedb = $value;
+                                    //     else if ($key == 'clasificacion')
+                                    //         $clasificación = $value;
+                                    //     else if ($key == 'duracion')
+                                    //         $duracion = $value;
+                                    //     else if ($key == 'genero')
+                                    //         $genero = $value;
+                                    // }
+                                    if ($id_moviedb != null) {
+                                        $url = "https://api.themoviedb.org/3/movie/$id_moviedb?api_key=98fee347b91da83932ea8b9daa0edece&language=es-ES";
 
-                                $resultado = file_get_contents($url);
-                                if ($resultado != false) {
-                                    $json_peli = json_decode($resultado);
-                                    $titulo = $json_peli->title;
-                                    $poster = $json_peli->poster_path;
-                                    $poster = $ruta_imagenes . $poster;
-                                }
-                            }
+                                        $resultado = file_get_contents($url);
+                                        if ($resultado != false) {
+                                            $json_peli = json_decode($resultado);
+                                            $titulo = $json_peli->title;
+                                            $poster = $json_peli->poster_path;
+                                            $poster = $ruta_imagenes . $poster;
+                                        }
+                                    }
 
-                            ?>
+                                    ?>
 
                             <img src="<?php echo $poster; ?>" class="img-fluid" alt="poster_pelicula">
                             <div class="card-body">
@@ -143,17 +146,19 @@
             //     window.location = "index.php";
             // });
 
-            // $.ajax({
-            //     data: query,
-            //     url: 'php/filtrar_peliculas.php',
-            //     type: 'post',
-            //     beforeSend: function() {
-            //         $('#texto').html("espere por favor");
-            //     },
-            //     success: function(response) {
-            //         $('#texto').html(response);
-            //     }
-            // });
+            $.ajax({
+                data: {
+                    fecha: query
+                },
+                url: 'php/filtrar_peliculas.php',
+                type: 'post',
+                beforeSend: function() {
+                    $('#texto').html("espere por favor");
+                },
+                success: function(response) {
+                    $('#texto').html(response);
+                }
+            });
         }
     </script>
 </body>
