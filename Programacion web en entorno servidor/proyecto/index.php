@@ -15,10 +15,11 @@
             <span class="badge bg-primary titulo">
                 <h4 class="h4_titulo">Películas</h4>
             </span>
-<!--  action="php/filtrar_peliculas.php"-->
-            <form class="ms-select-fecha" action="php/filtrar_peliculas.php">
+            <!--  action="php/filtrar_peliculas.php"-->
+            <form class="ms-select-fecha">
                 <label for="fecha">Fecha:</label>
                 <select name="fecha" id="fecha" class="form-select-sm">
+                    
                     <?php
                     include('includes/conexion.php');
                     $result = $conn->query('SELECT fecha_estreno FROM pelicula WHERE estado="A" GROUP BY fecha_estreno');
@@ -32,18 +33,18 @@
                         echo 'No hay filas';
                     }
                     ?>
+                    <option value=""></option>
                 </select>
-                <!-- <input type="button" name="enviar" value="Enviar" href="javascript:;" onclick="$.post('php/filtrar_peliculas.php',{fecha:$('#fecha').val()});"> -->
-                <input type="submit" value="enviar">
+                <input type="button" name="enviar" value="Enviar" onclick="filtrar($('#fecha').val());">
+                <!-- <input type="submit" value="enviar"> -->
             </form>
             <hr>
             <div id="ms-film-flexbox">
-                <h2 id="texto">texto</h2>
                 <?php
                 // include('php/filtrar_peliculas.php');
 
-                if (isset($_POST['fecha'])) {
-                    $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A' AND fecha_estreno=" . $_POST['query'];
+                if (isset($_REQUEST['fecha']) and !empty($_REQUEST['fecha'])) {
+                    $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A' AND fecha_estreno='" . $_REQUEST['fecha']."'";
                 } else {
                     $sql_select_peli = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero FROM pelicula WHERE estado='A'";
                 }
@@ -129,36 +130,8 @@
         <p>&copy;Mikel Seara | Proyecto Desarrollo Web</p>
     </footer>
     <script>
-        // function estado(params) {
-        //     $('button').click(function() {
-        //         alert("ajaxdfgsdf");
-        //     });
-        // }
         function filtrar(query) {
-            // $.ajax({
-            //     method: "POST",
-            //     url: "php/filtrar_peliculas.php",
-            //     data: {
-            //         query: query
-            //     }
-            // }).done(function(msg) {
-            //     alert(msg);
-            //     window.location = "index.php";
-            // });
-
-            $.ajax({
-                data: {
-                    fecha: query
-                },
-                url: 'php/filtrar_peliculas.php',
-                type: 'post',
-                beforeSend: function() {
-                    $('#texto').html("espere por favor");
-                },
-                success: function(response) {
-                    $('#texto').html(response);
-                }
-            });
+            window.location = "index.php?fecha=" + query;
         }
     </script>
 </body>
