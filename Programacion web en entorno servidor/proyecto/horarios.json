@@ -1,10 +1,19 @@
-"horarios": {
-    "hora": "17: 00",
-    "sala": "1",
-    "precio": "10"
-},
 {
-    "hora": "17: 00",
-    "sala": "1",
-    "precio": "10"
+    "horarios": [
+        {
+            "hora": "17: 00",
+            "sala": "1",
+            "precio": "10"
+        },
+        {
+            "hora": "18: 00",
+            "sala": "1",
+            "precio": "10"
+        },
+        {
+            "hora": "19:00",
+            "sala": "2",
+            "precio": "10"
+        }
+    ]
 }

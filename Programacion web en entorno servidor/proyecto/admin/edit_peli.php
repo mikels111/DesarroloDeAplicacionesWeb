@@ -63,6 +63,7 @@
                     $fecha_estreno = $object->fecha_estreno;
                     $estado = $object->estado;
                     $poster = $object->poster;
+                    $horarios = $object->horarios;
                 }
             ?>
                 <form action="update.php" method='post'>

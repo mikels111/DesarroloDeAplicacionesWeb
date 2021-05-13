@@ -15,10 +15,10 @@
             <?php
 
             if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
-                $sql_peli_detalle = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero,fecha_estreno FROM pelicula WHERE id_moviedb=" . $_REQUEST['id'];
+                $sql_peli_detalle = "SELECT id_moviedb,titulo,poster,clasificacion,duracion,genero,fecha_estreno,horarios FROM pelicula WHERE id_moviedb=" . $_REQUEST['id'];
                 $result = $conn->query($sql_peli_detalle);
                 if ($result->num_rows > 0) {
-                    $titulo_original = $id_moviedb = $clasificacion = $duracion = $genero = $fecha_estreno = "";
+                    $titulo_original = $id_moviedb = $clasificacion = $duracion = $genero = $fecha_estreno = $horarios = "";
                     while ($object = $result->fetch_object()) {
                         $titulo_original = $object->titulo;
                         $id_moviedb = $object->id_moviedb;
@@ -26,6 +26,7 @@
                         $duracion = $object->duracion;
                         $genero = $object->genero;
                         $fecha_estreno = $object->fecha_estreno;
+                        $horarios = $object->horarios;
                     } //<--titulo_orginal, clasificacion, duracion, genero, fecha_estreno
 
 
@@ -76,8 +77,43 @@
                                     ?>
                         </div>
 
+                        <p>
+                        </p>
+                        <?php
+
+                                ?>
+                        <table class="table ms-tabla-horarios">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Sala</th>
+                                    <th scope="col">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                        if (!empty($horarios)) {
+                                            $jsondecode = json_decode($horarios);
+                                            $jsondecode = $jsondecode->horarios;
+
+                                            foreach ($jsondecode as $value) {
+                                                echo "
+                                        <tr>
+                                            <td>$value->hora</td>
+                                            <td>$value->sala</td>
+                                            <td>$value->precio</td>
+                                        </tr>
+                                        ";
+                                            }
+                                        }
+
+                                        ?>
+                            </tbody>
+                        </table>
+
 
                     </div>
+
                 <?php
                     } else {
                         echo "<h2>Película no encontrada</h2>";

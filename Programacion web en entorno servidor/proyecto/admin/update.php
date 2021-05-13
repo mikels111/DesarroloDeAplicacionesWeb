@@ -8,8 +8,9 @@ if (isset($_REQUEST['id'])) {
     $estado = $_REQUEST['estado'] == '' ? 'A' : $_REQUEST['estado'];
     $fecha_estreno = $_REQUEST['fecha_estreno']== '' ? '9999-01-01' : $_REQUEST['fecha_estreno'];
     $poster = $_REQUEST['poster'];
+    $horarios = $_REQUEST['horarios']== '' ? '' : $_REQUEST['horarios'];
 
-    $sql = "UPDATE pelicula SET titulo='$titulo', genero='$genero', duracion=$duracion, clasificacion='$clasificacion', estado='$estado', fecha_estreno='$fecha_estreno', poster='$poster' WHERE id=" . $_REQUEST['id'];
+    $sql = "UPDATE pelicula SET titulo='$titulo', genero='$genero', duracion=$duracion, clasificacion='$clasificacion', estado='$estado', fecha_estreno='$fecha_estreno', poster='$poster', horarios='$horarios' WHERE id=" . $_REQUEST['id'];
 
     if ($conn->query($sql)) {
         header('Location: lista_peliculas.php?update=' . true);
