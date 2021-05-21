@@ -7,39 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Añadir Producto</title>
     <style>
-        h2{
+        h2 {
             width: 50%;
-            margin:20px auto;
+            margin: 20px auto;
         }
+
         .main-content {
-            background-color: #ccc;
+            background-color: #e8e8e8;
             width: 50%;
             margin: 50px auto;
             padding: 40px;
             border-radius: 5px;
-            box-shadow: 0px 0px 40px 1px #ccc;
+            box-shadow: 0px 0px 40px 1px #e8e8e8;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: blue;
         }
     </style>
-    link
 </head>
 
 <body>
     <h2>Añadir producto</h2>
     <div class="main-content">
         <?php
+        if (isset($_REQUEST['error'])) {
+            echo "<p class='error'>Error</p>";
+        }
         if (isset($_REQUEST['add'])) {
 
             if ($_REQUEST['add']) {
-                echo "<p style='color:blue;'>Producto añadido</p>";
+                echo "<p class='success'>Producto añadido</p>";
             } else {
-                echo "<p style='color:red;'>Producto no añadido</p>";
+                echo "<p class='error'>Producto no añadido</p>";
             }
         }
-        if (isset($_REQUEST['error'])) {
-            echo "<p style='color:red;'>Error</p>";
-        }
+
         ?>
         <!-- nombre,suministrador,precio, comentario y link -->
         <form class="ms-form-contacto" action="add_producto.php" method="post">
