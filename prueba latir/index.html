@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <style>
+        #contain-spinner {
+            width: 50%;
+            margin: 150px auto;
+            align-content: center;
+            animation: latir infinite 10s linear;
+        }
+
+        #contain-spinner #img1 {
+            display: block;
+            margin: 0px auto;
+            animation: girar infinite 15s linear;position: absolute;
+        }
+        #contain-spinner img {
+            
+            display: block;
+            margin: 0px auto;
+            animation: girar infinite 15s linear;
+        }
+
+        @keyframes latir {
+            0% {
+                /* el transform no afecta a los elementos que esten cerca de este*/
+                transform: scale(1, 1);
+            }
+
+            25% {
+                transform: scale(1.1, 1.1);
+            }
+
+            50% {
+                transform: scale(1, 1);
+            }
+
+            75% {
+                transform: scale(1.1, 1.1);
+            }
+
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+
+        @keyframes girar {from {
+                /* el transform no afecta a los elementos que esten cerca de este*/
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contain-spinner">
+        <img id="img1" src="https://cdn.icon-icons.com/icons2/2717/PNG/512/circles_three_icon_173935.png" alt="spinner">
+        <img id="img2" src="https://cdn.icon-icons.com/icons2/2716/PNG/512/circles_three_icon_173252.png" alt="">
+    </div>
+
+</body>
+
+</html>
